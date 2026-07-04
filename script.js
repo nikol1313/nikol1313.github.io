@@ -4,11 +4,10 @@
 
 const typingText = document.querySelector('.typed-text');
 const texts = [
-    'IT Student @ ალტე უნივერსიტეტი',
-    'DevOps Enthusiast',
-    'Cloud Explorer',
-    'Linux System Administrator',
-    'Automation Developer'
+    'Scripting',
+    'Linux environment',
+    'Junior developer',
+    'Backend services'
 ];
 let textIndex = 0;
 let charIndex = 0;
