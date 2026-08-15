@@ -4,7 +4,7 @@
 
 const typingText = document.querySelector('.typed-text');
 const texts = [
-    'Scripting',
+    'Bash/Python Scripting',
     'Linux environment',
     'Junior developer',
     'Backend services'
