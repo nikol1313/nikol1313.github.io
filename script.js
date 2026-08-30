@@ -29,11 +29,11 @@ function typeText() {
     
     if (!isDeleting && charIndex === currentText.length) {
         isDeleting = true;
-        typingSpeed = 2000; // Pause at end
+        typingSpeed = 2000;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         textIndex = (textIndex + 1) % texts.length;
-        typingSpeed = 500; // Pause before next text
+        typingSpeed = 500;
     }
     
     setTimeout(typeText, typingSpeed);
@@ -67,9 +67,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// ==========================================
-// INTERSECTION OBSERVER FOR ANIMATIONS
-// ==========================================
 
 const observerOptions = {
     threshold: 0.1,
