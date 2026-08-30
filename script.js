@@ -1,6 +1,4 @@
-// ==========================================
-// TYPING ANIMATION
-// ==========================================
+
 
 const typingText = document.querySelector('.typed-text');
 const texts = [
