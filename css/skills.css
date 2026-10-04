@@ -14,7 +14,7 @@
 
 #skillsTools h2 {
     margin: 0;
-    font-size: clamp(40px, 6vw, 84px);
+    font-size: clamp(2.5rem, 6vw, 5.25rem);
     font-weight: 700;
     letter-spacing: -0.06em;
     line-height: 0.9;
@@ -44,8 +44,8 @@
 
 .skill img {
     display: block;
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     object-fit: contain;
     transition: transform 0.2s ease;
 }
@@ -67,7 +67,7 @@
     min-width: 0;
     margin: 0;
     overflow-wrap: anywhere;
-    font-size: 17px;
+    font-size: 1.0625rem;
 }
 
 .tools-heading {
@@ -78,7 +78,7 @@
 
 .tools-heading h3 {
     margin: 0;
-    font-size: 26px;
+    font-size: 1.625rem;
     letter-spacing: -0.03em;
 }
 
@@ -89,14 +89,14 @@
 
 .skill-info span {
     color: var(--muted);
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-variant-numeric: tabular-nums;
 }
 
 .skill progress {
     display: block;
     width: 100%;
-    height: 4px;
+    height: 5px;
     margin-top: 14px;
     overflow: hidden;
     appearance: none;
