@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/about.css">
      <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
     <nav>
@@ -26,14 +27,23 @@
 
     <main>
         <section id="intro" aria-labelledby="intro-title">
-            <h1 id="intro-title">
-                <span>Nikusha</span>
-                <span>Avsajanishvili</span>
-            </h1>
-            <p class="intro-tagline">
-                Full-stack developer focused on <span>automation</span> and reliable
-                web applications.
-            </p>
+            <div class="intro-content">
+                <div class="intro-copy">
+                    <h1 id="intro-title">
+                        <span>Nikusha</span>
+                        <span>Avsajanishvili</span>
+                    </h1>
+                    <p class="intro-tagline">
+                        Full-stack developer building <span>practical web applications</span>
+                        and automation.
+                    </p>
+                </div>
+                <img
+                    class="intro-photo"
+                    src="../images/portfoliopic.jpeg"
+                    alt="Portrait of Nikusha Avsajanishvili"
+                >
+            </div>
         </section>
 
         <section id="about" aria-labelledby="about-title">
@@ -42,85 +52,52 @@
             </div>
 
             <div class="about-content">
-<div class="about-copy">
-    <p class="about-lead">I build practical, scalable web applications.</p>
+                <div class="about-copy">
+                    <p class="about-lead">I build practical, scalable web applications.</p>
 
-    <p>
-        I’m Nikusha Avsajanishvili, a developer focused on web development,
-        scripting, and automation.
-    </p>
+                    <p>
+                        I’m Nikusha Avsajanishvili, a developer focused on web development,
+                        scripting, and automation.
+                    </p>
 
-    <p>
-        I enjoy building clean, reliable projects with a strong foundation in
-       frontend and backend technologies, while always looking
-        for better ways to automate repetitive work and solve real problems.
-    </p>
-</div>
-
-                <dl class="about-details">
-                    <div>
-                        <dt>Focus</dt>
-                        <dd>Full-stack development, automation, Web scraping</dd>
-                    </div>
-                </dl>
+                    <p>
+                        I enjoy building clean, reliable projects with a strong foundation in
+                        frontend and backend technologies, while always looking
+                        for better ways to automate repetitive work and solve real problems.
+                    </p>
+                </div>
             </div>
         </section>
 
         <section id="skillsTools" aria-labelledby="skills-title">
             <div class="skills-heading">
-                <h2 id="skills-title">Skills</h2>
+                <h2 id="skills-title">Languages & Web</h2>
             </div>
 
             <ul class="skills-grid">
                 <li class="skill">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="" width="56" height="56" loading="lazy">
-                    <div class="skill-info"><h3>Python</h3><span>80%</span></div>
-                    <progress value="80" max="100" aria-label="Python proficiency: 80%">80%</progress>
+                    <div class="skill-info"><h3>Python</h3></div>
                 </li>
                 <li class="skill">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="" width="56" height="56" loading="lazy">
-                    <div class="skill-info"><h3>Bash</h3><span>70%</span></div>
-                    <progress value="70" max="100" aria-label="Bash proficiency: 70%">70%</progress>
+                    <div class="skill-info"><h3>Bash</h3></div>
                 </li>
                 <li class="skill">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" width="56" height="56" loading="lazy">
-                    <div class="skill-info"><h3>JavaScript</h3><span>80%</span></div>
-                    <progress value="85" max="100" aria-label="JavaScript proficiency: 80%">80%</progress>
+                    <div class="skill-info"><h3>JavaScript</h3></div>
                 </li>
                 <li class="skill">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="" width="56" height="56" loading="lazy">
-                    <div class="skill-info"><h3>TypeScript</h3><span>80%</span></div>
-                    <progress value="85" max="100" aria-label="TypeScript proficiency: 80%">80%</progress>
+                    <div class="skill-info"><h3>TypeScript</h3></div>
                 </li>
                 <li class="skill">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" width="56" height="56" loading="lazy">
-                    <div class="skill-info"><h3>HTML</h3><span>90%</span></div>
-                    <progress value="90" max="100" aria-label="HTML proficiency: 90%">90%</progress>
+                    <div class="skill-info"><h3>HTML</h3></div>
                 </li>
                 <li class="skill">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" width="56" height="56" loading="lazy">
-                    <div class="skill-info"><h3>CSS</h3><span>90%</span></div>
-                    <progress value="90" max="100" aria-label="CSS proficiency: 90%">90%</progress>
-                </li>
-                <li class="skill">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="" width="56" height="56" loading="lazy">
-                    <div class="skill-info"><h3>Docker</h3><span>70%</span></div>
-                    <progress value="75" max="100" aria-label="Docker proficiency: 70%">70%</progress>
-                </li>
-                <li class="skill">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" width="56" height="56" loading="lazy">
-                    <div class="skill-info"><h3>PostgreSQL</h3><span>90%</span></div>
-                    <progress value="90" max="100" aria-label="PostgreSQL proficiency: 90%">90%</progress>
-                </li>
-                <li class="skill">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="" width="56" height="56" loading="lazy">
-                    <div class="skill-info"><h3>Linux</h3><span>100%</span></div>
-                    <progress value="100" max="100" aria-label="Linux proficiency: 100%">100%</progress>
-                </li>
-                <li class="skill">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" width="56" height="56" loading="lazy">
-                    <div class="skill-info"><h3>Git</h3><span>100%</span></div>
-                    <progress value="100" max="100" aria-label="Git proficiency: 100%">100%</progress>
+                    <div class="skill-info"><h3>CSS</h3></div>
                 </li>
             </ul>
 
@@ -169,6 +146,34 @@
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" alt="" width="56" height="56" loading="lazy">
                     <div class="skill-info"><h4>Grafana</h4></div>
                 </li>
+                <li class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="" width="56" height="56" loading="lazy">
+                    <div class="skill-info"><h4>Docker</h4></div>
+                </li>
+                <li class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" width="56" height="56" loading="lazy">
+                    <div class="skill-info"><h4>PostgreSQL</h4></div>
+                </li>
+                <li class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="" width="56" height="56" loading="lazy">
+                    <div class="skill-info"><h4>Linux</h4></div>
+                </li>
+                <li class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" width="56" height="56" loading="lazy">
+                    <div class="skill-info"><h4>Git</h4></div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="contact" aria-labelledby="contact-title">
+            <div class="contact-heading">
+                <h2 id="contact-title">Contact me</h2>
+            </div>
+
+            <ul class="contact-links">
+                <li><a href="mailto:avsajanishvilinikol@gmail.com" target="_blank" rel="noopener noreferrer">Gmail</a></li>
+                <li><a href="https://linkedin.com/in/ნიკუშა-ავსაჯანიშვილი-0ab61b3a7" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://github.com/nikol1313" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             </ul>
         </section>
     </main>
