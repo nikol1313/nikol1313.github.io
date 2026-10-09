@@ -44,6 +44,10 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+html:lang(ka) body {
+    font-family: "Noto Sans Georgian", sans-serif;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 125%;
@@ -126,7 +130,8 @@ nav.scrolled {
     gap: 8px;
 }
 
-#mode {
+#mode,
+#language {
     border: 1px solid var(--line);
     border-radius: 50px;
 
@@ -145,7 +150,8 @@ nav.scrolled {
         transform 0.3s ease;
 }
 
-#mode:hover {
+#mode:hover,
+#language:hover {
     background-color: var(--button-hover-bg);
     color: var(--button-hover-text);
     border-color: var(--button-hover-bg);
@@ -202,7 +208,8 @@ nav.scrolled {
         font-size: 1rem;
     }
 
-    #mode {
+    #mode,
+    #language {
         padding: 6px 10px;
     }
 }
