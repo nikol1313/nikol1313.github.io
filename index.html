@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nikusha Avsajanishvili — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/about.css">
      <link rel="stylesheet" href="css/skills.css">
@@ -14,14 +17,15 @@
         <img src=""/>
 
         <ul class="navigation">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skillsTools">Skills/Tools</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about" data-i18n="navAbout">About</a></li>
+            <li><a href="#skillsTools" data-i18n="navSkills">Skills/Tools</a></li>
+            <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
+            <li><a href="#contact" data-i18n="navContact">Contact</a></li>
         </ul>
 
         <div class="nav-actions">
             <button id="mode" type="button">Dark</button>
+            <button id="language" type="button" aria-label="Switch language to Georgian">ქართული</button>
         </div>
     </nav>
 
@@ -30,10 +34,10 @@
             <div class="intro-content">
                 <div class="intro-copy">
                     <h1 id="intro-title">
-                        <span>Nikusha</span>
-                        <span>Avsajanishvili</span>
+                        <span data-i18n="firstName">Nikusha</span>
+                        <span data-i18n="lastName">Avsajanishvili</span>
                     </h1>
-                    <p class="intro-tagline">
+                    <p class="intro-tagline" data-i18n="introTagline">
                         Full-stack developer building <span>practical web applications</span>
                         and automation.
                     </p>
@@ -42,25 +46,26 @@
                     class="intro-photo"
                     src="images/portfoliopic.jpeg"
                     alt="Portrait of Nikusha Avsajanishvili"
+                    data-i18n-alt="portraitAlt"
                 >
             </div>
         </section>
 
         <section id="about" aria-labelledby="about-title">
             <div class="about-heading">
-                <h2 id="about-title">About me</h2>
+                <h2 id="about-title" data-i18n="aboutTitle">About me</h2>
             </div>
 
             <div class="about-content">
                 <div class="about-copy">
-                    <p class="about-lead">I build practical, scalable web applications.</p>
+                    <p class="about-lead" data-i18n="aboutLead">I build practical, scalable web applications.</p>
 
-                    <p>
+                    <p data-i18n="aboutIntro">
                         I’m Nikusha Avsajanishvili, a developer focused on web development,
                         scripting, and automation.
                     </p>
 
-                    <p>
+                    <p data-i18n="aboutDescription">
                         I enjoy building clean, reliable projects with a strong foundation in
                         frontend and backend technologies, while always looking
                         for better ways to automate repetitive work and solve real problems.
@@ -71,7 +76,7 @@
 
         <section id="skillsTools" aria-labelledby="skills-title">
             <div class="skills-heading">
-                <h2 id="skills-title">Languages & Web</h2>
+                <h2 id="skills-title" data-i18n="skillsTitle">Languages &amp; Web</h2>
             </div>
 
             <ul class="skills-grid">
@@ -102,7 +107,7 @@
             </ul>
 
             <div class="tools-heading">
-                <h3>Frameworks &amp; Tools</h3>
+                <h3 data-i18n="toolsTitle">Frameworks &amp; Tools</h3>
             </div>
 
             <ul class="skills-grid tools-grid">
@@ -167,7 +172,7 @@
 
         <section id="contact" aria-labelledby="contact-title">
             <div class="contact-heading">
-                <h2 id="contact-title">Contact me</h2>
+                <h2 id="contact-title" data-i18n="contactTitle">Contact me</h2>
             </div>
 
             <ul class="contact-links">

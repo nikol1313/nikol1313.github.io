@@ -48,7 +48,7 @@
 
 .intro-tagline {
     max-width: 680px;
-    margin: 15px 0 0;
+    margin: 25px 0 0;
     color: var(--muted);
     font-size: clamp(1.375rem, 2.8vw, 2.25rem);
     line-height: 1.25;
@@ -158,7 +158,7 @@
     }
 
     .intro-tagline {
-        margin-top: 16px;
+        margin-top: 24px;
     }
 
     #about {
