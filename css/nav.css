@@ -194,48 +194,68 @@ nav.scrolled {
 
     nav {
         margin: 0 10px;
+        padding: 12px;
+        flex-direction: column;
+        gap: 12px;
+    }
 
-        gap: 1rem;
+    nav > img {
+        display: none;
+    }
 
-        padding: 10px 15px;
+    .navigation {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .navigation li {
+        display: flex;
     }
 
     .navigation li:not(:last-child)::after {
-        margin: 0 8px;
+        display: none;
     }
 
     .navigation a {
-        font-size: 1rem;
+        display: flex;
+        flex: 1;
+        min-height: 56px;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-size: 0.9375rem;
+        line-height: 1.25;
+        overflow-wrap: break-word;
+        text-align: center;
+    }
+
+    .nav-actions {
+        width: min(100%, 280px);
+        justify-content: center;
     }
 
     #mode,
     #language {
-        padding: 6px 10px;
+        flex: 1;
+        min-width: 0;
+        padding: 8px 12px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 360px) {
+    .navigation {
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 
 @media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-
-        gap: 12px;
-
-        padding: 12px;
-    }
-
-    .navigation {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .navigation li:not(:last-child)::after {
-        margin: 0 6px;
-    }
-
-    .navigation a {
-        font-size: 0.9375rem;
-    }
-
     .footer {
         margin-top: 50px;
     }
