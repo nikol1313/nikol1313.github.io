@@ -1,5 +1,6 @@
 const modeButton = document.getElementById("mode");
 const languageButton = document.getElementById("language");
+const menuToggle = document.getElementById("menu-toggle");
 const nav = document.querySelector("nav");
 
 const savedTheme = localStorage.getItem("theme");
@@ -65,6 +66,32 @@ modeButton.addEventListener("click", () => {
 languageButton.addEventListener("click", () => {
     currentLanguage = currentLanguage === "en" ? "ka" : "en";
     applyLanguage(currentLanguage);
+});
+
+menuToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("menu-open");
+    menuToggle.textContent = isOpen ? "×" : "☰";
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+});
+
+document.querySelectorAll(".navigation a").forEach((link) => {
+    link.addEventListener("click", () => {
+        nav.classList.remove("menu-open");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+    });
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("menu-open")) {
+        nav.classList.remove("menu-open");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.focus();
+    }
 });
 
 function applyLanguage(language) {
