@@ -48,6 +48,16 @@ html:lang(ka) #intro h1 {
     line-height: 1;
 }
 
+@media (max-width: 1000px) {
+    #intro .intro-content {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+    }
+
+    html:lang(ka) #intro h1 {
+        font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+    }
+}
+
 .intro-photo {
     display: block;
     width: 100%;
@@ -146,6 +156,10 @@ html:lang(ka) #intro h1 {
     #intro .intro-content {
         grid-template-columns: minmax(0, 1fr) minmax(140px, 36%);
         gap: 20px;
+    }
+
+    html:lang(ka) #intro h1 {
+        font-size: clamp(1.6rem, 4.5vw, 2.25rem);
     }
 }
 
