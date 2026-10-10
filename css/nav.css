@@ -49,12 +49,15 @@ html:lang(ka) body {
 }
 
 html {
-    scroll-behavior: smooth;
     font-size: 125%;
 }
 
 section {
     scroll-margin-top: 90px;
+}
+
+main > section {
+    min-height: 65vh;
 }
 
 nav {
@@ -118,6 +121,10 @@ nav.scrolled {
     cursor: pointer;
     color: var(--accent);
     transform: scale(1.08);
+}
+
+.navigation a[aria-current="page"] {
+    color: var(--accent);
 }
 
 .navigation li:not(:last-child)::after {
