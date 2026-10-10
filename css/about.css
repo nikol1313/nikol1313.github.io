@@ -22,6 +22,7 @@
 #intro .intro-copy {
     align-self: start;
     min-width: 0;
+    container-type: inline-size;
 }
 
 #intro h1 {
@@ -39,11 +40,12 @@
 }
 
 html:lang(ka) #intro h1 span {
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
 }
 
 html:lang(ka) #intro h1 {
-    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-size: clamp(1rem, 5vw, 4rem);
+    font-size: clamp(1rem, 12cqi, 4rem);
     letter-spacing: -0.04em;
     line-height: 1;
 }
@@ -51,10 +53,6 @@ html:lang(ka) #intro h1 {
 @media (max-width: 1000px) {
     #intro .intro-content {
         grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
-    }
-
-    html:lang(ka) #intro h1 {
-        font-size: clamp(1.5rem, 3.2vw, 2.25rem);
     }
 }
 
@@ -157,10 +155,6 @@ html:lang(ka) #intro h1 {
         grid-template-columns: minmax(0, 1fr) minmax(140px, 36%);
         gap: 20px;
     }
-
-    html:lang(ka) #intro h1 {
-        font-size: clamp(1.6rem, 4.5vw, 2.25rem);
-    }
 }
 
 @media (max-width: 480px) {
@@ -174,12 +168,6 @@ html:lang(ka) #intro h1 {
         font-size: clamp(1.8rem, 8vw, 3.0625rem);
         letter-spacing: -0.065em;
         line-height: 0.92;
-    }
-
-    html:lang(ka) #intro h1 {
-        font-size: clamp(1.35rem, 6vw, 2.2rem);
-        letter-spacing: -0.04em;
-        line-height: 1;
     }
 
     #intro .intro-content {
