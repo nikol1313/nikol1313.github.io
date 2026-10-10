@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/nav.css?v=mobile-drawer">
+    <link rel="stylesheet" href="css/nav.css?v=section-views">
     <link rel="stylesheet" href="css/about.css?v=mobile-intro-2">
      <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
@@ -19,6 +20,7 @@
         <button id="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="navigation-menu" aria-expanded="false">☰</button>
 
         <ul class="navigation" id="navigation-menu">
+            <li><a href="#intro" data-i18n="navHome">Home</a></li>
             <li><a href="#about" data-i18n="navAbout">About</a></li>
             <li><a href="#skillsTools" data-i18n="navSkills">Skills/Tools</a></li>
             <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
@@ -170,6 +172,13 @@
                     <div class="skill-info"><h4>Git</h4></div>
                 </li>
             </ul>
+        </section>
+
+        <section id="projects" aria-labelledby="projects-title">
+            <div class="projects-content">
+                <h2 id="projects-title" data-i18n="projectsTitle">Projects</h2>
+                <p data-i18n="projectsEmpty">More projects will be added here soon.</p>
+            </div>
         </section>
 
         <section id="contact" aria-labelledby="contact-title">
