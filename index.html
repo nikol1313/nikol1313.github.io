@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/nav.css?v=mobile-grid-3">
+    <link rel="stylesheet" href="css/nav.css?v=mobile-drawer">
     <link rel="stylesheet" href="css/about.css?v=mobile-intro-2">
      <link rel="stylesheet" href="css/skills.css">
     <link rel="stylesheet" href="css/contact.css">
@@ -16,7 +16,9 @@
     <nav>
         <img src=""/>
 
-        <ul class="navigation">
+        <button id="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="navigation-menu" aria-expanded="false">☰</button>
+
+        <ul class="navigation" id="navigation-menu">
             <li><a href="#about" data-i18n="navAbout">About</a></li>
             <li><a href="#skillsTools" data-i18n="navSkills">Skills/Tools</a></li>
             <li><a href="#projects" data-i18n="navProjects">Projects</a></li>

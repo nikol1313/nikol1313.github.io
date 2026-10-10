@@ -87,6 +87,10 @@ nav.scrolled {
     box-shadow: 0 4px 18px var(--nav-shadow-strong);
 }
 
+#menu-toggle {
+    display: none;
+}
+
 .navigation {
     list-style: none;
 
@@ -194,24 +198,48 @@ nav.scrolled {
 
     nav {
         margin: 0 10px;
-        padding: 12px;
-        flex-direction: column;
-        gap: 12px;
+        padding: 8px 10px;
+        gap: 8px;
     }
 
     nav > img {
         display: none;
     }
 
-    .navigation {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: stretch;
-        gap: 8px;
-        width: 100%;
+    #menu-toggle {
+        display: inline-flex;
+        flex: 0 0 40px;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        font-size: 1.25rem;
+        line-height: 1;
+        cursor: pointer;
     }
 
-    .navigation li {
+    .navigation {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        left: 0;
+        z-index: 101;
+        padding: 8px 12px;
+        flex-direction: column;
+        align-items: stretch;
+        background-color: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: 0 4px 18px var(--nav-shadow-strong);
+    }
+
+    nav.menu-open .navigation {
         display: flex;
     }
 
@@ -221,37 +249,29 @@ nav.scrolled {
 
     .navigation a {
         display: flex;
-        flex: 1;
-        min-height: 56px;
-        box-sizing: border-box;
+        min-height: 44px;
         align-items: center;
-        justify-content: center;
-        padding: 8px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        font-size: 0.9375rem;
-        line-height: 1.25;
-        overflow-wrap: break-word;
-        text-align: center;
+        padding: 8px 4px;
+        border-bottom: 1px solid var(--line);
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .navigation li:last-child a {
+        border-bottom: 0;
     }
 
     .nav-actions {
-        width: min(100%, 280px);
-        justify-content: center;
+        width: auto;
+        gap: 6px;
     }
 
     #mode,
     #language {
-        flex: 1;
-        min-width: 0;
-        padding: 8px 12px;
+        padding: 7px 10px;
+        font-size: 0.8rem;
+        white-space: nowrap;
         text-align: center;
-    }
-}
-
-@media (max-width: 360px) {
-    .navigation {
-        grid-template-columns: minmax(0, 1fr);
     }
 }
 
