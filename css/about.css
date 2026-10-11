@@ -90,6 +90,7 @@ html:lang(ka) #intro h1 {
 .about-heading {
     padding-bottom: 22px;
     border-bottom: 1px solid var(--line);
+    text-align: center;
 }
 
 #about h2,
