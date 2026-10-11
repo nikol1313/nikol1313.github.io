@@ -164,11 +164,19 @@ function applyLanguage(language) {
     document.title = languageTranslations.pageTitle;
 
     document.querySelectorAll("[data-i18n]").forEach((element) => {
-        element.innerHTML = languageTranslations[element.dataset.i18n];
+        const translation = languageTranslations[element.dataset.i18n];
+
+        if (translation !== undefined) {
+            element.innerHTML = translation;
+        }
     });
 
     document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
-        element.alt = languageTranslations[element.dataset.i18nAlt];
+        const translation = languageTranslations[element.dataset.i18nAlt];
+
+        if (translation !== undefined) {
+            element.alt = translation;
+        }
     });
 
     languageButton.textContent = languageTranslations.languageButton;
