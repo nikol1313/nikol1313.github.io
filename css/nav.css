@@ -104,11 +104,16 @@ nav.scrolled {
     padding: 0;
 }
 
+.navigation li {
+    flex: 0 0 auto;
+}
+
 .navigation a {
     display: inline-block;
 
     text-decoration: none;
     color: inherit;
+    white-space: nowrap;
 
     font-size: larger;
 
@@ -198,7 +203,7 @@ nav.scrolled {
     font-size: 0.9375rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     html {
         font-size: 100%;
     }
