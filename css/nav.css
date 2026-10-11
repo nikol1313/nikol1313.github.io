@@ -270,7 +270,7 @@ nav.scrolled {
     }
 
     .navigation a:hover {
-        transform: none;
+        transform: scale(1.02);
     }
 
     .navigation li:last-child a {
