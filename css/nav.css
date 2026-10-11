@@ -269,6 +269,10 @@ nav.scrolled {
         line-height: 1.3;
     }
 
+    .navigation a:hover {
+        transform: none;
+    }
+
     .navigation li:last-child a {
         border-bottom: 0;
     }
