@@ -93,7 +93,7 @@ const translations = {
         projectGithubLink: "GitHub-ზე ნახვა",
         projectUpcomingCategory: "მალე",
         projectUpcomingTitle: "ჩემი ყველაზე მასშტაბური პროექტი მალე გამოვა",
-        projectUpcomingDescription: "დიდ პროექტზე ვმუშაობ — ძალიან მასშტაბური იქნება. მეტი დეტალი და გამოშვება მალე.",
+        projectUpcomingDescription: "დიდ პროექტზე ვმუშაობ. ძალზე მასშტაბურზე. დეტალებს მალე გაგიზიარებთ.",
         languageButton: "English",
         languageLabel: "ენის ინგლისურად შეცვლა",
         menuOpenLabel: "ნავიგაციის მენიუს გახსნა",
