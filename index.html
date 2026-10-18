@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="css/nav.css?v=mobile-overflow-fix-5">
     <link rel="stylesheet" href="css/about.css?v=mobile-intro-2">
      <link rel="stylesheet" href="css/skills.css">
-    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/projects.css?v=project-cards-1">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/aboutme1.css?v=mobile-overflow-fix-1">
 </head>
@@ -183,7 +183,39 @@
         <section id="projects" aria-labelledby="projects-title">
             <div class="projects-content">
                 <h2 id="projects-title" data-i18n="projectsTitle">Projects</h2>
-                <p data-i18n="projectsEmpty">More projects will be added here soon.</p>
+                <div class="project-grid">
+                    <article class="project-card project-card--price">
+                        <div class="project-card-topline">
+                            <span class="project-icon project-icon--price" aria-hidden="true">₾</span>
+                            <span class="project-category" data-i18n="projectIphoneCategory">Price tracking</span>
+                        </div>
+                        <h3 data-i18n="projectIphoneTitle">iPhone Price Tracker</h3>
+                        <p class="project-description" data-i18n="projectIphoneDescription">Compare iPhone prices across Georgian retailers, follow price history, and get alerts when a product reaches your target.</p>
+                        <ul class="project-tags" aria-label="Technologies">
+                            <li>FastAPI</li><li>PostgreSQL</li><li>Web scraping</li>
+                        </ul>
+                        <a class="project-link" href="https://github.com/nikol1313/iphone-tracker-ge" target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="projectGithubLink">Explore on GitHub</span>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </article>
+
+                    <article class="project-card project-card--video">
+                        <div class="project-card-topline">
+                            <span class="project-icon project-icon--video" aria-hidden="true">▶</span>
+                            <span class="project-category" data-i18n="projectVideoCategory">Media tools</span>
+                        </div>
+                        <h3 data-i18n="projectVideoTitle">Video Downloader</h3>
+                        <p class="project-description" data-i18n="projectVideoDescription">A web app for downloading videos from supported sites, choosing video quality, and tracking each download as it runs.</p>
+                        <ul class="project-tags" aria-label="Technologies">
+                            <li>FastAPI</li><li>yt-dlp</li><li>Docker</li>
+                        </ul>
+                        <a class="project-link" href="https://github.com/nikol1313/video-downloader" target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="projectGithubLink">Explore on GitHub</span>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -208,6 +240,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=about-card-translations-1" defer></script>
+    <script src="script.js?v=project-cards-1" defer></script>
 </body>
 </html>
