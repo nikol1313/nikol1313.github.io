@@ -44,6 +44,46 @@
     --project-accent: #c4b5fd;
 }
 
+.project-card--upcoming {
+    --project-accent: #fbbf24;
+    grid-column: 1 / -1;
+    min-height: 200px;
+    justify-content: center;
+    background:
+        radial-gradient(ellipse at 85% 50%, color-mix(in srgb, var(--project-accent) 18%, transparent), transparent 44%),
+        var(--surface);
+}
+
+.project-upcoming-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+}
+
+.project-card--upcoming .project-card-topline {
+    margin-bottom: 16px;
+}
+
+.project-icon--upcoming {
+    font-size: 1.2rem;
+}
+
+.project-card--upcoming .project-description {
+    max-width: 620px;
+    margin-bottom: 0;
+}
+
+.project-upcoming-mark {
+    position: absolute;
+    top: 50%;
+    right: 9%;
+    color: color-mix(in srgb, var(--project-accent) 22%, transparent);
+    font-size: clamp(6rem, 16vw, 12rem);
+    line-height: 1;
+    transform: translateY(-50%) rotate(12deg);
+    user-select: none;
+}
+
 .project-card:hover {
     transform: translateY(-4px);
     border-color: color-mix(in srgb, var(--project-accent) 65%, var(--line));
@@ -168,6 +208,23 @@
 
     .project-card {
         padding: 22px;
+    }
+
+    .project-card--upcoming {
+        min-height: 0;
+        padding: 24px 22px;
+    }
+
+    .project-upcoming-mark {
+        top: auto;
+        right: 8px;
+        bottom: 8px;
+        font-size: 5rem;
+        transform: rotate(12deg);
+    }
+
+    .project-card--upcoming .project-description {
+        max-width: 90%;
     }
 
     .project-card-topline {
