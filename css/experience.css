@@ -1,0 +1,96 @@
+#experience {
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 90px auto;
+    padding: 52px 48px 40px;
+    border-bottom: 1px solid var(--line);
+}
+
+.experience-heading {
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+}
+
+#experience h2 {
+    margin: 0;
+    font-size: clamp(2.5rem, 6vw, 5.25rem);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+}
+
+.timeline {
+    margin: 32px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-date {
+    color: var(--accent);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.timeline-body h3 {
+    margin: 0;
+    color: var(--strong);
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+}
+
+.timeline-org {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 0.9375rem;
+}
+
+.timeline-description {
+    margin: 12px 0 0;
+    max-width: 720px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.timeline-points {
+    margin: 12px 0 0;
+    padding-left: 1.1em;
+    max-width: 760px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.timeline-points li + li {
+    margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+    #experience {
+        margin: 70px 20px;
+        padding: 40px 28px 32px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    #experience {
+        margin: 60px 15px;
+        padding: 32px 18px 28px;
+    }
+}

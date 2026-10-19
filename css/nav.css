@@ -13,6 +13,19 @@
     --button-hover-text: #0f172a;
     --nav-shadow: rgba(0, 0, 0, 0.3);
     --nav-shadow-strong: rgba(0, 0, 0, 0.5);
+    --zoom: 1;
+}
+
+/* Matches Chrome 125% zoom; viewport units must be divided by --zoom.
+   1813px = 1450px (full-size nav fits) * 1.25, since breakpoints ignore this zoom. */
+@media (min-width: 1813px) {
+    :root {
+        --zoom: 1.25;
+    }
+
+    html {
+        zoom: var(--zoom);
+    }
 }
 
 body.light {
@@ -33,7 +46,7 @@ body.light {
 }
 
 body {
-    min-height: 100vh;
+    min-height: calc(100vh / var(--zoom));
     margin: 0;
     background-color: var(--page-bg);
     color: var(--text);
@@ -58,7 +71,7 @@ section {
 }
 
 main > section {
-    min-height: 65vh;
+    min-height: calc(65vh / var(--zoom));
 }
 
 nav {
@@ -105,6 +118,33 @@ nav.scrolled {
 
 .navigation li {
     flex: 0 0 auto;
+}
+
+@media (min-width: 1201px) {
+    nav {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(max-content, 1fr);
+        column-gap: 1.5rem;
+    }
+
+    .navigation {
+        grid-column: 2;
+    }
+
+    .nav-actions {
+        grid-column: 3;
+        justify-self: end;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1440px) {
+    nav .navigation a {
+        font-size: 1rem;
+    }
+
+    nav .navigation li:not(:last-child)::after {
+        margin: 0 8px;
+    }
 }
 
 .navigation a {
@@ -296,7 +336,7 @@ nav.scrolled {
     body #about h2,
     body #skillsTools h2,
     body #projects h2,
-    body #contact h2 {
+    body #experience h2 {
         font-size: clamp(1.5rem, 7.5vw, 2.5rem);
         letter-spacing: -0.04em;
         line-height: 1.05;
@@ -314,5 +354,72 @@ nav.scrolled {
 
     .footer {
         margin-top: 50px;
+    }
+}
+
+.scroll-top {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 90;
+
+    width: 48px;
+    height: 48px;
+    padding: 0;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--line);
+    border-radius: 50%;
+
+    background-color: var(--surface);
+    color: var(--strong);
+    box-shadow: 0 2px 8px var(--nav-shadow);
+
+    font: inherit;
+    font-size: 1.25rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.scroll-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-text);
+    border-color: var(--button-hover-bg);
+}
+
+.scroll-top:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .scroll-top {
+        right: 14px;
+        bottom: 18px;
+        width: 44px;
+        height: 44px;
     }
 }

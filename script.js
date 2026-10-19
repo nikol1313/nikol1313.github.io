@@ -1,6 +1,7 @@
 const modeButton = document.getElementById("mode");
 const languageButton = document.getElementById("language");
 const menuToggle = document.getElementById("menu-toggle");
+const scrollTopButton = document.getElementById("scroll-top");
 const nav = document.querySelector("nav");
 const pageSections = Array.from(document.querySelectorAll("main > section"));
 const pageLinks = Array.from(document.querySelectorAll(".navigation a"));
@@ -13,13 +14,23 @@ const translations = {
         pageTitle: "Nikusha Avsajanishvili — Portfolio",
         navHome: "Home",
         navAbout: "About Me",
+        navExperience: "Experience",
         navSkills: "Skills / Technologies",
         navProjects: "Projects",
-        navContact: "Contact",
         firstName: "Nikusha",
         lastName: "Avsajanishvili",
-        introTagline: "Full-stack Developer — <span>Web Technologies</span>, <span>Software</span> and <span>Automation</span>",
+        introTagline: "<span class=\"intro-tagline-line\">Full-stack Developer - <span class=\"accent\">Programming</span>,</span><span class=\"intro-tagline-line\"><span class=\"accent\">Web Application Development and</span></span><span class=\"intro-tagline-line\"><span class=\"accent\">Process Automation</span></span>",
         portraitAlt: "My portrait",
+        cvDownload: "Download CV",
+        experienceTitle: "Experience & Education",
+        expRentoDate: "2024 — Present",
+        expRentoTitle: "Web Development & Operations",
+        expRentoType: "Employment",
+        expRentoPoints: "<li>Updated website content and service information to keep customer-facing details accurate and up to date.</li><li>Handled customer requests and helped resolve service-related issues.</li><li>Improved routine workflows by identifying recurring issues and simplifying day-to-day tasks.</li>",
+        expAlteDate: "2024 — Present",
+        expAlteTitle: "BSc in Computer Science",
+        expAlteType: "Education",
+        expAlteDescription: "Third-year student focused on algorithms, data structures, and software engineering.",
         aboutTitle: "About Me",
         aboutLead: "I build practical and scalable web applications.",
         aboutIntro: "I'm Nikusha Avsajanishvili, a third-year Computer Science student. My main interests are web development, scripting, and automation.",
@@ -34,10 +45,8 @@ const translations = {
         aboutSkills: "Attention to detail · Communication · <span class=\"skill-phrase\">Research &amp; curiosity</span>",
         skillsTitle: "Skills & Technologies",
         skillsCoreTitle: "Languages & Frontend",
-        skillsBackendTitle: "Backend & APIs",
-        skillsDataTitle: "Databases & Caching",
+        skillsBackendTitle: "Backend, APIs & Databases",
         skillsDevopsTitle: "DevOps & Infrastructure",
-        contactTitle: "Get in Touch",
         projectsTitle: "Projects",
         projectIphoneCategory: "Price tracking",
         projectIphoneTitle: "iPhone Price Tracker",
@@ -52,19 +61,30 @@ const translations = {
         languageButton: "ქართული",
         languageLabel: "Switch language to Georgian",
         menuOpenLabel: "Open navigation menu",
-        menuCloseLabel: "Close navigation menu"
+        menuCloseLabel: "Close navigation menu",
+        scrollTopLabel: "Scroll to home"
 },
     ka: {
         pageTitle: "ნიკუშა ავსაჯანიშვილი — პორტფოლიო",
         navHome: "მთავარი",
         navAbout: "ჩემ შესახებ",
+        navExperience: "გამოცდილება",
         navSkills: "უნარები / ტექნოლოგიები",
         navProjects: "პროექტები",
-        navContact: "კონტაქტი",
         firstName: "ნიკუშა",
         lastName: "ავსაჯანიშვილი",
-        introTagline: "Full-stack დეველოპერი — <span>ვებტექნოლოგიები</span>, <span>პროგრამული უზრუნველყოფა</span> და <span>ავტომატიზაცია</span>",
+        introTagline: "<span class=\"intro-tagline-line\">Full-stack დეველოპერი - <span class=\"accent\">პროგრამირება</span>,</span><span class=\"intro-tagline-line\"><span class=\"accent\">ვებ აპლიკაციების შექმნა/განვითარება და</span></span><span class=\"intro-tagline-line\"><span class=\"accent\">პროცესების ავტომატიზაცია.</span></span>",
         portraitAlt: "ჩემი პორტრეტი",
+        cvDownload: "CV-ის ჩამოტვირთვა",
+        experienceTitle: "გამოცდილება და განათლება",
+        expRentoDate: "2024 — დღემდე",
+        expRentoTitle: "Web Development & Operations",
+        expRentoType: "Employment",
+        expRentoPoints: "<li>ვმართავ ვებსაიტის კონტენტის განახლებასა და სერვისების შესახებ ინფორმაციის სიზუსტეს, რათა მომხმარებლებს ყოველთვის ჰქონდეთ აქტუალური მონაცემები.</li><li>ვამუშავებ მომხმარებელთა მოთხოვნებს, ვარკვევ წარმოქმნილ პრობლემებს და ვეხმარები მათ დროულად მოგვარებაში.</li><li>ვაუმჯობესებ ყოველდღიურ სამუშაო პროცესებს განმეორებადი პრობლემების გამოვლენით, რუტინული ამოცანების გამარტივებითა და სამუშაო პროცესების ოპტიმიზაციით.</li>",
+        expAlteDate: "2024 — დღემდე",
+        expAlteTitle: "კომპიუტერული მეცნიერების ბაკალავრიატი",
+        expAlteType: "განათლება",
+        expAlteDescription: "მესამე კურსის სტუდენტი; ფოკუსი ალგორითმებზე, მონაცემთა სტრუქტურებსა და პროგრამულ ინჟინერიაზე.",
         aboutTitle: "ჩემ შესახებ",
         aboutLead: "ვქმნი პრაქტიკულ და მასშტაბირებად ვებ აპლიკაციებს.",
         aboutIntro: "მე ვარ ნიკუშა ავსაჯანიშვილი, კომპიუტერული მეცნიერების მესამე კურსის სტუდენტი. ჩემი ძირითადი ინტერესებია ვებდეველოპმენტი, სკრიპტინგი და ავტომატიზაცია.",
@@ -79,10 +99,8 @@ const translations = {
         aboutSkills: "დეტალებზე ორიენტირება · კომუნიკაცია · <span class=\"skill-phrase\">კვლევა და ცნობისმოყვარეობა</span>",
         skillsTitle: "უნარები და ტექნოლოგიები",
         skillsCoreTitle: "პროგრამირების ენები და ფრონტენდი",
-        skillsBackendTitle: "ბექენდი და API-ები",
-        skillsDataTitle: "მონაცემთა ბაზები და ქეშირება",
+        skillsBackendTitle: "ბექენდი, API-ები და მონაცემთა ბაზები",
         skillsDevopsTitle: "DevOps და ინფრასტრუქტურა",
-        contactTitle: "დამიკავშირდით",
         projectsTitle: "პროექტები",
         projectIphoneCategory: "ფასის მონიტორინგი",
         projectIphoneTitle: "iPhone-ის ფასების ტრეკერი",
@@ -97,7 +115,8 @@ const translations = {
         languageButton: "English",
         languageLabel: "ენის ინგლისურად შეცვლა",
         menuOpenLabel: "ნავიგაციის მენიუს გახსნა",
-        menuCloseLabel: "ნავიგაციის მენიუს დახურვა"
+        menuCloseLabel: "ნავიგაციის მენიუს დახურვა",
+        scrollTopLabel: "მთავარზე დაბრუნება"
     }
 };
 
@@ -209,6 +228,7 @@ function applyLanguage(language) {
         "aria-label",
         translations[currentLanguage][nav.classList.contains("menu-open") ? "menuCloseLabel" : "menuOpenLabel"]
     );
+    scrollTopButton.setAttribute("aria-label", languageTranslations.scrollTopLabel);
     updateModeButton();
 }
 
@@ -240,7 +260,29 @@ function updateModeButton() {
 }
 
 
-// Navbar scroll effect
-window.addEventListener("scroll", () => {
+function updateScrollTopButton() {
+    const showButton = window.scrollY > 280;
+
+    scrollTopButton.classList.toggle("is-visible", showButton);
+    scrollTopButton.setAttribute("aria-hidden", String(!showButton));
+    scrollTopButton.tabIndex = showButton ? 0 : -1;
     nav.classList.toggle("scrolled", window.scrollY > 30);
+}
+
+scrollTopButton.addEventListener("click", () => {
+    const intro = document.getElementById("intro");
+
+    if (!intro) {
+        return;
+    }
+
+    if (window.location.hash !== "#intro") {
+        window.history.pushState(null, "", "#intro");
+    }
+
+    intro.scrollIntoView({ behavior: "smooth", block: "start" });
+    setCurrentSection("intro");
 });
+
+window.addEventListener("scroll", updateScrollTopButton, { passive: true });
+updateScrollTopButton();
