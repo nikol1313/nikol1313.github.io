@@ -123,8 +123,18 @@ html:lang(ka) .intro-tagline {
 }
 
 @media (max-width: 1000px) {
+    #intro .intro-hero {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "photo"
+            "name"
+            "tag";
+        row-gap: 18px;
+    }
+
     .intro-photo-frame {
         width: clamp(130px, 26cqi, 220px);
+        align-self: start;
     }
 }
 
@@ -239,18 +249,8 @@ html:lang(ka) .intro-tagline {
 }
 
 @media (max-width: 600px) {
-    #intro .intro-hero {
-        grid-template-columns: minmax(0, 1fr) auto;
-        grid-template-areas:
-            "name photo"
-            "tag tag";
-        column-gap: 12px;
-        row-gap: 18px;
-    }
-
     .intro-photo-frame {
         width: clamp(110px, 30vw, 160px);
-        align-self: end;
     }
 
     .intro-photo {
