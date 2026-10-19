@@ -56,12 +56,18 @@
                         <span data-i18n="lastName">Avsajanishvili</span>
                     </h1>
                     <figure class="intro-photo-frame">
-                        <img
-                            class="intro-photo"
-                            src="images/portfoliopic.jpeg"
-                            alt="Portrait of Nikusha Avsajanishvili"
-                            data-i18n-alt="portraitAlt"
-                        >
+                        <picture>
+                            <source srcset="images/portfoliopic.webp" type="image/webp">
+                            <img
+                                class="intro-photo"
+                                src="images/portfoliopic.jpeg"
+                                width="560"
+                                height="620"
+                                fetchpriority="high"
+                                alt="Portrait of Nikusha Avsajanishvili"
+                                data-i18n-alt="portraitAlt"
+                            >
+                        </picture>
                     </figure>
                     <p class="intro-tagline" data-i18n="introTagline">
                         <span class="intro-tagline-line">Full-stack დეველოპერი - <span class="accent">პროგრამირება</span>,</span>
@@ -122,32 +128,32 @@
 
                     <div class="about-facts">
                         <div class="fact">
-                            <span class="fact-label">University</span>
+                            <span class="fact-label" data-i18n="aboutUniversityLabel">University</span>
                             <span class="fact-value" data-i18n="aboutUniversity">ALTE University / 3rd year</span>
                         </div>
 
                         <div class="fact">
-                            <span class="fact-label">Field</span>
+                            <span class="fact-label" data-i18n="aboutFieldLabel">Field</span>
                             <span class="fact-value" data-i18n="aboutField">Computer Science</span>
                         </div>
 
                         <div class="fact">
-                            <span class="fact-label">Location</span>
+                            <span class="fact-label" data-i18n="aboutLocationLabel">Location</span>
                             <span class="fact-value" data-i18n="aboutLocation">Tbilisi, Georgia</span>
                         </div>
 
                         <div class="fact">
-                            <span class="fact-label">Free time</span>
+                            <span class="fact-label" data-i18n="aboutFreeTimeLabel">Free time</span>
                             <span class="fact-value" data-i18n="aboutDefaultMode">Figuring things out</span>
                         </div>
 
                         <div class="fact">
-                            <span class="fact-label">For fun, apparently</span>
+                            <span class="fact-label" data-i18n="aboutForFunLabel">For fun, apparently</span>
                             <span class="fact-value" data-i18n="aboutForFun">LeetCode &amp; algorithm problems</span>
                         </div>
 
                         <div class="fact">
-                            <span class="fact-label">skills</span>
+                            <span class="fact-label" data-i18n="aboutSkillsLabel">Skills</span>
                             <span class="fact-value" data-i18n="aboutSkills">Attention to detail · Communication · <span class="skill-phrase">Research &amp; curiosity</span></span>
                         </div>
                     </div>
@@ -298,6 +304,6 @@
         ↑
     </button>
 
-    <script src="script.js?v=rento-2" defer></script>
+    <script src="script.js?v=i18n-persist-1" defer></script>
 </body>
 </html>

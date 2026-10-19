@@ -7,7 +7,7 @@ const pageSections = Array.from(document.querySelectorAll("main > section"));
 const pageLinks = Array.from(document.querySelectorAll(".navigation a"));
 
 const savedTheme = localStorage.getItem("theme");
-let currentLanguage = "ka";
+let currentLanguage = localStorage.getItem("language") === "en" ? "en" : "ka";
 
 const translations = {
     en: {
@@ -37,6 +37,12 @@ const translations = {
         aboutDescription: "I became interested in programming when I realized I could turn my ideas into reality with code. Since then, I've been learning and building projects that combine frontend and backend technologies. I'm particularly interested in automating repetitive tasks and using technology to solve real-world problems.",
         aboutCardTitle: "A little about me",
         aboutCardSubtitle: "Beyond the code",
+        aboutUniversityLabel: "University",
+        aboutFieldLabel: "Field",
+        aboutLocationLabel: "Location",
+        aboutFreeTimeLabel: "Free time",
+        aboutForFunLabel: "For fun, apparently",
+        aboutSkillsLabel: "Skills",
         aboutUniversity: "ALTE University / 3rd year",
         aboutField: "Computer Science",
         aboutLocation: "Tbilisi, Georgia",
@@ -78,8 +84,8 @@ const translations = {
         cvDownload: "CV-ის ჩამოტვირთვა",
         experienceTitle: "გამოცდილება და განათლება",
         expRentoDate: "2024 — დღემდე",
-        expRentoTitle: "Web Development & Operations",
-        expRentoType: "Employment",
+        expRentoTitle: "ვებდეველოპმენტი და ოპერაციები",
+        expRentoType: "სამუშაო",
         expRentoPoints: "<li>ვმართავ ვებსაიტის კონტენტის განახლებასა და სერვისების შესახებ ინფორმაციის სიზუსტეს, რათა მომხმარებლებს ყოველთვის ჰქონდეთ აქტუალური მონაცემები.</li><li>ვამუშავებ მომხმარებელთა მოთხოვნებს, ვარკვევ წარმოქმნილ პრობლემებს და ვეხმარები მათ დროულად მოგვარებაში.</li><li>ვაუმჯობესებ ყოველდღიურ სამუშაო პროცესებს განმეორებადი პრობლემების გამოვლენით, რუტინული ამოცანების გამარტივებითა და სამუშაო პროცესების ოპტიმიზაციით.</li>",
         expAlteDate: "2024 — დღემდე",
         expAlteTitle: "კომპიუტერული მეცნიერების ბაკალავრიატი",
@@ -91,6 +97,12 @@ const translations = {
         aboutDescription: "პროგრამირება იმან დამაინტერესა, რომ კოდის დახმარებით საკუთარი იდეების რეალობად ქცევა შემეძლო. მას შემდეგ ვსწავლობ და ვქმნი პროექტებს, რომლებიც აერთიანებს ფრონტენდისა და ბექენდის ტექნოლოგიებს. განსაკუთრებულად მაინტერესებს განმეორებადი პროცესების ავტომატიზაცია და ტექნოლოგიების გამოყენებით რეალური პრობლემების გადაჭრა.",
         aboutCardTitle: "ცოტა რამ ჩემ შესახებ",
         aboutCardSubtitle: "კოდის მიღმა",
+        aboutUniversityLabel: "უნივერსიტეტი",
+        aboutFieldLabel: "მიმართულება",
+        aboutLocationLabel: "მდებარეობა",
+        aboutFreeTimeLabel: "თავისუფალი დრო",
+        aboutForFunLabel: "გასართობად, როგორც ჩანს",
+        aboutSkillsLabel: "უნარები",
         aboutUniversity: "ALTE University / მე-3 კურსი",
         aboutField: "კომპიუტერული მეცნიერება",
         aboutLocation: "თბილისი",
@@ -142,6 +154,7 @@ modeButton.addEventListener("click", () => {
 
 languageButton.addEventListener("click", () => {
     currentLanguage = currentLanguage === "en" ? "ka" : "en";
+    localStorage.setItem("language", currentLanguage);
     applyLanguage(currentLanguage);
 });
 
