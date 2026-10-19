@@ -1,7 +1,7 @@
 #projects {
     box-sizing: border-box;
     max-width: 1200px;
-    min-height: 60vh;
+    min-height: calc(60vh / var(--zoom));
     margin: 90px auto;
     padding: 52px 48px 40px;
     border-bottom: 1px solid var(--line);

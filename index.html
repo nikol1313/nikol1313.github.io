@@ -21,11 +21,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/nav.css?v=mobile-overflow-fix-5">
-    <link rel="stylesheet" href="css/about.css?v=mobile-intro-2">
+    <link rel="stylesheet" href="css/nav.css?v=nav-fit-1">
+    <link rel="stylesheet" href="css/about.css?v=social-1">
      <link rel="stylesheet" href="css/skills.css">
-    <link rel="stylesheet" href="css/projects.css?v=upcoming-project-1">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/projects.css?v=zoom-125-1">
+    <link rel="stylesheet" href="css/experience.css?v=rento-1">
     <link rel="stylesheet" href="css/aboutme1.css?v=mobile-overflow-fix-1">
     <link rel="icon" type="image/png" href="./images/images.png">
 </head>
@@ -36,9 +36,9 @@
         <ul class="navigation" id="navigation-menu">
             <li><a href="#intro" data-i18n="navHome">Home</a></li>
             <li><a href="#about" data-i18n="navAbout">About</a></li>
+            <li><a href="#experience" data-i18n="navExperience">Experience</a></li>
             <li><a href="#skillsTools" data-i18n="navSkills">Skills/Tools</a></li>
             <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
-            <li><a href="#contact" data-i18n="navContact">Contact</a></li>
         </ul>
 
         <div class="nav-actions">
@@ -50,22 +50,48 @@
     <main>
         <section id="intro" aria-labelledby="intro-title">
             <div class="intro-content">
-                <div class="intro-copy">
+                <div class="intro-hero">
                     <h1 id="intro-title">
                         <span data-i18n="firstName">Nikusha</span>
                         <span data-i18n="lastName">Avsajanishvili</span>
                     </h1>
+                    <figure class="intro-photo-frame">
+                        <img
+                            class="intro-photo"
+                            src="images/portfoliopic.jpeg"
+                            alt="Portrait of Nikusha Avsajanishvili"
+                            data-i18n-alt="portraitAlt"
+                        >
+                    </figure>
                     <p class="intro-tagline" data-i18n="introTagline">
-                        Full-stack developer building <span>practical web applications</span>
-                        and automation.
+                        <span class="intro-tagline-line">Full-stack დეველოპერი - <span class="accent">პროგრამირება</span>,</span>
+                        <span class="intro-tagline-line"><span class="accent">ვებ აპლიკაციების შექმნა/განვითარება და</span></span>
+                        <span class="intro-tagline-line"><span class="accent">პროცესების ავტომატიზაცია.</span></span>
                     </p>
                 </div>
-                <img
-                    class="intro-photo"
-                    src="images/portfoliopic.jpeg"
-                    alt="Portrait of Nikusha Avsajanishvili"
-                    data-i18n-alt="portraitAlt"
-                >
+                <div class="intro-actions">
+                    <a class="cv-link" href="NikushaAvsajanishvili.pdf" download>
+                        <span data-i18n="cvDownload">Download CV</span>
+                        <span aria-hidden="true">↓</span>
+                    </a>
+                    <ul class="social-links">
+                        <li>
+                            <a href="https://github.com/nikol1313" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com/in/ნიკუშა-ავსაჯანიშვილი-0ab61b3a7" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:avsajanishvilinikol@gmail.com" aria-label="Email">
+                                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
     
@@ -79,7 +105,7 @@
                     <p class="about-lead" data-i18n="aboutLead">I build practical, scalable web applications.</p>
 
                     <p data-i18n="aboutIntro">
-                        I’m Nikusha Avsajanishvili, a developer focused on web developmen  and automation.
+                        I’m Nikusha Avsajanishvili, a developer focused on web development and automation.
                     </p>
 
                     <p data-i18n="aboutDescription">
@@ -129,6 +155,35 @@
             </div>
         </section>
 
+        <section id="experience" aria-labelledby="experience-title">
+            <div class="experience-heading">
+                <h2 id="experience-title" data-i18n="experienceTitle">Experience &amp; Education</h2>
+            </div>
+
+            <ol class="timeline">
+                <li class="timeline-item">
+                    <span class="timeline-date" data-i18n="expRentoDate">2024 — Present</span>
+                    <div class="timeline-body">
+                        <h3 data-i18n="expRentoTitle">Web Development &amp; Operations</h3>
+                        <p class="timeline-org">Rento.ge · <span data-i18n="expRentoType">Employment</span></p>
+                        <ul class="timeline-points" data-i18n="expRentoPoints">
+                            <li>Updated website content and service information to keep customer-facing details accurate and up to date.</li>
+                            <li>Handled customer requests and helped resolve service-related issues.</li>
+                            <li>Improved routine workflows by identifying recurring issues and simplifying day-to-day tasks.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-date" data-i18n="expAlteDate">2024 — Present</span>
+                    <div class="timeline-body">
+                        <h3 data-i18n="expAlteTitle">BSc in Computer Science</h3>
+                        <p class="timeline-org">ALTE University · <span data-i18n="expAlteType">Education</span></p>
+                        <p class="timeline-description" data-i18n="expAlteDescription">Third-year student focused on algorithms, data structures, and software engineering.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
         <section id="skillsTools" aria-labelledby="skills-title">
             <div class="skills-heading">
                 <h2 id="skills-title" data-i18n="skillsTitle">Skills &amp; Technologies</h2>
@@ -148,20 +203,12 @@
             </div>
 
             <div class="skills-category" aria-labelledby="skills-backend-title">
-                <h3 class="category-title" id="skills-backend-title" data-i18n="skillsBackendTitle">Backend &amp; APIs</h3>
+                <h3 class="category-title" id="skills-backend-title" data-i18n="skillsBackendTitle">Backend, APIs &amp; Databases</h3>
                 <ul class="skills-grid">
                     <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/nodejs/nodejs-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Node.js</h4></li>
                     <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/fastapi/fastapi-original.svg" alt="" width="56" height="56" loading="lazy"><h4>FastAPI</h4></li>
                     <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/openapi/openapi-original.svg" alt="" width="56" height="56" loading="lazy"><h4>REST APIs</h4></li>
-                </ul>
-            </div>
-
-            <div class="skills-category" aria-labelledby="skills-data-title">
-                <h3 class="category-title" id="skills-data-title" data-i18n="skillsDataTitle">Databases &amp; Caching</h3>
-                <ul class="skills-grid">
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/mongodb/mongodb-original.svg" alt="" width="56" height="56" loading="lazy"><h4>MongoDB</h4></li>
                     <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/postgresql/postgresql-original.svg" alt="" width="56" height="56" loading="lazy"><h4>PostgreSQL</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/redis/redis-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Redis</h4></li>
                 </ul>
             </div>
 
@@ -230,18 +277,6 @@
                 </div>
             </div>
         </section>
-
-        <section id="contact" aria-labelledby="contact-title">
-            <div class="contact-heading">
-                <h2 id="contact-title" data-i18n="contactTitle">Contact me</h2>
-            </div>
-
-            <ul class="contact-links">
-                <li><a href="mailto:avsajanishvilinikol@gmail.com" target="_blank" rel="noopener noreferrer">Gmail</a></li>
-                <li><a href="https://linkedin.com/in/ნიკუშა-ავსაჯანიშვილი-0ab61b3a7" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="https://github.com/nikol1313" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            </ul>
-        </section>
     </main>
 
     <footer class="footer">
@@ -252,6 +287,17 @@
         </div>
     </footer>
 
-    <script src="script.js?v=upcoming-project-1" defer></script>
+    <button
+        id="scroll-top"
+        type="button"
+        class="scroll-top"
+        aria-label="Scroll to home"
+        aria-hidden="true"
+        tabindex="-1"
+    >
+        ↑
+    </button>
+
+    <script src="script.js?v=rento-2" defer></script>
 </body>
 </html>
