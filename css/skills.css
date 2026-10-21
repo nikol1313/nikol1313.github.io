@@ -72,6 +72,15 @@
     object-fit: contain;
 }
 
+/* Single-color brand icons ship black; invert them on the dark theme. */
+.skill img.skill-icon-mono {
+    filter: invert(1);
+}
+
+body.light .skill img.skill-icon-mono {
+    filter: none;
+}
+
 .skill h4 {
     min-width: 0;
     margin: 0;
