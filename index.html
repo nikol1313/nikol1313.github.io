@@ -233,6 +233,16 @@
                     <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/git/git-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Git</h4></li>
                 </ul>
             </div>
+
+            <div class="skills-category" aria-labelledby="skills-ai-title">
+                <h3 class="category-title" id="skills-ai-title" data-i18n="skillsAiTitle">AI &amp; Agents</h3>
+                <ul class="skills-grid">
+                    <li class="skill"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.70.0/icons/claude-color.svg" alt="" width="56" height="56" loading="lazy"><h4>Claude Code</h4></li>
+                    <li class="skill"><img class="skill-icon-mono" src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.70.0/icons/cursor.svg" alt="" width="56" height="56" loading="lazy"><h4>Cursor</h4></li>
+                    <li class="skill"><img class="skill-icon-mono" src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.70.0/icons/openai.svg" alt="" width="56" height="56" loading="lazy"><h4>Codex</h4></li>
+                    <li class="skill"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.70.0/icons/n8n-color.svg" alt="" width="56" height="56" loading="lazy"><h4>n8n</h4></li>
+                </ul>
+            </div>
         </section>
 
         <section id="projects" aria-labelledby="projects-title">
@@ -271,19 +281,20 @@
                             <span class="project-category" data-i18n="projectVideoCategory">Media tools</span>
                         </div>
                         <h3 data-i18n="projectVideoTitle">Video Downloader</h3>
-                        <p class="project-description" data-i18n="projectVideoDescription">An asynchronous video downloader: paste a link, pick a quality, and watch the job progress live, with full monitoring running behind the scenes.</p>
+                        <p class="project-description" data-i18n="projectVideoDescription">An asynchronous video downloader: paste a link, pick a quality or audio-only MP3, and watch the download progress live in a React interface.</p>
                         <div class="project-problem">
                             <span class="project-label" data-i18n="projectProblemLabel">The problem</span>
-                            <p data-i18n="projectVideoProblem">Downloading online videos usually means ad-filled websites or command-line tools, and long downloads tie everything up while they run. This app turns it into a clean web flow that works in the background.</p>
+                            <p data-i18n="projectVideoProblem">Growing up, I downloaded songs to my device from the “YouTube to MP3” sites that come up on Google, but they were full of ads and sometimes viruses. So I built my own clean downloader that fits my preferences and runs long downloads in the background.</p>
                         </div>
                         <span class="project-label" data-i18n="projectBuiltLabel">What I built</span>
                         <ul class="project-highlights">
-                            <li data-i18n="projectVideoHighlight1">yt-dlp downloads videos from YouTube and other supported sites in 360p, 720p, or 1080p.</li>
-                            <li data-i18n="projectVideoHighlight2">FastAPI background tasks process jobs asynchronously while PostgreSQL tracks each job’s status.</li>
-                            <li data-i18n="projectVideoHighlight3">Prometheus metrics and Grafana dashboards monitor the app’s health and performance.</li>
+                            <li data-i18n="projectVideoHighlight1">yt-dlp downloads videos from YouTube and other supported sites in 360p, 720p, or 1080p, or as audio-only MP3, and FFmpeg merges video and audio.</li>
+                            <li data-i18n="projectVideoHighlight2">A Node.js, Express, and TypeScript backend runs yt-dlp as background processes, two at a time, while PostgreSQL stores every download job.</li>
+                            <li data-i18n="projectVideoHighlight3">A one-page React and TypeScript interface starts downloads, shows live progress, and saves finished files.</li>
+                            <li data-i18n="projectVideoHighlight4">Prometheus collects app metrics at /metrics, and Docker Compose runs the whole stack.</li>
                         </ul>
                         <ul class="project-tags" aria-label="Technologies">
-                            <li>FastAPI</li><li>Python</li><li>yt-dlp</li><li>PostgreSQL</li><li>Docker</li><li>Prometheus</li><li>Grafana</li>
+                            <li>Node.js</li><li>Express</li><li>TypeScript</li><li>React</li><li>PostgreSQL</li><li>Docker</li><li>Prometheus</li>
                         </ul>
                         <a class="project-link" href="https://github.com/nikol1313/video-downloader" target="_blank" rel="noopener noreferrer">
                             <span data-i18n="projectGithubLink">Explore on GitHub</span>
