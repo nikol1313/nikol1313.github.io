@@ -103,6 +103,16 @@
     line-height: 1.65;
 }
 
+.project-media {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 0 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+}
+
 .project-label {
     display: block;
     margin-bottom: 8px;
