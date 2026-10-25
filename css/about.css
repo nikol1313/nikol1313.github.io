@@ -109,7 +109,7 @@ html:lang(ka) #intro h1 {
     display: block;
     width: max-content;
     max-width: 100%;
-    white-space: nowrap;
+    text-wrap: balance;
 }
 
 .intro-tagline .accent {
