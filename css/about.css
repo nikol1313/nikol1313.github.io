@@ -266,12 +266,6 @@ html:lang(ka) .intro-tagline {
     }
 }
 
-@media (max-width: 420px) {
-    .intro-tagline-line {
-        white-space: normal;
-    }
-}
-
 .cv-link {
     display: inline-flex;
     align-items: center;
