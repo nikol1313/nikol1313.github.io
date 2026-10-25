@@ -264,10 +264,6 @@ html:lang(ka) .intro-tagline {
     .intro-tagline {
         font-size: clamp(1rem, 4.2vw, 1.35rem);
     }
-
-    .intro-tagline-line {
-        white-space: nowrap;
-    }
 }
 
 @media (max-width: 420px) {
