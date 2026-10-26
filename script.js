@@ -8,6 +8,7 @@ const pageLinks = Array.from(document.querySelectorAll(".navigation a"));
 
 const savedTheme = localStorage.getItem("theme");
 let currentLanguage = localStorage.getItem("language") === "en" ? "en" : "ka";
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const translations = {
     en: {
@@ -17,11 +18,13 @@ const translations = {
         navExperience: "Experience",
         navSkills: "Skills / Technologies",
         navProjects: "Projects",
-        firstName: "Nikusha",
-        lastName: "Avsajanishvili",
-        introTagline: "<span class=\"intro-tagline-line\">Junior Developer - <span class=\"accent\">AI, Process &amp; Test Automation</span>,</span><span class=\"intro-tagline-line\"><span class=\"accent\">Web Development.</span></span>",
-        portraitAlt: "My portrait",
-        cvDownload: "Download CV",
+        introTitle: "<span class=\"intro-role\">Web Development</span><span class=\"intro-separator\" aria-hidden=\"true\">|</span><span class=\"intro-role intro-role-accent\">AI, Testing &amp; Automation</span>",
+        portraitAlt: "Portrait of Nikusha Avsajanishvili",
+        introCta: "Open to internships and junior roles —",
+        cvDownload: "download my CV",
+        emailCopyLabel: "Copy email address",
+        emailCopied: "Email address copied",
+        emailCopyFailed: "Could not copy the email address",
         experienceTitle: "Experience & Education",
         expRentoDate: "2024 — Present",
         expRentoTitle: "Web Development & Operations",
@@ -95,11 +98,13 @@ const translations = {
         navExperience: "გამოცდილება",
         navSkills: "უნარები / ტექნოლოგიები",
         navProjects: "პროექტები",
-        firstName: "ნიკუშა",
-        lastName: "ავსაჯანიშვილი",
-        introTagline: "<span class=\"intro-tagline-line\">Junior დეველოპერი - <span class=\"accent\">AI, პროცესებისა და ტესტირების ავტომატიზაცია</span>,</span><span class=\"intro-tagline-line\"><span class=\"accent\">ვებ დეველოპმენტი.</span></span>",
-        portraitAlt: "ჩემი პორტრეტი",
-        cvDownload: "CV-ის ჩამოტვირთვა",
+        introTitle: "<span class=\"intro-role\">ვებ დეველოპმენტი</span><span class=\"intro-separator\" aria-hidden=\"true\">|</span><span class=\"intro-role intro-role-accent\">AI, ტესტირება და ავტომატიზაცია</span>",
+        portraitAlt: "ნიკუშა ავსაჯანიშვილის პორტრეტი",
+        introCta: "ღია ვარ სტაჟირებისა და junior პოზიციებისთვის —",
+        cvDownload: "ჩამოტვირთე ჩემი CV",
+        emailCopyLabel: "ელფოსტის მისამართის კოპირება",
+        emailCopied: "ელფოსტის მისამართი დაკოპირდა",
+        emailCopyFailed: "ელფოსტის მისამართის კოპირება ვერ მოხერხდა",
         experienceTitle: "გამოცდილება და განათლება",
         expRentoDate: "2024 — დღემდე",
         expRentoTitle: "ვებდეველოპმენტი და ოპერაციები",
@@ -271,6 +276,14 @@ function applyLanguage(language) {
         }
     });
 
+    document.querySelectorAll("[data-i18n-label]").forEach((element) => {
+        const translation = languageTranslations[element.dataset.i18nLabel];
+
+        if (translation !== undefined) {
+            element.setAttribute("aria-label", translation);
+        }
+    });
+
     languageButton.textContent = languageTranslations.languageButton;
     languageButton.setAttribute("aria-label", languageTranslations.languageLabel);
     menuToggle.setAttribute(
@@ -336,9 +349,46 @@ scrollTopButton.addEventListener("click", () => {
 window.addEventListener("scroll", updateScrollTopButton, { passive: true });
 updateScrollTopButton();
 
-if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+if (reducedMotion.matches) {
     document.querySelectorAll("video[autoplay]").forEach((video) => {
         video.removeAttribute("autoplay");
         video.pause();
+    });
+}
+
+setupEmailCopy();
+
+function setupEmailCopy() {
+    const button = document.querySelector(".email-copy");
+
+    if (!button) {
+        return;
+    }
+
+    // Kept out of the HTML so scrapers don't find the address.
+    const email = ["avsajanishvilinikol", "gmail.com"].join("@");
+    const address = button.querySelector(".email-address");
+    const status = button.parentElement.querySelector("[role='status']");
+    const obfuscated = address.textContent;
+    let resetTimer = null;
+
+    button.addEventListener("click", () => {
+        clearTimeout(resetTimer);
+
+        Promise.resolve()
+            .then(() => navigator.clipboard.writeText(email))
+            .then(() => {
+                address.textContent = "copied ✓";
+                status.textContent = translations[currentLanguage].emailCopied;
+                resetTimer = setTimeout(() => {
+                    address.textContent = obfuscated;
+                    status.textContent = "";
+                }, 1500);
+            })
+            .catch(() => {
+                // Without clipboard access, reveal the address so it can be copied by hand.
+                address.textContent = email;
+                status.textContent = translations[currentLanguage].emailCopyFailed;
+            });
     });
 }
