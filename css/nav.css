@@ -64,6 +64,13 @@ html:lang(ka) body {
 html {
     font-size: 125%;
     overflow-x: clip;
+    /* Hide scrollbar but keep scrolling (wheel, touch, keyboard) */
+    scrollbar-width: none; /* Firefox, Chrome 121+ */
+    -ms-overflow-style: none; /* old Edge/IE */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* older Chrome, Safari */
 }
 
 section {
