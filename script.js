@@ -35,7 +35,6 @@ const translations = {
         expAlteType: "Education",
         expAlteDescription: "Third-year student focused on algorithms, data structures, and software engineering.",
         aboutTitle: "About Me",
-        aboutLead: "Web, automation and AI — I build applications and systems that bring these areas together.",
         aboutIntro: "I'm a third-year Computer Science student whose main interests are web development and automation.",
         aboutDescription: "I fell in love with programming because code makes it possible to turn ideas into real, working products. Today I build web projects, work on both the backend and the frontend, and automate testing and other repetitive development tasks.",
         aboutAutomation: "I'm especially interested in building web applications that solve real problems and make people's everyday work easier. I enjoy the process of turning an idea into a functional product — from understanding the problem to building the interface and logic. Along the way, I use AI as a development tool that speeds up writing code, debugging, and learning new technologies. I'm also constantly looking for ways to automate routine processes, such as testing, so repetitive tasks get done faster and more efficiently.",
@@ -54,21 +53,20 @@ const translations = {
         aboutForFun: "LeetCode & algorithm problems",
         aboutSkills: "Attention to detail · Communication · <span class=\"skill-phrase\">Research &amp; curiosity</span>",
         skillsTitle: "Skills & Technologies",
-        skillsCoreTitle: "Languages & Frontend",
-        skillsBackendTitle: "Backend, APIs & Databases",
-        skillsDevopsTitle: "DevOps & Infrastructure",
-        skillsAiTitle: "AI & Agents",
+        skillsBackendTitle: "Backend",
+        skillsFrontendTitle: "Frontend",
+        skillsToolsTitle: "Tools &amp; DevOps",
         projectsTitle: "Projects",
         projectIphoneCategory: "Price tracking",
         projectIphoneTitle: "iPhone Price Tracker",
-        projectIphoneDescription: "A price-comparison and tracking platform for the Georgian iPhone market: one place to see who sells it cheapest, how prices move over time, and when it’s the right moment to buy.",
+        projectIphoneDescription: "Compares and tracks iPhone prices across Georgian stores.",
         projectIphoneProblem: "The same iPhone costs different amounts at different Georgian retailers, and prices change often. Finding the best deal meant opening several stores and re-checking them by hand, again and again.",
         projectIphoneHighlight1: "Retailer-specific scrapers pull listings from multiple Georgian stores, including Zoommer, Alta and more, into one searchable catalog and log every crawl.",
         projectIphoneHighlight2: "Every price change is recorded, so each model gets its own price history.",
         projectIphoneHighlight3: "Users set a target price and get a Telegram alert the moment it’s reached.",
         projectVideoCategory: "Media tools",
         projectVideoTitle: "Video Downloader",
-        projectVideoDescription: "An asynchronous video downloader: paste a link, pick a quality or audio-only MP3, and watch the download progress live in a React interface.",
+        projectVideoDescription: "Paste a link, pick a quality or MP3, and watch it download live.",
         projectVideoProblem: "Growing up, I downloaded songs to my device from the “YouTube to MP3” sites that come up on Google, but they were full of ads and sometimes viruses. So I built my own clean downloader that fits my preferences and runs long downloads in the background.",
         projectVideoHighlight1: "yt-dlp downloads videos from YouTube and other supported sites in 360p, 720p, or 1080p, or as audio-only MP3, and FFmpeg merges video and audio.",
         projectVideoHighlight2: "A Node.js, Express, and TypeScript backend runs yt-dlp as background processes, two at a time, while PostgreSQL stores every download job.",
@@ -78,13 +76,15 @@ const translations = {
         projectBuiltLabel: "What I built",
         projectGithubLink: "Explore on GitHub",
         projectJobCategory: "In progress · AI automation",
-        projectJobDescription: "An AI-powered job radar for the Georgian market: it watches job boards for you, ranks every new posting against your CV, and helps you apply faster.",
+        projectJobDescription: "An AI job radar that ranks new Georgian job postings against your CV.",
         projectJobProblem: "Job hunting in Georgia means checking jobs.ge, hr.ge and other sites every day, reading dozens of postings that don’t fit, and rewriting the same cover letter again and again.",
         projectJobHighlight1: "Scheduled scrapers collect new postings from Georgian job boards into one PostgreSQL database.",
         projectJobHighlight2: "AI compares each posting with your CV, scores how well it fits, and explains why.",
         projectJobHighlight3: "Strong matches trigger an email notification, along with an AI-drafted cover letter tailored to the job.",
         projectJobHighlight4: "A React and TypeScript dashboard to browse matches, fit scores, and generated cover letters.",
         projectBuildingLabel: "What I’m building",
+        mediaEnlargeLabel: "Enlarge demo video",
+        mediaCloseLabel: "Close",
         languageButton: "ქართული",
         languageLabel: "Switch language to Georgian",
         menuOpenLabel: "Open navigation menu",
@@ -115,7 +115,6 @@ const translations = {
         expAlteType: "განათლება",
         expAlteDescription: "მესამე კურსის სტუდენტი; ფოკუსი ალგორითმებზე, მონაცემთა სტრუქტურებსა და პროგრამულ ინჟინერიაზე.",
         aboutTitle: "ჩემ შესახებ",
-        aboutLead: "ვები, ავტომატიზაცია და AI — ვქმნი აპლიკაციებსა და სისტემებს, რომლებიც ამ მიმართულებებს აერთიანებს.",
         aboutIntro: "ვარ კომპიუტერული მეცნიერების მესამე კურსის სტუდენტი, რომლის ძირითადი ინტერესებია ვებდეველოპმენტი და ავტომატიზაცია.",
         aboutDescription: "პროგრამირება იმ შესაძლებლობამ შემაყვარა, რომ კოდის დახმარებით იდეები რეალურ, მოქმედ პროდუქტებად შეიძლება იქცეს. დღეს ვქმნი ვებ პროექტებს, ვმუშაობ როგორც ბექენდის, ისე ფრონტენდის მიმართულებით და ვაავტომატიზირებ ტესტირებასა და სხვა განმეორებად დეველოპმენტის ამოცანებს.",
         aboutAutomation: "განსაკუთრებით მაინტერესებს ისეთი ვებაპლიკაციების შექმნა, რომლებიც რეალურ პრობლემებს აგვარებს და ადამიანებს ყოველდღიურ საქმიანობას უმარტივებს. მომწონს იდეის ფუნქციურ პროდუქტად გარდაქმნის პროცესი — პრობლემის გააზრებიდან ინტერფეისისა და ლოგიკის შექმნამდე. ამ პროცესში AI-ს ვიყენებ როგორც დეველოპმენტის ხელსაწყოს, რომელიც კოდის წერას, დებაგინგსა და ახალი ტექნოლოგიების ათვისებას აჩქარებს. ასევე განუწყვეტლივ ვეძებ რუტინული პროცესების (მაგ. ტესტირების) ავტომატიზაციის გზებს, რათა განმეორებადი ამოცანები უფრო სწრაფად და ეფექტურად შესრულდეს.",
@@ -134,21 +133,20 @@ const translations = {
         aboutForFun: "LeetCode და ალგორითმული ამოცანები",
         aboutSkills: "დეტალებზე ორიენტირება · კომუნიკაცია · <span class=\"skill-phrase\">კვლევა და ცნობისმოყვარეობა</span>",
         skillsTitle: "უნარები და ტექნოლოგიები",
-        skillsCoreTitle: "პროგრამირების ენები და ფრონტენდი",
-        skillsBackendTitle: "ბექენდი, API-ები და მონაცემთა ბაზები",
-        skillsDevopsTitle: "DevOps და ინფრასტრუქტურა",
-        skillsAiTitle: "AI და აგენტები",
+        skillsBackendTitle: "ბექენდი",
+        skillsFrontendTitle: "ფრონტენდი",
+        skillsToolsTitle: "ხელსაწყოები და DevOps",
         projectsTitle: "პროექტები",
         projectIphoneCategory: "ფასის მონიტორინგი",
         projectIphoneTitle: "iPhone-ის ფასების ტრეკერი",
-        projectIphoneDescription: "ფასების შედარებისა და მონიტორინგის პლატფორმა ქართული iPhone-ის ბაზრისთვის: ერთ სივრცეში ხედავ, სად იყიდება ყველაზე იაფად, როგორ იცვლება ფასი დროთა განმავლობაში და როდის ღირს ყიდვა.",
+        projectIphoneDescription: "iPhone-ის ფასების შედარებისა და მონიტორინგის პლატფორმა ქართული მაღაზიებისთვის.",
         projectIphoneProblem: "ერთი და იგივე iPhone სხვადასხვა ქართულ მაღაზიაში განსხვავებულ ფასად იყიდება და ფასები ხშირად იცვლება. საუკეთესო შეთავაზების საპოვნელად რამდენიმე საიტის ხელით, ისევ და ისევ შემოწმება იყო საჭირო.",
         projectIphoneHighlight1: "მაღაზიებზე მორგებული სკრეიპერები სხვადასხვა ქართული მაღაზიის, მათ შორის Zoommer-ის, Alta-ს და სხვების, პროდუქტებს ერთ საძიებო კატალოგში აგროვებს და ყოველი განახლების შედეგს აღრიცხავს.",
         projectIphoneHighlight2: "ფასის ყოველი ცვლილება ინახება, ამიტომ თითოეულ მოდელს საკუთარი ფასების ისტორია აქვს.",
         projectIphoneHighlight3: "მომხმარებელი სასურველ ფასს ადგენს და მისი მიღწევისთანავე Telegram-ზე შეტყობინებას იღებს.",
         projectVideoCategory: "ვიდეო ხელსაწყო",
         projectVideoTitle: "Video Downloader",
-        projectVideoDescription: "ასინქრონული ვიდეო ჩამომტვირთავი: ჩასვი ბმული, აირჩიე ხარისხი ან მხოლოდ MP3 აუდიო და ადევნე თვალი ჩამოტვირთვას რეალურ დროში React-ის ინტერფეისში.",
+        projectVideoDescription: "ჩასვი ბმული, აირჩიე ხარისხი ან MP3 და ადევნე თვალი ჩამოტვირთვას რეალურ დროში.",
         projectVideoProblem: "ბავშვობაში სიმღერებს ჩემს მოწყობილობაზე Google-ში ნაპოვნი „YouTube to MP3“ საიტებიდან ვტვირთავდი, მაგრამ ისინი რეკლამებითა და ზოგჯერ ვირუსებით იყო სავსე. ამიტომ შევქმენი საკუთარი, სუფთა ჩამომტვირთავი, რომელიც ერგება ჩემს მოთხოვნებს და ხანგრძლივ ჩამოტვირთვებს ფონურ რეჟიმში ამუშავებს.",
         projectVideoHighlight1: "yt-dlp ვიდეოებს YouTube-იდან და სხვა მხარდაჭერილი საიტებიდან 360p, 720p ან 1080p ხარისხით ან მხოლოდ MP3 აუდიოდ ტვირთავს, FFmpeg კი ვიდეოსა და აუდიოს აერთიანებს.",
         projectVideoHighlight2: "Node.js-ის, Express-ისა და TypeScript-ის ბექენდი yt-dlp-ს ფონურ პროცესებად, ერთდროულად ორს უშვებს, PostgreSQL კი ჩამოტვირთვის ყველა ამოცანას ინახავს.",
@@ -158,13 +156,15 @@ const translations = {
         projectBuiltLabel: "რა შევქმენი",
         projectGithubLink: "GitHub-ზე ნახვა",
         projectJobCategory: "მიმდინარე · AI ავტომატიზაცია",
-        projectJobDescription: "AI-ზე დაფუძნებული სამუშაოს რადარი ქართული ბაზრისთვის: თავად აკვირდება ვაკანსიების საიტებს, ყოველ ახალ განცხადებას შენს CV-ს ადარებს და განაცხადის გაგზავნას გიმარტივებს.",
+        projectJobDescription: "AI-ზე დაფუძნებული სამუშაოს რადარი, რომელიც ახალ ქართულ ვაკანსიებს შენს CV-ს ადარებს.",
         projectJobProblem: "საქართველოში სამუშაოს ძებნა ნიშნავს jobs.ge-ის, hr.ge-ისა და სხვა საიტების ყოველდღიურ შემოწმებას, ათობით შეუსაბამო ვაკანსიის კითხვას და ერთი და იმავე სამოტივაციო წერილის ხელახლა წერას.",
         projectJobHighlight1: "განრიგით გაშვებული სკრეიპერები ქართული ვაკანსიების საიტებიდან ახალ განცხადებებს ერთ PostgreSQL ბაზაში აგროვებს.",
         projectJobHighlight2: "AI თითოეულ ვაკანსიას შენს CV-ს ადარებს, აფასებს რამდენად შეესაბამება და ხსნის რატომ.",
         projectJobHighlight3: "კარგი დამთხვევისას ელფოსტაზე შეტყობინება მოდის, ვაკანსიაზე მორგებულ, AI-ით მომზადებულ სამოტივაციო წერილთან ერთად.",
         projectJobHighlight4: "React-ითა და TypeScript-ით აწყობილი დაფა, სადაც შესაბამისი ვაკანსიები, მათი შეფასებები და მომზადებული სამოტივაციო წერილები ჩანს.",
         projectBuildingLabel: "რას ვქმნი",
+        mediaEnlargeLabel: "დემო ვიდეოს გადიდება",
+        mediaCloseLabel: "დახურვა",
         languageButton: "English",
         languageLabel: "ენის ინგლისურად შეცვლა",
         menuOpenLabel: "ნავიგაციის მენიუს გახსნა",
@@ -194,9 +194,19 @@ modeButton.addEventListener("click", () => {
 });
 
 languageButton.addEventListener("click", () => {
+    // Translated text above the viewport changes height, which would shift the
+    // page; keep the section under the nav at the same spot on screen.
+    const navBottom = nav.getBoundingClientRect().bottom;
+    const anchor = pageSections.find((section) => section.getBoundingClientRect().bottom > navBottom);
+    const anchorTop = anchor?.getBoundingClientRect().top;
+
     currentLanguage = currentLanguage === "en" ? "ka" : "en";
     localStorage.setItem("language", currentLanguage);
     applyLanguage(currentLanguage);
+
+    if (anchor) {
+        window.scrollBy({ top: anchor.getBoundingClientRect().top - anchorTop, behavior: "instant" });
+    }
 });
 
 menuToggle.addEventListener("click", () => {
@@ -357,6 +367,32 @@ if (reducedMotion.matches) {
 }
 
 setupEmailCopy();
+setupMediaDialogs();
+
+function setupMediaDialogs() {
+    document.querySelectorAll("[data-media-dialog]").forEach((button) => {
+        const dialog = document.getElementById(button.dataset.mediaDialog);
+        const video = dialog.querySelector("video");
+
+        button.addEventListener("click", () => {
+            dialog.showModal();
+
+            if (!reducedMotion.matches) {
+                video.play().catch(() => {});
+            }
+        });
+
+        // A click outside the video lands on the dialog element itself (the backdrop).
+        dialog.addEventListener("click", (event) => {
+            if (event.target === dialog) {
+                dialog.close();
+            }
+        });
+
+        dialog.querySelector(".media-dialog-close").addEventListener("click", () => dialog.close());
+        dialog.addEventListener("close", () => video.pause());
+    });
+}
 
 function setupEmailCopy() {
     const button = document.querySelector(".email-copy");
