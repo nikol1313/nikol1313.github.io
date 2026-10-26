@@ -1,140 +1,172 @@
 #intro {
-    width: min(1200px, calc(100% - 40px));
     min-height: calc(100svh / var(--zoom) - 88px);
     box-sizing: border-box;
-    margin: 8px auto 0;
-    padding: 16px 48px 40px;
+    margin-top: 8px;
+    padding: clamp(48px, 8vh, 96px) 24px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: flex-start;
-    border-bottom: none;
+    color: var(--text);
+    font-family: "JetBrains Mono", "Noto Sans Georgian", ui-monospace, monospace;
+    text-align: center;
 }
 
-#intro .intro-content {
+.intro-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: clamp(22px, 3.5vh, 36px);
     width: 100%;
-}
-
-#intro .intro-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-        "name photo"
-        "tag photo";
-    align-items: end;
-    column-gap: clamp(12px, 2vw, 28px);
-    row-gap: clamp(14px, 2vh, 24px);
-    width: 100%;
+    max-width: 1100px;
     container-type: inline-size;
 }
 
 #intro h1 {
-    grid-area: name;
-    position: relative;
-    z-index: 1;
-    min-width: 0;
-    max-width: 100%;
     margin: 0;
-    padding-bottom: 0.08em;
     color: var(--strong);
-    font-size: clamp(2.25rem, 8vw, 6rem);
+    /* Sized to the container so the whole title stays on one line. */
+    font-size: min(2.8rem, 4cqi);
     font-weight: 700;
-    letter-spacing: -0.07em;
-    line-height: 0.88;
-}
-
-#intro h1 span {
-    display: block;
-}
-
-html:lang(ka) #intro h1 span {
-    overflow-wrap: normal;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 html:lang(ka) #intro h1 {
-    font-size: clamp(1.35rem, 11cqi, 4.25rem);
-    letter-spacing: -0.04em;
-    line-height: 1;
+    font-size: min(2.4rem, 3.1cqi);
+}
+
+.intro-separator {
+    margin: 0 0.6em;
+    color: var(--line);
+    font-weight: 400;
+}
+
+.intro-role-accent {
+    color: var(--accent);
 }
 
 .intro-photo-frame {
-    grid-area: photo;
-    position: relative;
-    z-index: 2;
-    width: clamp(150px, 24cqi, 260px);
+    width: clamp(140px, 22vw, 240px);
     margin: 0;
-    aspect-ratio: 1;
-    align-self: center;
 }
 
 .intro-photo {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 1;
     object-fit: cover;
     object-position: 52% 12%;
+    border: 2px solid var(--line);
     border-radius: 50%;
-    border: none;
-    -webkit-mask-image: linear-gradient(
-        100deg,
-        transparent 0%,
-        rgba(0, 0, 0, 0.35) 18%,
-        #000 42%,
-        #000 100%
-    );
-    mask-image: linear-gradient(
-        100deg,
-        transparent 0%,
-        rgba(0, 0, 0, 0.35) 18%,
-        #000 42%,
-        #000 100%
-    );
+    box-sizing: border-box;
 }
 
-.intro-tagline {
-    grid-area: tag;
-    position: relative;
-    z-index: 1;
-    min-width: 0;
-    max-width: 100%;
+.intro-cta {
     margin: 0;
-    color: var(--muted);
-    font-size: clamp(1.05rem, 4.8cqi, 1.85rem);
-    line-height: 1.4;
-}
-
-.intro-tagline-line {
-    display: block;
-    width: max-content;
-    max-width: 100%;
-    text-wrap: balance;
-}
-
-.intro-tagline .accent {
-    color: var(--accent);
+    color: var(--strong);
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     font-weight: 700;
+    line-height: 1.6;
 }
 
-html:lang(ka) .intro-tagline {
-    letter-spacing: -0.01em;
-    font-size: clamp(1rem, 4.4cqi, 1.75rem);
+.intro-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
 }
 
-@media (max-width: 1000px) {
-    #intro .intro-hero {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-areas:
-            "photo"
-            "name"
-            "tag";
-        row-gap: 18px;
+.intro-label,
+.email-label {
+    color: var(--muted);
+}
+
+.intro-cta .cv-link,
+.intro-handle,
+.email-copy {
+    color: var(--accent);
+    text-underline-offset: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.intro-handle {
+    text-decoration: none;
+}
+
+.email-copy {
+    padding: 2px 4px;
+    border: none;
+    background: none;
+    font: inherit;
+    text-decoration: underline;
+    white-space: nowrap;
+    /* Keeps the 46-character line on one row down to small phones. */
+    font-size: min(1em, 3.3vw);
+    cursor: pointer;
+}
+
+.intro-cta .cv-link:hover,
+.intro-cta .cv-link:focus-visible,
+.intro-handle:hover,
+.intro-handle:focus-visible,
+.email-copy:hover,
+.email-copy:focus-visible {
+    opacity: 0.8;
+}
+
+.intro-handle:hover,
+.intro-handle:focus-visible {
+    text-decoration: underline;
+}
+
+#intro :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    #intro {
+        min-height: calc(100svh - 80px);
+        margin-top: 6px;
+        padding: 48px 16px;
     }
 
-    .intro-photo-frame {
-        width: clamp(130px, 26cqi, 220px);
-        align-self: start;
+    .intro-links {
+        gap: 10px;
+    }
+
+    /* Phones: one role per line instead of squeezing both onto one. */
+    #intro h1 {
+        font-size: min(1.6rem, 6.4cqi);
+        line-height: 1.35;
+    }
+
+    html:lang(ka) #intro h1 {
+        font-size: min(1.4rem, 4.8cqi);
+    }
+
+    .intro-role {
+        display: block;
+    }
+
+    .intro-separator {
+        display: none;
     }
 }
 
@@ -198,13 +230,6 @@ html:lang(ka) .intro-tagline {
 }
 
 @media (max-width: 768px) {
-    #intro {
-        width: auto;
-        min-height: calc(100svh / var(--zoom) - 88px);
-        margin: 8px 20px 0;
-        padding: 12px 8px 36px;
-    }
-
     #about {
         margin: 16px 20px 70px;
         padding: 16px 28px 32px;
@@ -214,29 +239,9 @@ html:lang(ka) .intro-tagline {
         grid-template-columns: 1fr;
         padding-top: 36px;
     }
-
-    .intro-photo-frame {
-        width: clamp(120px, 34vw, 180px);
-    }
 }
 
 @media (max-width: 480px) {
-    #intro {
-        min-height: calc(100svh - 80px);
-        margin: 6px 15px 0;
-        padding: 8px 3px 32px;
-    }
-
-    #intro h1 {
-        font-size: clamp(1.8rem, 8vw, 3.0625rem);
-        letter-spacing: -0.065em;
-        line-height: 0.92;
-    }
-
-    .intro-photo-frame {
-        width: clamp(100px, 32vw, 140px);
-    }
-
     #about {
         margin: 12px 15px 60px;
         padding: 12px 18px 28px;
@@ -249,81 +254,4 @@ html:lang(ka) .intro-tagline {
     .about-copy p {
         font-size: 1rem;
     }
-}
-
-@media (max-width: 600px) {
-    .intro-photo-frame {
-        width: clamp(110px, 30vw, 160px);
-    }
-
-    .intro-photo {
-        -webkit-mask-image: none;
-        mask-image: none;
-    }
-
-    .intro-tagline {
-        font-size: clamp(1rem, 4.2vw, 1.35rem);
-    }
-}
-
-.cv-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 22px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    color: var(--text);
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition:
-        color 0.2s ease,
-        background-color 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.intro-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-    margin-top: 28px;
-}
-
-.social-links {
-    display: flex;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.social-links a {
-    display: grid;
-    place-items: center;
-    width: 46px;
-    height: 46px;
-    box-sizing: border-box;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    color: var(--muted);
-    transition:
-        color 0.2s ease,
-        background-color 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.social-links svg {
-    width: 20px;
-    height: 20px;
-}
-
-.cv-link:hover,
-.cv-link:focus-visible,
-.social-links a:hover,
-.social-links a:focus-visible {
-    color: var(--accent);
-    background-color: var(--hover-bg);
-    border-color: var(--accent);
 }
