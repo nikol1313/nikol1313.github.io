@@ -1,7 +1,7 @@
 .about-layout {
     display: flex;
     gap: 60px;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .about-copy,
