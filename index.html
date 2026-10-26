@@ -21,12 +21,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+Georgian:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/nav.css?v=nav-fit-1">
-    <link rel="stylesheet" href="css/about.css?v=hero-title-2">
-     <link rel="stylesheet" href="css/skills.css">
-    <link rel="stylesheet" href="css/projects.css?v=zoom-125-1">
+    <link rel="stylesheet" href="css/nav.css?v=skills-about-1">
+    <link rel="stylesheet" href="css/about.css?v=skills-about-1">
+    <link rel="stylesheet" href="css/skills.css?v=skills-about-1">
+    <link rel="stylesheet" href="css/projects.css?v=light-accents-1">
     <link rel="stylesheet" href="css/experience.css?v=rento-1">
-    <link rel="stylesheet" href="css/aboutme1.css?v=about-lead-row-1">
+    <link rel="stylesheet" href="css/aboutme1.css?v=skills-about-1">
     <link rel="icon" type="image/png" href="./images/images.png">
 </head>
 <body>
@@ -94,7 +94,6 @@
                 <h2 id="about-title" data-i18n="aboutTitle">About me</h2>
             </div>
 
-            <p class="about-lead" data-i18n="aboutLead">Web, automation and AI — I build applications and systems that bring these areas together.</p>
 
             <div class="about-content about-layout">
                 <div class="about-copy">
@@ -185,51 +184,39 @@
                 <h2 id="skills-title" data-i18n="skillsTitle">Skills &amp; Technologies</h2>
             </div>
 
-            <div class="skills-category" aria-labelledby="skills-core-title">
-                <h3 class="category-title" id="skills-core-title" data-i18n="skillsCoreTitle">Languages &amp; Frontend</h3>
-                <ul class="skills-grid">
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/python/python-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Python</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/bash/bash-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Bash</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/javascript/javascript-original.svg" alt="" width="56" height="56" loading="lazy"><h4>JavaScript</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/typescript/typescript-original.svg" alt="" width="56" height="56" loading="lazy"><h4>TypeScript</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/html5/html5-original.svg" alt="" width="56" height="56" loading="lazy"><h4>HTML</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/css3/css3-original.svg" alt="" width="56" height="56" loading="lazy"><h4>CSS</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/react/react-original.svg" alt="" width="56" height="56" loading="lazy"><h4>React</h4></li>
-                </ul>
-            </div>
-
-            <div class="skills-category" aria-labelledby="skills-backend-title">
-                <h3 class="category-title" id="skills-backend-title" data-i18n="skillsBackendTitle">Backend, APIs &amp; Databases</h3>
-                <ul class="skills-grid">
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/nodejs/nodejs-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Node.js</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/fastapi/fastapi-original.svg" alt="" width="56" height="56" loading="lazy"><h4>FastAPI</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/openapi/openapi-original.svg" alt="" width="56" height="56" loading="lazy"><h4>REST APIs</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/postgresql/postgresql-original.svg" alt="" width="56" height="56" loading="lazy"><h4>PostgreSQL</h4></li>
-                </ul>
-            </div>
-
-            <div class="skills-category" aria-labelledby="skills-devops-title">
-                <h3 class="category-title" id="skills-devops-title" data-i18n="skillsDevopsTitle">DevOps &amp; Infrastructure</h3>
-                <ul class="skills-grid">
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/githubactions/githubactions-original.svg" alt="" width="56" height="56" loading="lazy"><h4>GitHub Actions / CI/CD</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/nginx/nginx-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Nginx</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" width="56" height="56" loading="lazy"><h4>AWS</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/prometheus/prometheus-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Prometheus</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/grafana/grafana-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Grafana</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/docker/docker-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Docker</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/linux/linux-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Linux</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/git/git-original.svg" alt="" width="56" height="56" loading="lazy"><h4>Git</h4></li>
-                </ul>
-            </div>
-
-            <div class="skills-category" aria-labelledby="skills-ai-title">
-                <h3 class="category-title" id="skills-ai-title" data-i18n="skillsAiTitle">AI &amp; Agents</h3>
-                <ul class="skills-grid">
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.70.0/icons/claude-color.svg" alt="" width="56" height="56" loading="lazy"><h4>Claude Code</h4></li>
-                    <li class="skill"><img class="skill-icon-mono" src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.70.0/icons/cursor.svg" alt="" width="56" height="56" loading="lazy"><h4>Cursor</h4></li>
-                    <li class="skill"><img class="skill-icon-mono" src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.70.0/icons/openai.svg" alt="" width="56" height="56" loading="lazy"><h4>Codex</h4></li>
-                    <li class="skill"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.70.0/icons/n8n-color.svg" alt="" width="56" height="56" loading="lazy"><h4>n8n</h4></li>
-                </ul>
+            <div class="skills-groups">
+                <div class="skills-group">
+                    <h3 class="skills-group-title" id="skills-backend-title"><span data-i18n="skillsBackendTitle">Backend</span></h3>
+                    <ul class="skills-list" aria-labelledby="skills-backend-title">
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/python/python-original.svg" alt="" width="30" height="30" loading="lazy"><span>Python</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/javascript/javascript-original.svg" alt="" width="30" height="30" loading="lazy"><span>JavaScript</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/nodejs/nodejs-original.svg" alt="" width="30" height="30" loading="lazy"><span>Node.js</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/fastapi/fastapi-original.svg" alt="" width="30" height="30" loading="lazy"><span>FastAPI</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/postgresql/postgresql-original.svg" alt="" width="30" height="30" loading="lazy"><span>PostgreSQL</span></li>
+                    </ul>
+                </div>
+                <div class="skills-group">
+                    <h3 class="skills-group-title" id="skills-frontend-title"><span data-i18n="skillsFrontendTitle">Frontend</span></h3>
+                    <ul class="skills-list" aria-labelledby="skills-frontend-title">
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/typescript/typescript-original.svg" alt="" width="30" height="30" loading="lazy"><span>TypeScript</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/react/react-original.svg" alt="" width="30" height="30" loading="lazy"><span>React</span></li>
+                    </ul>
+                </div>
+                <div class="skills-group">
+                    <h3 class="skills-group-title" id="skills-tools-title"><span data-i18n="skillsToolsTitle">Tools &amp; DevOps</span></h3>
+                    <ul class="skills-list" aria-labelledby="skills-tools-title">
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/docker/docker-original.svg" alt="" width="30" height="30" loading="lazy"><span>Docker</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/linux/linux-original.svg" alt="" width="30" height="30" loading="lazy"><span>Linux</span></li>
+                        <li class="skill"><img class="skill-icon-mono" src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/bash/bash-plain.svg" alt="" width="30" height="30" loading="lazy"><span>Bash</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/githubactions/githubactions-original.svg" alt="" width="30" height="30" loading="lazy"><span>GitHub Actions / CI/CD</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/nginx/nginx-original.svg" alt="" width="30" height="30" loading="lazy"><span>Nginx</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" width="30" height="30" loading="lazy"><span>AWS</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/terraform/terraform-original.svg" alt="" width="30" height="30" loading="lazy"><span>Terraform</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/prometheus/prometheus-original.svg" alt="" width="30" height="30" loading="lazy"><span>Prometheus</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/grafana/grafana-original.svg" alt="" width="30" height="30" loading="lazy"><span>Grafana</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.70.0/icons/n8n-color.svg" alt="" width="30" height="30" loading="lazy"><span>n8n</span></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -243,7 +230,7 @@
                             <span class="project-category" data-i18n="projectIphoneCategory">Price tracking</span>
                         </div>
                         <h3 data-i18n="projectIphoneTitle">iPhone Price Tracker</h3>
-                        <p class="project-description" data-i18n="projectIphoneDescription">A price-comparison and tracking platform for the Georgian iPhone market: one place to see who sells it cheapest, how prices move over time, and when it’s the right moment to buy.</p>
+                        <p class="project-description" data-i18n="projectIphoneDescription">Compares and tracks iPhone prices across Georgian stores.</p>
                         <div class="project-problem">
                             <span class="project-label" data-i18n="projectProblemLabel">The problem</span>
                             <p data-i18n="projectIphoneProblem">The same iPhone costs different amounts at different Georgian retailers, and prices change often. Finding the best deal meant opening several stores and re-checking them by hand, again and again.</p>
@@ -253,9 +240,6 @@
                             <li data-i18n="projectIphoneHighlight1">Retailer-specific scrapers pull listings from multiple Georgian stores, including Zoommer, Alta and more, into one searchable catalog and log every crawl.</li>
                             <li data-i18n="projectIphoneHighlight2">Every price change is recorded, so each model gets its own price history.</li>
                             <li data-i18n="projectIphoneHighlight3">Users set a target price and get a Telegram alert the moment it’s reached.</li>
-                        </ul>
-                        <ul class="project-tags" aria-label="Technologies">
-                            <li>FastAPI</li><li>PostgreSQL</li><li>Web automation</li><li>Docker</li><li>Python</li>
                         </ul>
                         <a class="project-link" href="https://github.com/nikol1313/iphone-tracker-ge" target="_blank" rel="noopener noreferrer">
                             <span data-i18n="projectGithubLink">Explore on GitHub</span>
@@ -269,8 +253,16 @@
                             <span class="project-category" data-i18n="projectVideoCategory">Media tools</span>
                         </div>
                         <h3 data-i18n="projectVideoTitle">Video Downloader</h3>
-                        <p class="project-description" data-i18n="projectVideoDescription">An asynchronous video downloader: paste a link, pick a quality or audio-only MP3, and watch the download progress live in a React interface.</p>
-                        <video class="project-media" src="images/video-downloader-demo.mp4" poster="images/video-downloader-demo.jpg" width="960" height="720" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                        <p class="project-description" data-i18n="projectVideoDescription">Paste a link, pick a quality or MP3, and watch it download live.</p>
+                        <button class="project-media-button" type="button" data-media-dialog="video-demo-dialog" aria-haspopup="dialog" aria-label="Enlarge demo video" data-i18n-label="mediaEnlargeLabel">
+                            <video class="project-media" src="images/video-downloader-demo.mp4" poster="images/video-downloader-demo.jpg" width="960" height="720" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                            <span class="project-media-zoom" aria-hidden="true">⤢</span>
+                        </button>
+                        <dialog class="media-dialog" id="video-demo-dialog" aria-labelledby="video-demo-title">
+                            <h4 class="visually-hidden" id="video-demo-title" data-i18n="projectVideoTitle">Video Downloader</h4>
+                            <button class="media-dialog-close" type="button" aria-label="Close" data-i18n-label="mediaCloseLabel">×</button>
+                            <video src="images/video-downloader-demo.mp4" poster="images/video-downloader-demo.jpg" width="960" height="720" muted loop playsinline preload="none" controls></video>
+                        </dialog>
                         <div class="project-problem">
                             <span class="project-label" data-i18n="projectProblemLabel">The problem</span>
                             <p data-i18n="projectVideoProblem">Growing up, I downloaded songs to my device from the “YouTube to MP3” sites that come up on Google, but they were full of ads and sometimes viruses. So I built my own clean downloader that fits my preferences and runs long downloads in the background.</p>
@@ -281,9 +273,6 @@
                             <li data-i18n="projectVideoHighlight2">A Node.js, Express, and TypeScript backend runs yt-dlp as background processes, two at a time, while PostgreSQL stores every download job.</li>
                             <li data-i18n="projectVideoHighlight3">A one-page React and TypeScript interface starts downloads, shows live progress, and saves finished files.</li>
                             <li data-i18n="projectVideoHighlight4">Prometheus collects app metrics at /metrics, and Docker Compose runs the whole stack.</li>
-                        </ul>
-                        <ul class="project-tags" aria-label="Technologies">
-                            <li>Node.js</li><li>Express</li><li>TypeScript</li><li>React</li><li>PostgreSQL</li><li>Docker</li><li>Prometheus</li>
                         </ul>
                         <a class="project-link" href="https://github.com/nikol1313/video-downloader" target="_blank" rel="noopener noreferrer">
                             <span data-i18n="projectGithubLink">Explore on GitHub</span>
@@ -297,7 +286,7 @@
                             <span class="project-category" data-i18n="projectJobCategory">In progress · AI automation</span>
                         </div>
                         <h3>ModzebnAI</h3>
-                        <p class="project-description" data-i18n="projectJobDescription">An AI-powered job radar for the Georgian market: it watches job boards for you, ranks every new posting against your CV, and helps you apply faster.</p>
+                        <p class="project-description" data-i18n="projectJobDescription">An AI job radar that ranks new Georgian job postings against your CV.</p>
                         <div class="project-problem">
                             <span class="project-label" data-i18n="projectProblemLabel">The problem</span>
                             <p data-i18n="projectJobProblem">Job hunting in Georgia means checking jobs.ge, hr.ge and other sites every day, reading dozens of postings that don’t fit, and rewriting the same cover letter again and again.</p>
@@ -308,9 +297,6 @@
                             <li data-i18n="projectJobHighlight2">AI compares each posting with your CV, scores how well it fits, and explains why.</li>
                             <li data-i18n="projectJobHighlight3">Strong matches trigger an email notification, along with an AI-drafted cover letter tailored to the job.</li>
                             <li data-i18n="projectJobHighlight4">A React and TypeScript dashboard to browse matches, fit scores, and generated cover letters.</li>
-                        </ul>
-                        <ul class="project-tags" aria-label="Technologies">
-                            <li>React</li><li>TypeScript</li><li>FastAPI</li><li>PostgreSQL</li><li>Python</li><li>LLM API</li><li>Web automation</li><li>Docker</li>
                         </ul>
                     </article>
                 </div>
@@ -337,6 +323,6 @@
         ↑
     </button>
 
-    <script src="script.js?v=hero-title-2" defer></script>
+    <script src="script.js?v=project-media-1" defer></script>
 </body>
 </html>
