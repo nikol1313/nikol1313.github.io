@@ -4,13 +4,10 @@
     min-height: calc(60vh / var(--zoom));
     margin: 90px auto;
     padding: 52px 48px 40px;
-    border-bottom: 1px solid var(--line);
 }
 
 .projects-content h2 {
     margin: 0;
-    padding-bottom: 22px;
-    border-bottom: 1px solid var(--line);
     font-size: clamp(2.5rem, 6vw, 5.25rem);
     font-weight: 700;
     letter-spacing: -0.05em;
@@ -47,6 +44,20 @@
 .project-card--ai {
     --project-accent: #fbbf24;
     grid-column: 1 / -1;
+}
+
+/* The pastel accents above are for the dark theme; on light cards they fall to
+   ~1.1:1 contrast, so swap in darker shades that keep 5:1+. */
+body.light .project-card--price {
+    --project-accent: #1e40af;
+}
+
+body.light .project-card--video {
+    --project-accent: #5b21b6;
+}
+
+body.light .project-card--ai {
+    --project-accent: #78350f;
 }
 
 .project-card:hover {
@@ -113,6 +124,96 @@
     background: var(--surface);
 }
 
+.project-media-button {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    background: none;
+    cursor: zoom-in;
+}
+
+.project-media-button .project-media {
+    margin: 0;
+}
+
+.project-media-zoom {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.75);
+    color: #f8fafc;
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.project-media-button:hover .project-media-zoom {
+    transform: scale(1.1);
+}
+
+.project-media-button:focus-visible {
+    outline: 2px solid var(--project-accent);
+    outline-offset: 3px;
+}
+
+.media-dialog {
+    width: fit-content;
+    max-width: none;
+    max-height: calc(94vh / var(--zoom));
+    padding: 0;
+    border: 0;
+    background: transparent;
+    overflow: visible;
+}
+
+.media-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.media-dialog video {
+    display: block;
+    /* Largest 4:3 box (the demo's shape) that fits the screen, so no letterboxing. */
+    width: min(1200px, 94vw / var(--zoom), 88vh / var(--zoom) * 4 / 3);
+    height: auto;
+    border-radius: 12px;
+    background: #000;
+}
+
+.media-dialog-close {
+    position: absolute;
+    top: -44px;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(248, 250, 252, 0.15);
+    color: #f8fafc;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.media-dialog-close:hover,
+.media-dialog-close:focus-visible {
+    background: rgba(248, 250, 252, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-media-zoom {
+        transition: none;
+    }
+}
+
 .project-label {
     display: block;
     margin-bottom: 8px;
@@ -165,26 +266,9 @@
     background: var(--project-accent);
 }
 
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: auto 0 22px;
-    padding: 0;
-    list-style: none;
-}
-
-.project-tags li {
-    padding: 6px 10px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    color: var(--muted);
-    font-size: 0.75rem;
-    line-height: 1.2;
-}
-
 .project-link {
     display: inline-flex;
+    margin-top: auto;
     width: fit-content;
     max-width: 100%;
     align-items: center;

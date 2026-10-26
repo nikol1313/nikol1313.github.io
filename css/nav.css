@@ -341,21 +341,11 @@ nav.scrolled {
 
 @media (max-width: 600px) {
     body #about h2,
-    body #skillsTools h2,
     body #projects h2,
     body #experience h2 {
         font-size: clamp(1.5rem, 7.5vw, 2.5rem);
         letter-spacing: -0.04em;
         line-height: 1.05;
-        overflow-wrap: anywhere;
-    }
-
-    .category-title {
-        font-size: clamp(1rem, 5.5vw, 1.25rem);
-        overflow-wrap: anywhere;
-    }
-
-    #about .about-lead {
         overflow-wrap: anywhere;
     }
 
