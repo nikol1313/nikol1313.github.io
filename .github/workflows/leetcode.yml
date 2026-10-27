@@ -1,0 +1,32 @@
+name: Update LeetCode count
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch solved count
+        run: |
+          solved=$(curl -fsS https://leetcode.com/graphql \
+            -H 'Content-Type: application/json' \
+            -H 'Referer: https://leetcode.com' \
+            -d '{"query":"query{matchedUser(username:\"NikushaAvs\"){submitStatsGlobal{acSubmissionNum{difficulty count}}}}"}' \
+            | jq -e '.data.matchedUser.submitStatsGlobal.acSubmissionNum[] | select(.difficulty == "All") | .count')
+          echo "{\"solved\": $solved}" > data/leetcode.json
+
+      - name: Commit if changed
+        run: |
+          git diff --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Update LeetCode count"
+          git push

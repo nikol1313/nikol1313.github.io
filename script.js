@@ -9,6 +9,8 @@ const pageLinks = Array.from(document.querySelectorAll(".navigation a"));
 const savedTheme = localStorage.getItem("theme");
 let currentLanguage = localStorage.getItem("language") === "en" ? "en" : "ka";
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+// Fallback until data/leetcode.json (refreshed daily by a GitHub Action) loads.
+let leetcodeSolved = 25;
 
 const translations = {
     en: {
@@ -39,19 +41,19 @@ const translations = {
         aboutDescription: "I fell in love with programming because code makes it possible to turn ideas into real, working products. Today I build web projects, work on both the backend and the frontend, and automate testing and other repetitive development tasks.",
         aboutAutomation: "I'm especially interested in building web applications that solve real problems and make people's everyday work easier. I enjoy the process of turning an idea into a functional product — from understanding the problem to building the interface and logic. Along the way, I use AI as a development tool that speeds up writing code, debugging, and learning new technologies. I'm also constantly looking for ways to automate routine processes, such as testing, so repetitive tasks get done faster and more efficiently.",
         aboutCardTitle: "A little about me",
-        aboutCardSubtitle: "Beyond the code",
+        aboutCardSubtitle: "Quick facts",
         aboutUniversityLabel: "University",
         aboutFieldLabel: "Field",
         aboutLocationLabel: "Location",
-        aboutFreeTimeLabel: "Free time",
-        aboutForFunLabel: "For fun",
-        aboutSkillsLabel: "Skills",
+        aboutFreeTimeLabel: "Learning",
+        aboutForFunLabel: "Hobbies",
+        aboutSkillsLabel: "LeetCode",
         aboutUniversity: "ALTE University / 3rd year",
         aboutField: "Computer Science",
         aboutLocation: "Tbilisi, Georgia",
-        aboutDefaultMode: "Books and surfing the web",
-        aboutForFun: "LeetCode & algorithm problems",
-        aboutSkills: "Attention to detail · Communication · <span class=\"skill-phrase\">Research &amp; curiosity</span>",
+        aboutDefaultMode: "DevOps",
+        aboutForFun: "Reading books & chess",
+        aboutSkills: "{leetcodeSolved} problems solved",
         skillsTitle: "Skills & Technologies",
         skillsBackendTitle: "Backend",
         skillsFrontendTitle: "Frontend",
@@ -64,7 +66,7 @@ const translations = {
         projectIphoneProblem: "The same iPhone costs different amounts at different Georgian retailers, and prices change often. Finding the best deal meant opening several stores and re-checking them by hand, again and again.",
         projectIphoneHighlight1: "Retailer-specific scrapers pull listings from multiple Georgian stores, including Zoommer, Alta and more, into one searchable catalog and log every crawl.",
         projectIphoneHighlight2: "Every price change is recorded, so each model gets its own price history.",
-        projectIphoneHighlight3: "Users set a target price and get a Telegram alert the moment it’s reached.",
+        projectIphoneHighlight3: "Prices are re-checked every 12 hours, and a Telegram alert goes out when a tracked iPhone drops below the user’s target price.",
         projectVideoCategory: "Media tools",
         projectVideoTitle: "Video Downloader",
         projectVideoDescription: "Paste a link, pick a quality or MP3, and watch it download live.",
@@ -120,19 +122,19 @@ const translations = {
         aboutDescription: "პროგრამირება იმ შესაძლებლობამ შემაყვარა, რომ კოდის დახმარებით იდეები რეალურ, მოქმედ პროდუქტებად შეიძლება იქცეს. დღეს ვქმნი ვებ პროექტებს, ვმუშაობ როგორც ბექენდის, ისე ფრონტენდის მიმართულებით და ვაავტომატიზირებ ტესტირებასა და სხვა განმეორებად დეველოპმენტის ამოცანებს.",
         aboutAutomation: "განსაკუთრებით მაინტერესებს ისეთი ვებაპლიკაციების შექმნა, რომლებიც რეალურ პრობლემებს აგვარებს და ადამიანებს ყოველდღიურ საქმიანობას უმარტივებს. მომწონს იდეის ფუნქციურ პროდუქტად გარდაქმნის პროცესი — პრობლემის გააზრებიდან ინტერფეისისა და ლოგიკის შექმნამდე. ამ პროცესში AI-ს ვიყენებ როგორც დეველოპმენტის ხელსაწყოს, რომელიც კოდის წერას, დებაგინგსა და ახალი ტექნოლოგიების ათვისებას აჩქარებს. ასევე განუწყვეტლივ ვეძებ რუტინული პროცესების (მაგ. ტესტირების) ავტომატიზაციის გზებს, რათა განმეორებადი ამოცანები უფრო სწრაფად და ეფექტურად შესრულდეს.",
         aboutCardTitle: "ცოტა რამ ჩემ შესახებ",
-        aboutCardSubtitle: "კოდის მიღმა",
+        aboutCardSubtitle: "მოკლედ",
         aboutUniversityLabel: "უნივერსიტეტი",
         aboutFieldLabel: "მიმართულება",
         aboutLocationLabel: "მდებარეობა",
-        aboutFreeTimeLabel: "თავისუფალი დრო",
-        aboutForFunLabel: "გასართობად",
-        aboutSkillsLabel: "უნარები",
+        aboutFreeTimeLabel: "ვსწავლობ",
+        aboutForFunLabel: "ჰობი",
+        aboutSkillsLabel: "LeetCode",
         aboutUniversity: "ALTE University / მე-3 კურსი",
         aboutField: "კომპიუტერული მეცნიერება",
         aboutLocation: "თბილისი",
-        aboutDefaultMode: "წიგნები და ინტერნეტში ხეტიალი",
-        aboutForFun: "LeetCode და ალგორითმული ამოცანები",
-        aboutSkills: "დეტალებზე ორიენტირება · კომუნიკაცია · <span class=\"skill-phrase\">კვლევა და ცნობისმოყვარეობა</span>",
+        aboutDefaultMode: "DevOps",
+        aboutForFun: "წიგნების კითხვა და ჭადრაკი",
+        aboutSkills: "{leetcodeSolved} ამოცანა გადაწყვეტილი",
         skillsTitle: "უნარები და ტექნოლოგიები",
         skillsBackendTitle: "ბექენდი",
         skillsFrontendTitle: "ფრონტენდი",
@@ -145,7 +147,7 @@ const translations = {
         projectIphoneProblem: "ერთი და იგივე iPhone სხვადასხვა ქართულ მაღაზიაში განსხვავებულ ფასად იყიდება და ფასები ხშირად იცვლება. საუკეთესო შეთავაზების საპოვნელად რამდენიმე საიტის ხელით, ისევ და ისევ შემოწმება იყო საჭირო.",
         projectIphoneHighlight1: "მაღაზიებზე მორგებული სკრეიპერები სხვადასხვა ქართული მაღაზიის, მათ შორის Zoommer-ის, Alta-ს და სხვების, პროდუქტებს ერთ საძიებო კატალოგში აგროვებს და ყოველი განახლების შედეგს აღრიცხავს.",
         projectIphoneHighlight2: "ფასის ყოველი ცვლილება ინახება, ამიტომ თითოეულ მოდელს საკუთარი ფასების ისტორია აქვს.",
-        projectIphoneHighlight3: "მომხმარებელი სასურველ ფასს ადგენს და მისი მიღწევისთანავე Telegram-ზე შეტყობინებას იღებს.",
+        projectIphoneHighlight3: "ფასები ყოველ 12 საათში მოწმდება და, როცა თვალყურდევნებული iPhone-ის ფასი მომხმარებლის სასურველ ფასზე დაბლა ჩამოდის, Telegram-ზე შეტყობინება იგზავნება.",
         projectVideoCategory: "ვიდეო ხელსაწყო",
         projectVideoTitle: "Video Downloader",
         projectVideoDescription: "ჩასვი ბმული, აირჩიე ხარისხი ან MP3 და ადევნე თვალი ჩამოტვირთვას რეალურ დროში.",
@@ -177,6 +179,16 @@ const translations = {
 
 document.body.classList.toggle("light", savedTheme === "light");
 applyLanguage(currentLanguage);
+
+fetch("data/leetcode.json", { cache: "no-cache" })
+    .then((response) => (response.ok ? response.json() : Promise.reject()))
+    .then(({ solved }) => {
+        if (Number.isInteger(solved)) {
+            leetcodeSolved = solved;
+            applyLanguage(currentLanguage);
+        }
+    })
+    .catch(() => {});
 updateModeButton();
 const initialSection = document.getElementById(window.location.hash.slice(1)) || document.getElementById("intro");
 setCurrentSection(initialSection.id);
@@ -276,7 +288,7 @@ function applyLanguage(language) {
         const translation = languageTranslations[element.dataset.i18n];
 
         if (translation !== undefined) {
-            element.innerHTML = translation;
+            element.innerHTML = translation.replace("{leetcodeSolved}", leetcodeSolved);
         }
     });
 
@@ -368,7 +380,6 @@ if (reducedMotion.matches) {
     });
 }
 
-setupEmailCopy();
 setupMediaDialogs();
 
 function setupMediaDialogs() {
@@ -393,40 +404,5 @@ function setupMediaDialogs() {
 
         dialog.querySelector(".media-dialog-close").addEventListener("click", () => dialog.close());
         dialog.addEventListener("close", () => video.pause());
-    });
-}
-
-function setupEmailCopy() {
-    const button = document.querySelector(".email-copy");
-
-    if (!button) {
-        return;
-    }
-
-    // Kept out of the HTML so scrapers don't find the address.
-    const email = ["avsajanishvilinikol", "gmail.com"].join("@");
-    const address = button.querySelector(".email-address");
-    const status = button.parentElement.querySelector("[role='status']");
-    const obfuscated = address.textContent;
-    let resetTimer = null;
-
-    button.addEventListener("click", () => {
-        clearTimeout(resetTimer);
-
-        Promise.resolve()
-            .then(() => navigator.clipboard.writeText(email))
-            .then(() => {
-                address.textContent = "copied ✓";
-                status.textContent = translations[currentLanguage].emailCopied;
-                resetTimer = setTimeout(() => {
-                    address.textContent = obfuscated;
-                    status.textContent = "";
-                }, 1500);
-            })
-            .catch(() => {
-                // Without clipboard access, reveal the address so it can be copied by hand.
-                address.textContent = email;
-                status.textContent = translations[currentLanguage].emailCopyFailed;
-            });
     });
 }
