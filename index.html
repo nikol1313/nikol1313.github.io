@@ -25,9 +25,9 @@
     <link rel="stylesheet" href="css/nav.css?v=skills-about-1">
     <link rel="stylesheet" href="css/about.css?v=skills-about-1">
     <link rel="stylesheet" href="css/skills.css?v=skills-about-1">
-    <link rel="stylesheet" href="css/projects.css?v=light-accents-1">
+    <link rel="stylesheet" href="css/projects.css?v=heading-line-1">
     <link rel="stylesheet" href="css/experience.css?v=rento-1">
-    <link rel="stylesheet" href="css/aboutme1.css?v=skills-about-1">
+    <link rel="stylesheet" href="css/aboutme1.css?v=about-card-2">
     <link rel="icon" type="image/png" href="./images/images.png">
 </head>
 <body>
@@ -96,54 +96,41 @@
             <div class="about-content about-layout">
                 <div class="about-copy">
                     <p data-i18n="aboutIntro">
-                        I’m a third-year Computer Science student whose main interests are web development and automation.
+                        I build tools for problems I run into myself: an iPhone price tracker because I got tired of checking five stores by hand, a video downloader because free “YouTube to MP3” sites were full of ads and malware, and ModzebnAI because checking jobs.ge and hr.ge every day and rewriting the same cover letter took up far too much of my time.
                     </p>
 
                     <p data-i18n="aboutDescription">
-                        I fell in love with programming because code makes it possible to turn ideas into real, working products. Today I build web projects, work on both the backend and the frontend, and automate testing and other repetitive development tasks.
+                        I work on both the backend and the frontend, mostly in Python and TypeScript. I test what I build before shipping it: the price tracker has unit tests written with pytest, integration tests with Testcontainers, and Playwright end-to-end tests that click through the site like a real user. At Rento Group, I applied this to the company website with Playwright end-to-end tests that run daily in CI. I use AI for debugging and learning new libraries, but I review its code before I use it.
                     </p>
 
                     <p data-i18n="aboutAutomation">
-                        I’m especially interested in building web applications that solve real problems and make people’s everyday work easier. I enjoy the process of turning an idea into a functional product — from understanding the problem to building the interface and logic. Along the way, I use AI as a development tool that speeds up writing code, debugging, and learning new technologies. I’m also constantly looking for ways to automate routine processes, such as testing, so repetitive tasks get done faster and more efficiently.
+                        Right now I’m focusing on QA and DevOps: learning how to test, build and deploy applications automatically and reliably.
                     </p>
                 </div>
-                <aside class="about-card" aria-label="Personal details">
-                    <div class="about-card-header">
-                        <h3 data-i18n="aboutCardTitle">A little about me</h3>
-                        <span data-i18n="aboutCardSubtitle">Quick facts</span>
-                    </div>
-
-                    <div class="about-facts">
+                <aside class="about-card" aria-labelledby="about-card-title">
+                    <h3 id="about-card-title" data-i18n="aboutCardTitle">A little about me</h3>
+                    <dl class="about-facts">
                         <div class="fact">
-                            <span class="fact-label" data-i18n="aboutUniversityLabel">University</span>
-                            <span class="fact-value" data-i18n="aboutUniversity">ALTE University / 3rd year</span>
+                            <dt data-i18n="aboutUniversityLabel">University</dt>
+                            <dd data-i18n="aboutUniversity">ALTE University / 3rd year</dd>
                         </div>
-
                         <div class="fact">
-                            <span class="fact-label" data-i18n="aboutFieldLabel">Field</span>
-                            <span class="fact-value" data-i18n="aboutField">Computer Science</span>
+                            <dt data-i18n="aboutFieldLabel">Field</dt>
+                            <dd data-i18n="aboutField">Computer Science</dd>
                         </div>
-
                         <div class="fact">
-                            <span class="fact-label" data-i18n="aboutLocationLabel">Location</span>
-                            <span class="fact-value" data-i18n="aboutLocation">Tbilisi, Georgia</span>
+                            <dt data-i18n="aboutLocationLabel">Location</dt>
+                            <dd data-i18n="aboutLocation">Tbilisi, Georgia</dd>
                         </div>
-
                         <div class="fact">
-                            <span class="fact-label" data-i18n="aboutFreeTimeLabel">Learning</span>
-                            <span class="fact-value" data-i18n="aboutDefaultMode">DevOps</span>
+                            <dt data-i18n="aboutLearningLabel">Currently learning</dt>
+                            <dd data-i18n="aboutLearning">QA &amp; DevOps</dd>
                         </div>
-
                         <div class="fact">
-                            <span class="fact-label" data-i18n="aboutForFunLabel">Hobbies</span>
-                            <span class="fact-value" data-i18n="aboutForFun">Reading books &amp; chess</span>
+                            <dt data-i18n="aboutLeetcodeLabel">LeetCode</dt>
+                            <dd><a href="https://leetcode.com/u/NikushaAvs/" target="_blank" rel="noopener noreferrer" data-i18n="aboutLeetcode">25 problems solved</a></dd>
                         </div>
-
-                        <div class="fact">
-                            <span class="fact-label" data-i18n="aboutSkillsLabel">LeetCode</span>
-                            <span class="fact-value" data-i18n="aboutSkills">25 problems solved</span>
-                        </div>
-                    </div>
+                    </dl>
                 </aside>
             </div>
         </section>
@@ -155,23 +142,22 @@
 
             <ol class="timeline">
                 <li class="timeline-item">
-                    <span class="timeline-date" data-i18n="expRentoDate">2024 — Present</span>
+                    <span class="timeline-date" data-i18n="expRentoDate">Aug 2026 — Present</span>
                     <div class="timeline-body">
-                        <h3 data-i18n="expRentoTitle">Web Development &amp; Operations</h3>
-                        <p class="timeline-org">Rento.ge · <span data-i18n="expRentoType">Employment</span></p>
+                        <h3 data-i18n="expRentoTitle">Junior Software Engineer at Rento Group</h3>
+                        <p class="timeline-org">rento.ge</p>
                         <ul class="timeline-points" data-i18n="expRentoPoints">
-                            <li>Updated website content and service information to keep customer-facing details accurate and up to date.</li>
-                            <li>Handled customer requests and helped resolve service-related issues.</li>
-                            <li>Improved routine workflows by identifying recurring issues and simplifying day-to-day tasks.</li>
+                            <li>Set up external uptime, content and SSL-expiry monitoring for the company website, with alerts sent as soon as a check fails.</li>
+                            <li>Wrote Playwright end-to-end tests for the company website (page availability, broken images, contact links, mobile layout), scheduled to run daily in CI to catch regressions before customers do.</li>
+                            <li>Improved the company website’s Lighthouse scores (Performance 75 → 95, Accessibility 74 → 91) by optimizing images, eliminating layout shift and fixing accessibility issues.</li>
                         </ul>
                     </div>
                 </li>
                 <li class="timeline-item">
-                    <span class="timeline-date" data-i18n="expAlteDate">2024 — Present</span>
+                    <span class="timeline-date" data-i18n="expAlteDate">Sep 2024 — Expected 2028</span>
                     <div class="timeline-body">
-                        <h3 data-i18n="expAlteTitle">BSc in Computer Science</h3>
-                        <p class="timeline-org">ALTE University · <span data-i18n="expAlteType">Education</span></p>
-                        <p class="timeline-description" data-i18n="expAlteDescription">Third-year student focused on algorithms, data structures, and software engineering.</p>
+                        <h3 data-i18n="expAlteTitle">BSc in Computer Science · ALTE University, Tbilisi</h3>
+                        <p class="timeline-description" data-i18n="expAlteCoursework">Relevant coursework: Data Structures &amp; Algorithms, Databases, Operating Systems, Computer Networks.</p>
                     </div>
                 </li>
             </ol>
