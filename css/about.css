@@ -241,17 +241,6 @@ html:lang(ka) #intro h1 {
     line-height: 1.55;
 }
 
-.about-copy .about-focus {
-    margin-top: 36px;
-    padding-left: 20px;
-    border-left: 3px solid var(--accent);
-    color: var(--text);
-}
-
-.about-copy .about-focus strong {
-    color: var(--accent);
-}
-
 
 @media (max-width: 768px) {
     #about {
