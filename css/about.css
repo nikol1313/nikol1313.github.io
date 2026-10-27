@@ -36,14 +36,24 @@ html:lang(ka) #intro h1 {
     font-size: min(2.4rem, 3.1cqi);
 }
 
-.intro-separator {
-    margin: 0 0.6em;
-    color: var(--line);
-    font-weight: 400;
+.intro-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
 }
 
 .intro-role-accent {
     color: var(--accent);
+}
+
+.intro-lead {
+    max-width: 60ch;
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+    line-height: 1.6;
 }
 
 .intro-photo-frame {
@@ -163,10 +173,6 @@ html:lang(ka) #intro h1 {
 
     .intro-role {
         display: block;
-    }
-
-    .intro-separator {
-        display: none;
     }
 }
 
