@@ -75,7 +75,8 @@ html::-webkit-scrollbar {
     display: none; /* older Chrome, Safari */
 }
 
-section {
+section,
+.project-card {
     scroll-margin-top: 90px;
 }
 

@@ -237,6 +237,17 @@ html:lang(ka) .about-copy {
     margin-top: 20px;
 }
 
+.about-copy a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+.about-copy a:hover {
+    text-decoration-thickness: 2px;
+}
+
 .about-copy strong {
     color: var(--strong);
     font-weight: inherit;

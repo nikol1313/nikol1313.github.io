@@ -22,8 +22,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+Georgian:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/nav.css?v=nav-top-1">
-    <link rel="stylesheet" href="css/about.css?v=nav-top-1">
+    <link rel="stylesheet" href="css/nav.css?v=project-links-1">
+    <link rel="stylesheet" href="css/about.css?v=project-links-1">
     <link rel="stylesheet" href="css/skills.css?v=skills-about-1">
     <link rel="stylesheet" href="css/projects.css?v=heading-line-1">
     <link rel="stylesheet" href="css/experience.css?v=rento-1">    <link rel="icon" type="image/png" href="./images/images.png">
@@ -98,7 +98,7 @@
                 <div class="about-copy">
                     <p class="about-lead" data-i18n="aboutIntro">I’m 19 and a Computer Science student. I build programs to solve problems I run into myself.</p>
 
-                    <p data-i18n="aboutProjects">That’s how the iPhone price tracker started, because I got tired of checking five stores by hand. The video downloader, because free online services were overloaded with ads. And ModzebnAI, because searching for jobs every day and preparing the same applications over and over took up too much of my time.</p>
+                    <p data-i18n="aboutProjects">The <a href="#project-iphone">iPhone price tracker</a>, because I got tired of checking five stores by hand. The <a href="#project-video">video downloader</a>, because free online services were overloaded with ads. And <a href="#project-modzebnai">ModzebnAI</a>, because searching for jobs every day and preparing the same applications over and over took up too much of my time.</p>
 
                     <p data-i18n="aboutStack">I work on both the backend and the frontend, mostly with <strong>Python</strong> and <strong>TypeScript</strong>.</p>
 
@@ -107,6 +107,9 @@
                     <p data-i18n="aboutRento">At <strong>Rento Group</strong>, I applied the same approach to the company website: I wrote Playwright end-to-end tests and set them up to run daily in CI.</p>
 
                     <p data-i18n="aboutAi">I use AI for code analysis, debugging and learning, but I verify the solutions it generates on my own.</p>
+
+
+                    <p data-i18n="aboutGoal">I’m interested in junior positions where I can grow professionally and put my knowledge into practice.</p>
                 </div>
             </div>
         </section>
@@ -192,7 +195,7 @@
             <div class="projects-content">
                 <h2 id="projects-title" data-i18n="projectsTitle">Projects</h2>
                 <div class="project-grid">
-                    <article class="project-card project-card--price">
+                    <article class="project-card project-card--price" id="project-iphone">
                         <div class="project-card-topline">
                             <span class="project-icon project-icon--price" aria-hidden="true">₾</span>
                             <span class="project-category" data-i18n="projectIphoneCategory">Price tracking</span>
@@ -215,7 +218,7 @@
                         </a>
                     </article>
 
-                    <article class="project-card project-card--video">
+                    <article class="project-card project-card--video" id="project-video">
                         <div class="project-card-topline">
                             <span class="project-icon project-icon--video" aria-hidden="true">▶</span>
                             <span class="project-category" data-i18n="projectVideoCategory">Media tools</span>
@@ -248,7 +251,7 @@
                         </a>
                     </article>
 
-                    <article class="project-card project-card--ai">
+                    <article class="project-card project-card--ai" id="project-modzebnai">
                         <div class="project-card-topline">
                             <span class="project-icon" aria-hidden="true">◎</span>
                             <span class="project-category" data-i18n="projectJobCategory">In progress · AI automation</span>
@@ -291,6 +294,6 @@
         ↑
     </button>
 
-    <script src="script.js?v=about-redesign-1" defer></script>
+    <script src="script.js?v=project-links-1" defer></script>
 </body>
 </html>
