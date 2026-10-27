@@ -118,6 +118,7 @@ nav.scrolled {
 
     display: flex;
     align-items: center;
+    gap: 32px;
 
     margin: 0;
     padding: 0;
@@ -146,11 +147,7 @@ nav.scrolled {
 
 @media (min-width: 1201px) and (max-width: 1440px) {
     nav .navigation a {
-        font-size: 1rem;
-    }
-
-    nav .navigation li:not(:last-child)::after {
-        margin: 0 8px;
+        font-size: 0.75rem;
     }
 }
 
@@ -161,7 +158,8 @@ nav.scrolled {
     color: inherit;
     white-space: nowrap;
 
-    font-size: larger;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
 
     transition:
         color 0.3s ease,
@@ -171,19 +169,10 @@ nav.scrolled {
 .navigation a:hover {
     cursor: pointer;
     color: var(--accent);
-    transform: scale(1.08);
 }
 
 .navigation a[aria-current="page"] {
     color: var(--accent);
-}
-
-.navigation li:not(:last-child)::after {
-    content: "|";
-
-    color: var(--line);
-
-    margin: 0 15px;
 }
 
 .nav-actions {
@@ -197,11 +186,12 @@ nav.scrolled {
     border: 1px solid var(--line);
     border-radius: 50px;
 
-    padding: 10px 15px;
+    padding: 7px 14px;
 
     background-color: transparent;
     color: inherit;
     font: inherit;
+    font-size: 0.8rem;
 
     cursor: pointer;
 
@@ -290,6 +280,7 @@ nav.scrolled {
         right: 0;
         left: 0;
         z-index: 101;
+        gap: 0;
         padding: 8px 12px;
         flex-direction: column;
         align-items: stretch;
@@ -303,10 +294,6 @@ nav.scrolled {
         display: flex;
     }
 
-    .navigation li:not(:last-child)::after {
-        display: none;
-    }
-
     .navigation a {
         display: flex;
         min-height: 44px;
@@ -317,9 +304,6 @@ nav.scrolled {
         line-height: 1.3;
     }
 
-    .navigation a:hover {
-        transform: scale(1.02);
-    }
 
     .navigation li:last-child a {
         border-bottom: 0;
