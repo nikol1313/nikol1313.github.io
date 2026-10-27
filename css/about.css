@@ -218,10 +218,6 @@ html:lang(ka) #intro h1 {
     padding-top: 44px;
 }
 
-.about-copy {
-    max-width: 68ch;
-}
-
 .about-copy p {
     color: var(--muted);
     font-size: 1.125rem;
