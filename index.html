@@ -23,12 +23,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+Georgian:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/nav.css?v=skills-about-1">
-    <link rel="stylesheet" href="css/about.css?v=skills-about-1">
+    <link rel="stylesheet" href="css/about.css?v=about-text-2">
     <link rel="stylesheet" href="css/skills.css?v=skills-about-1">
     <link rel="stylesheet" href="css/projects.css?v=heading-line-1">
-    <link rel="stylesheet" href="css/experience.css?v=rento-1">
-    <link rel="stylesheet" href="css/aboutme1.css?v=about-card-2">
-    <link rel="icon" type="image/png" href="./images/images.png">
+    <link rel="stylesheet" href="css/experience.css?v=rento-1">    <link rel="icon" type="image/png" href="./images/images.png">
 </head>
 <body>
     <nav>
@@ -52,8 +50,8 @@
         <section id="intro" aria-labelledby="intro-title">
             <div class="intro-content">
                 <hgroup class="intro-heading">
-                    <h1 id="intro-title" data-i18n="introTitle"><span class="intro-role">DevOps &amp;</span> <span class="intro-role intro-role-accent">Test Automation</span></h1>
-                    <p class="intro-lead" data-i18n="introLead">Full-stack developer who tests, ships and monitors web apps, using AI where it actually helps.</p>
+                    <h1 id="intro-title" data-i18n="introTitle"><span class="intro-role">Web Development</span><span class="intro-separator" aria-hidden="true">|</span><span class="intro-role intro-role-accent">DevOps</span><span class="intro-separator" aria-hidden="true">|</span><span class="intro-role">Testing</span></h1>
+                    <p class="intro-lead" data-i18n="introLead">Full-stack developer who builds, tests, ships, and monitors web apps, using AI where it actually helps.</p>
                 </hgroup>
                 <figure class="intro-photo-frame">
                     <picture>
@@ -96,45 +94,20 @@
             </div>
 
 
-            <div class="about-content about-layout">
+            <div class="about-content">
                 <div class="about-copy">
-                    <p data-i18n="aboutIntro">
+                    <p class="about-lead" data-i18n="aboutIntro">
                         I build tools for problems I run into myself: an iPhone price tracker because I got tired of checking five stores by hand, a video downloader because free “YouTube to MP3” sites were full of ads and malware, and ModzebnAI because checking jobs.ge and hr.ge every day and rewriting the same cover letter took up far too much of my time.
                     </p>
 
                     <p data-i18n="aboutDescription">
-                        I work on both the backend and the frontend, mostly in Python and TypeScript. I test what I build before shipping it: the price tracker has unit tests written with pytest, integration tests with Testcontainers, and Playwright end-to-end tests that click through the site like a real user. At Rento Group, I applied this to the company website with Playwright end-to-end tests that run daily in CI. I use AI for debugging and learning new libraries, but I review its code before I use it.
+                        I work on both the backend and the frontend, mostly in <strong>Python</strong> and <strong>TypeScript</strong>. I test what I build before shipping it: the price tracker has unit tests written with <strong>pytest</strong>, integration tests with <strong>Testcontainers</strong>, and <strong>Playwright</strong> end-to-end tests that click through the site like a real user. At Rento Group, I applied this to the company website with Playwright end-to-end tests that run daily in CI. I use AI for debugging and learning new libraries, but I review its code before I use it.
                     </p>
 
-                    <p data-i18n="aboutAutomation">
-                        Right now I’m focusing on QA and DevOps: learning how to test, build and deploy applications automatically and reliably.
+                    <p class="about-focus" data-i18n="aboutAutomation">
+                        Right now I’m focusing on <strong>QA and DevOps</strong>: learning how to test, build and deploy applications automatically and reliably.
                     </p>
                 </div>
-                <aside class="about-card" aria-labelledby="about-card-title">
-                    <h3 id="about-card-title" data-i18n="aboutCardTitle">A little about me</h3>
-                    <dl class="about-facts">
-                        <div class="fact">
-                            <dt data-i18n="aboutUniversityLabel">University</dt>
-                            <dd data-i18n="aboutUniversity">ALTE University / 3rd year</dd>
-                        </div>
-                        <div class="fact">
-                            <dt data-i18n="aboutFieldLabel">Field</dt>
-                            <dd data-i18n="aboutField">Computer Science</dd>
-                        </div>
-                        <div class="fact">
-                            <dt data-i18n="aboutLocationLabel">Location</dt>
-                            <dd data-i18n="aboutLocation">Tbilisi, Georgia</dd>
-                        </div>
-                        <div class="fact">
-                            <dt data-i18n="aboutLearningLabel">Currently learning</dt>
-                            <dd data-i18n="aboutLearning">QA &amp; DevOps</dd>
-                        </div>
-                        <div class="fact">
-                            <dt data-i18n="aboutLeetcodeLabel">LeetCode</dt>
-                            <dd><a href="https://leetcode.com/u/NikushaAvs/" target="_blank" rel="noopener noreferrer" data-i18n="aboutLeetcode">25 problems solved</a></dd>
-                        </div>
-                    </dl>
-                </aside>
             </div>
         </section>
 
@@ -318,6 +291,6 @@
         ↑
     </button>
 
-    <script src="script.js?v=project-media-1" defer></script>
+    <script src="script.js?v=about-text-2" defer></script>
 </body>
 </html>
