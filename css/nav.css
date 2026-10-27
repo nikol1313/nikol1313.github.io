@@ -64,6 +64,8 @@ html:lang(ka) body {
 html {
     font-size: 125%;
     overflow-x: clip;
+    /* No rubber-band bounce at the top or bottom of the page. */
+    overscroll-behavior-y: none;
     /* Hide scrollbar but keep scrolling (wheel, touch, keyboard) */
     scrollbar-width: none; /* Firefox, Chrome 121+ */
     -ms-overflow-style: none; /* old Edge/IE */
@@ -92,7 +94,7 @@ nav {
     gap: 3rem;
 
     background-color: var(--surface);
-    border-radius: 12px;
+    border-radius: 0 0 12px 12px;
 
     box-shadow: 0 2px 8px var(--nav-shadow);
 

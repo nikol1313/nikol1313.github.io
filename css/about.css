@@ -2,9 +2,9 @@
     min-height: calc(100svh / var(--zoom) - 88px);
     box-sizing: border-box;
     margin-top: 8px;
-    padding: clamp(48px, 8vh, 96px) 24px;
+    padding: clamp(24px, 4vh, 48px) 24px clamp(48px, 8vh, 96px);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     color: var(--text);
     font-family: "JetBrains Mono", "Noto Sans Georgian", ui-monospace, monospace;
@@ -160,7 +160,7 @@ html:lang(ka) #intro h1 {
     #intro {
         min-height: calc(100svh - 80px);
         margin-top: 6px;
-        padding: 48px 16px;
+        padding: 24px 16px 48px;
     }
 
     .intro-links {
