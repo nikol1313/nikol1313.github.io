@@ -85,7 +85,7 @@ const translations = {
         navSkills: "უნარები / ტექნოლოგიები",
         navProjects: "პროექტები",
         introTitle: "<span class=\"intro-role\">ვებ დეველოპმენტი</span><span class=\"intro-separator\" aria-hidden=\"true\">|</span><span class=\"intro-role intro-role-accent\">DevOps</span><span class=\"intro-separator\" aria-hidden=\"true\">|</span><span class=\"intro-role\">ტესტირება</span>",
-        introLead: "Full-stack დეველოპერი, რომელიც ვებაპლიკაციებს ქმნის, ტესტავს, უშვებს და მონიტორინგს უწევს, AI-ს კი იქ იყენებს, სადაც ნამდვილად სჭირდება.",
+        introLead: "Full-stack დეველოპერი, რომელიც ვებაპლიკაციებს ქმნის, ტესტავს, უშვებს და მონიტორინგს უწევს, AI-ს კი იქ იყენებს, სადაც სჭირდება.",
         portraitAlt: "ნიკუშა ავსაჯანიშვილის პორტრეტი",
         introCta: "ღია ვარ სტაჟირებისა და junior პოზიციებისთვის —",
         cvDownload: "ჩამოტვირთე ჩემი CV",
