@@ -9,8 +9,6 @@ const pageLinks = Array.from(document.querySelectorAll(".navigation a"));
 const savedTheme = localStorage.getItem("theme");
 let currentLanguage = localStorage.getItem("language") === "en" ? "en" : "ka";
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-// Fallback until data/leetcode.json (refreshed daily by a GitHub Action) loads.
-let leetcodeSolved = 25;
 
 const translations = {
     en: {
@@ -20,8 +18,8 @@ const translations = {
         navExperience: "Experience",
         navSkills: "Skills / Technologies",
         navProjects: "Projects",
-        introTitle: "<span class=\"intro-role\">DevOps &amp;</span> <span class=\"intro-role intro-role-accent\">Test Automation</span>",
-        introLead: "Full-stack developer who tests, ships and monitors web apps, using AI where it actually helps.",
+        introTitle: "<span class=\"intro-role\">Web Development</span><span class=\"intro-separator\" aria-hidden=\"true\">|</span><span class=\"intro-role intro-role-accent\">DevOps</span><span class=\"intro-separator\" aria-hidden=\"true\">|</span><span class=\"intro-role\">Testing</span>",
+        introLead: "Full-stack developer who builds, tests, ships, and monitors web apps, using AI where it actually helps.",
         portraitAlt: "Portrait of Nikusha Avsajanishvili",
         introCta: "Open to internships and junior roles —",
         cvDownload: "download my CV",
@@ -37,19 +35,8 @@ const translations = {
         expAlteCoursework: "Relevant coursework: Data Structures & Algorithms, Databases, Operating Systems, Computer Networks.",
         aboutTitle: "About Me",
         aboutIntro: "I build tools for problems I run into myself: an iPhone price tracker because I got tired of checking five stores by hand, a video downloader because free “YouTube to MP3” sites were full of ads and malware, and ModzebnAI because checking jobs.ge and hr.ge every day and rewriting the same cover letter took up far too much of my time.",
-        aboutDescription: "I work on both the backend and the frontend, mostly in Python and TypeScript. I test what I build before shipping it: the price tracker has unit tests written with pytest, integration tests with Testcontainers, and Playwright end-to-end tests that click through the site like a real user. At Rento Group, I applied this to the company website with Playwright end-to-end tests that run daily in CI. I use AI for debugging and learning new libraries, but I review its code before I use it.",
-        aboutAutomation: "Right now I’m focusing on QA and DevOps: learning how to test, build and deploy applications automatically and reliably.",
-        aboutCardTitle: "A little about me",
-        aboutUniversityLabel: "University",
-        aboutFieldLabel: "Field",
-        aboutLocationLabel: "Location",
-        aboutLearningLabel: "Currently learning",
-        aboutLeetcodeLabel: "LeetCode",
-        aboutUniversity: "ALTE University / 3rd year",
-        aboutField: "Computer Science",
-        aboutLocation: "Tbilisi, Georgia",
-        aboutLearning: "QA & DevOps",
-        aboutLeetcode: "{leetcodeSolved} problems solved",
+        aboutDescription: "I work on both the backend and the frontend, mostly in <strong>Python</strong> and <strong>TypeScript</strong>. I test what I build before shipping it: the price tracker has unit tests written with <strong>pytest</strong>, integration tests with <strong>Testcontainers</strong>, and <strong>Playwright</strong> end-to-end tests that click through the site like a real user. At Rento Group, I applied this to the company website with Playwright end-to-end tests that run daily in CI. I use AI for debugging and learning new libraries, but I review its code before I use it.",
+        aboutAutomation: "Right now I’m focusing on <strong>QA and DevOps</strong>: learning how to test, build and deploy applications automatically and reliably.",
         skillsTitle: "Skills & Technologies",
         skillsBackendTitle: "Backend",
         skillsFrontendTitle: "Frontend",
@@ -97,8 +84,8 @@ const translations = {
         navExperience: "გამოცდილება",
         navSkills: "უნარები / ტექნოლოგიები",
         navProjects: "პროექტები",
-        introTitle: "<span class=\"intro-role\">DevOps და</span> <span class=\"intro-role intro-role-accent\">ტესტების ავტომატიზაცია</span>",
-        introLead: "Full-stack დეველოპერი, რომელიც ვებაპლიკაციებს ტესტავს, უშვებს და მონიტორინგს უწევს, AI-ს კი იქ იყენებს, სადაც ნამდვილად სჭირდება.",
+        introTitle: "<span class=\"intro-role\">ვებ დეველოპმენტი</span><span class=\"intro-separator\" aria-hidden=\"true\">|</span><span class=\"intro-role intro-role-accent\">DevOps</span><span class=\"intro-separator\" aria-hidden=\"true\">|</span><span class=\"intro-role\">ტესტირება</span>",
+        introLead: "Full-stack დეველოპერი, რომელიც ვებაპლიკაციებს ქმნის, ტესტავს, უშვებს და მონიტორინგს უწევს, AI-ს კი იქ იყენებს, სადაც ნამდვილად სჭირდება.",
         portraitAlt: "ნიკუშა ავსაჯანიშვილის პორტრეტი",
         introCta: "ღია ვარ სტაჟირებისა და junior პოზიციებისთვის —",
         cvDownload: "ჩამოტვირთე ჩემი CV",
@@ -114,19 +101,8 @@ const translations = {
         expAlteCoursework: "შესაბამისი კურსები: მონაცემთა სტრუქტურები და ალგორითმები, მონაცემთა ბაზები, ოპერაციული სისტემები, კომპიუტერული ქსელები.",
         aboutTitle: "ჩემ შესახებ",
         aboutIntro: "ვქმნი ხელსაწყოებს იმ პრობლემებისთვის, რომლებსაც თავად ვაწყდები: iPhone-ის ფასების ტრეკერი იმიტომ, რომ მომბეზრდა ხუთი მაღაზიის ხელით შემოწმება, ვიდეოების ჩამომტვირთავი იმიტომ, რომ უფასო „YouTube to MP3“ საიტები სავსე იყო რეკლამით და ვირუსებით, ModzebnAI კი იმიტომ, რომ jobs.ge-სა და hr.ge-ს ყოველდღიური შემოწმება და ერთი და იმავე სამოტივაციო წერილის თავიდან წერა ძალიან დიდ დროს მართმევდა.",
-        aboutDescription: "ვმუშაობ როგორც ბექენდზე, ისე ფრონტენდზე, ძირითადად Python-სა და TypeScript-ზე. ჩემს პროგრამებს გაშვებამდე ვტესტავ. ფასების ტრეკერს აქვს pytest-ით დაწერილი unit ტესტები, Testcontainers-ის ინტეგრაციული ტესტები და Playwright-ის end-to-end ტესტები, რომლებიც საიტს ნამდვილი მომხმარებელივით გადიან. Rento Group-ში იგივე მიდგომა კომპანიის ვებსაიტზეც გამოვიყენე: დავწერე Playwright-ის end-to-end ტესტები, რომლებიც CI-ში ყოველდღიურად ეშვება. AI-ს ვიყენებ დებაგინგისთვის და ახალი ბიბლიოთეკების შესასწავლად, თუმცა მის კოდს გამოყენებამდე ვამოწმებ.",
-        aboutAutomation: "ამჟამად ვფოკუსირდები QA-სა და DevOps-ში: ვსწავლობ, როგორ გავტესტო, ავაწყო და გავუშვა აპლიკაციები ავტომატურად და საიმედოდ.",
-        aboutCardTitle: "ცოტა რამ ჩემ შესახებ",
-        aboutUniversityLabel: "უნივერსიტეტი",
-        aboutFieldLabel: "მიმართულება",
-        aboutLocationLabel: "მდებარეობა",
-        aboutLearningLabel: "ახლა ვსწავლობ",
-        aboutLeetcodeLabel: "LeetCode",
-        aboutUniversity: "ALTE University / მე-3 კურსი",
-        aboutField: "კომპიუტერული მეცნიერება",
-        aboutLocation: "თბილისი",
-        aboutLearning: "QA და DevOps",
-        aboutLeetcode: "{leetcodeSolved} ამოცანა გადაწყვეტილი",
+        aboutDescription: "ვმუშაობ როგორც ბექენდზე, ისე ფრონტენდზე, ძირითადად <strong>Python</strong>-სა და <strong>TypeScript</strong>-ზე. ჩემს პროგრამებს გაშვებამდე ვტესტავ. ფასების ტრეკერს აქვს <strong>pytest</strong>-ით დაწერილი unit ტესტები, <strong>Testcontainers</strong>-ის ინტეგრაციული ტესტები და <strong>Playwright</strong>-ის end-to-end ტესტები, რომლებიც საიტს ნამდვილი მომხმარებელივით გადიან. Rento Group-ში იგივე მიდგომა კომპანიის ვებსაიტზეც გამოვიყენე: დავწერე Playwright-ის end-to-end ტესტები, რომლებიც CI-ში ყოველდღიურად ეშვება. AI-ს ვიყენებ დებაგინგისთვის და ახალი ბიბლიოთეკების შესასწავლად, თუმცა მის კოდს გამოყენებამდე ვამოწმებ.",
+        aboutAutomation: "ამჟამად ვფოკუსირდები <strong>QA-სა და DevOps-ში</strong>: ვსწავლობ, როგორ გავტესტო, ავაწყო და გავუშვა აპლიკაციები ავტომატურად და საიმედოდ.",
         skillsTitle: "უნარები და ტექნოლოგიები",
         skillsBackendTitle: "ბექენდი",
         skillsFrontendTitle: "ფრონტენდი",
@@ -172,15 +148,6 @@ const translations = {
 document.body.classList.toggle("light", savedTheme === "light");
 applyLanguage(currentLanguage);
 
-fetch("data/leetcode.json", { cache: "no-cache" })
-    .then((response) => (response.ok ? response.json() : Promise.reject()))
-    .then(({ solved }) => {
-        if (Number.isInteger(solved)) {
-            leetcodeSolved = solved;
-            applyLanguage(currentLanguage);
-        }
-    })
-    .catch(() => {});
 updateModeButton();
 const initialSection = document.getElementById(window.location.hash.slice(1)) || document.getElementById("intro");
 setCurrentSection(initialSection.id);
@@ -280,7 +247,7 @@ function applyLanguage(language) {
         const translation = languageTranslations[element.dataset.i18n];
 
         if (translation !== undefined) {
-            element.innerHTML = translation.replace("{leetcodeSolved}", leetcodeSolved);
+            element.innerHTML = translation;
         }
     });
 
