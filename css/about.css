@@ -191,13 +191,11 @@ html:lang(ka) #intro h1 {
     max-width: 1200px;
     margin: 28px auto 90px;
     padding: 24px 48px 40px;
-
-    border-bottom: 1px solid var(--line);
 }
 
 .about-heading {
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+    text-align: center;
 }
 
 #about h2,
@@ -218,27 +216,39 @@ html:lang(ka) #intro h1 {
     padding-top: 44px;
 }
 
+.about-copy {
+    --about-scale: 1;
+    max-width: 62ch;
+    margin: 0 auto;
+}
+
+/* Noto Sans Georgian renders larger than the Latin font at the same size. */
+html:lang(ka) .about-copy {
+    --about-scale: 0.88;
+}
+
 .about-copy p {
     color: var(--muted);
-    font-size: 1.125rem;
-    line-height: 1.75;
+    font-size: calc(1rem * var(--about-scale));
+    line-height: 1.7;
 }
 
 .about-copy p + p {
-    margin-top: 24px;
+    margin-top: 20px;
 }
 
 .about-copy strong {
     color: var(--strong);
-    font-weight: 600;
+    font-weight: inherit;
 }
 
 .about-copy .about-lead {
     color: var(--strong);
-    font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+    font-size: calc(clamp(1.15rem, 1.8vw, 1.3rem) * var(--about-scale));
     font-weight: 500;
     letter-spacing: -0.01em;
-    line-height: 1.55;
+    line-height: 1.5;
+    margin-bottom: 36px;
 }
 
 
@@ -252,6 +262,7 @@ html:lang(ka) #intro h1 {
         grid-template-columns: 1fr;
         padding-top: 36px;
     }
+
 }
 
 @media (max-width: 480px) {
@@ -269,6 +280,6 @@ html:lang(ka) #intro h1 {
     }
 
     .about-copy .about-lead {
-        font-size: 1.15rem;
+        font-size: calc(1.15rem * var(--about-scale));
     }
 }
