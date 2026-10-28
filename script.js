@@ -19,7 +19,7 @@ const translations = {
         navSkills: "Skills / Technologies",
         navProjects: "Projects",
         introTitle: "<span class=\"intro-role intro-role-accent\">Junior DevOps Engineer</span>",
-        introLead: "I started programming with web development, so I know how code works from the inside. Now I'm learning testing and monitoring so that what I build runs reliably.",
+        introLead: "I started programming with web development, so I know how code works from the inside. Now I'm interested in testing and monitoring so that what I build runs reliably.",
         portraitAlt: "Portrait of Nikusha Avsajanishvili",
         introCta: "Interested in an internship or junior role —",
         cvDownload: "download my CV",
