@@ -32,10 +32,6 @@
     white-space: nowrap;
 }
 
-html:lang(ka) #intro h1 {
-    font-size: min(2.4rem, 3.1cqi);
-}
-
 .intro-heading {
     display: flex;
     flex-direction: column;
@@ -171,10 +167,6 @@ html:lang(ka) #intro h1 {
     #intro h1 {
         font-size: min(1.6rem, 6.4cqi);
         line-height: 1.35;
-    }
-
-    html:lang(ka) #intro h1 {
-        font-size: min(1.4rem, 4.8cqi);
     }
 
     .intro-role {
