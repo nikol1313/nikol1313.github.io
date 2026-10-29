@@ -59,20 +59,49 @@
 }
 
 .intro-photo-frame {
+    --bracket: 22px;
+    position: relative;
     width: clamp(140px, 22vw, 240px);
-    margin: 0;
+    margin: 0 12px 12px 0;
+}
+
+/* Offset accent outline behind the photo. */
+.intro-photo-frame::before {
+    content: "";
+    position: absolute;
+    inset: 12px -12px -12px 12px;
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    opacity: 0.6;
+}
+
+/* Terminal-style corner brackets (top-left, bottom-right). */
+.intro-photo-frame::after {
+    content: "";
+    position: absolute;
+    inset: -8px -20px -20px -8px;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        linear-gradient(var(--accent), var(--accent)) top left / var(--bracket) 3px,
+        linear-gradient(var(--accent), var(--accent)) top left / 3px var(--bracket),
+        linear-gradient(var(--accent), var(--accent)) bottom right / var(--bracket) 3px,
+        linear-gradient(var(--accent), var(--accent)) bottom right / 3px var(--bracket);
+    background-repeat: no-repeat;
 }
 
 .intro-photo {
+    position: relative;
+    z-index: 1;
     display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 1;
     object-fit: cover;
-    object-position: 52% 12%;
     border: 2px solid var(--line);
-    border-radius: 50%;
+    border-radius: 6px;
     box-sizing: border-box;
+    box-shadow: 0 12px 28px var(--nav-shadow-strong);
 }
 
 .intro-cta {
