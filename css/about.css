@@ -50,6 +50,21 @@
     color: var(--accent);
 }
 
+/* Set by fitIntroTitle() when the one-line title does not fit; long roles may still wrap. */
+#intro h1.is-stacked {
+    font-size: min(2.4rem, 6.4cqi);
+    line-height: 1.35;
+    white-space: normal;
+}
+
+#intro h1.is-stacked .intro-role {
+    display: block;
+}
+
+#intro h1.is-stacked .intro-separator {
+    display: none;
+}
+
 .intro-lead {
     max-width: 60ch;
     margin: 0;
@@ -179,6 +194,61 @@
     overflow: hidden;
     clip-path: inset(50%);
     white-space: nowrap;
+}
+
+/* Wider screens: text on the left, photo on the right. */
+@media (min-width: 701px) {
+    #intro {
+        align-items: center;
+    }
+
+    .intro-content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        grid-template-areas:
+            "heading photo"
+            "cta     cta"
+            "links   links";
+        align-content: center;
+        column-gap: clamp(32px, 5cqi, 64px);
+        row-gap: clamp(18px, 3vh, 32px);
+        text-align: left;
+    }
+
+    .intro-heading {
+        grid-area: heading;
+        align-items: flex-start;
+    }
+
+    #intro h1.is-stacked {
+        font-size: min(2.2rem, 3.4cqi);
+    }
+
+    .intro-photo-frame {
+        grid-area: photo;
+        align-self: center;
+        width: clamp(200px, 30cqi, 340px);
+    }
+
+    .intro-cta {
+        grid-area: cta;
+        margin-top: 14px;
+        text-align: center;
+    }
+
+    .intro-lead {
+        font-size: clamp(0.95rem, 1.4cqi, 1.15rem);
+    }
+
+    .intro-links {
+        grid-area: links;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: center;
+        gap: 8px 28px;
+    }
 }
 
 @media (max-width: 600px) {

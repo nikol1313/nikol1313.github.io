@@ -5,6 +5,7 @@ const scrollTopButton = document.getElementById("scroll-top");
 const nav = document.querySelector("nav");
 const pageSections = Array.from(document.querySelectorAll("main > section"));
 const pageLinks = Array.from(document.querySelectorAll(".navigation a"));
+const introTitle = document.getElementById("intro-title");
 
 const savedTheme = localStorage.getItem("theme");
 let currentLanguage = localStorage.getItem("language") === "en" ? "en" : "ka";
@@ -18,8 +19,8 @@ const translations = {
         navExperience: "Experience",
         navSkills: "Skills / Technologies",
         navProjects: "Projects",
-        introTitle: "<span class=\"intro-role intro-role-accent\">Junior DevOps Engineer</span>",
-        introLead: "I started programming with web development, so I know how code works from the inside. Now I'm interested in testing and monitoring so that what I build runs reliably.",
+        introTitle: "<span class=\"intro-role intro-role-accent\">QA Automation Engineer</span><span class=\"intro-separator\" aria-hidden=\"true\">·</span><span class=\"intro-role intro-role-accent\">Full-Stack Background</span>",
+        introLead: "I started as a full-stack developer, so I know how code works and where it breaks. Now I write automated tests that catch problems before users do.",
         portraitAlt: "Portrait of Nikusha Avsajanishvili",
         introCta: "Interested in an internship or junior role —",
         cvDownload: "download my CV",
@@ -28,21 +29,21 @@ const translations = {
         emailCopyFailed: "Could not copy the email address",
         experienceTitle: "Experience & Education",
         expRentoDate: "Aug 2026 — Present",
-        expRentoTitle: "Junior Software Engineer at Rento Group",
-        expRentoPoints: "<li>Set up external uptime, content and SSL-expiry monitoring for the company website, with alerts sent as soon as a check fails.</li><li>Wrote Playwright end-to-end tests for the company website (page availability, broken images, contact links, mobile layout), scheduled to run daily in CI to catch regressions before customers do.</li><li>Improved the company website’s Lighthouse scores (Performance 75 → 95, Accessibility 74 → 91) by optimizing images, eliminating layout shift and fixing accessibility issues.</li>",
+        expRentoTitle: "Software Quality &amp; Reliability Engineer at Rento Group",
+        expRentoPoints: "<li>Wrote automated Playwright end-to-end tests that check the website’s core functionality. The tests are integrated into the CI/CD pipeline and run daily.</li><li>Set up availability and reliability monitoring for the website (uptime, content checks, SSL certificate expiry), with automatic alerts when an issue is detected.</li><li>Work directly with customers, investigating technical and functional issues that come up during the rental process and helping resolve them.</li>",
         expAlteDate: "Sep 2024 — Expected 2028",
         expAlteTitle: "ALTE University, Tbilisi",
         expAltePoints: "<li>Bachelor’s degree in Computer Science, 3rd year.</li><li>Classes in Data Structures &amp; Algorithms, Python, HTML/CSS/JavaScript, C++, Calculus I/II, Linear &amp; Discrete Math, Physics, Object-Oriented Programming, Relational &amp; Non-Relational Databases, Networking...</li>",
         aboutTitle: "About Me",
-        aboutIntro: "Hi, I’m Nikusha Avsajanishvili. I’m 19, I live in Tbilisi and I’m a third-year Computer Science student. I build programs to solve problems I run into myself.",
+        aboutIntro: "Hi, I’m Nikusha Avsajanishvili, a third-year Computer Science student from Tbilisi. I build programs to solve problems I run into myself, and I test them myself too. For example:",
         aboutProjects: "The <a href=\"#project-iphone\">iPhone price tracker</a>, because I got tired of checking five stores by hand. The <a href=\"#project-video\">video downloader</a>, because free online services were overloaded with ads and malware. And <a href=\"#project-modzebnai\">ModzebnAI</a>, because searching for jobs every day and preparing applications took up too much time for me and my friends.",
-        aboutStack: "I can work on both the backend and the frontend, mostly with <strong>Python</strong> and <strong>TypeScript</strong>. What interests me most, though, is how to verify that a program works correctly. In the price tracker I write unit tests with <strong>pytest</strong> and integration tests with <strong>Testcontainers</strong>, while <strong>Playwright</strong> checks the main user flows.",
-        aboutRento: "For the <strong>Rento Group</strong> website, I wrote Playwright smoke tests that run automatically every day through CI and check that the site’s core features work.",
-        aboutGoal: "I’m looking for a junior DevOps role or internship where I can work on real infrastructure.",
+        aboutStack: "I have experience with both the backend and the frontend, mostly with <strong>Python</strong> and <strong>TypeScript</strong>. What interests me most, though, is how to verify that a program works correctly and find bugs before users do. In the price tracker I write unit tests with <strong>pytest</strong> and integration tests with <strong>Testcontainers</strong>, while <strong>Playwright</strong> checks the main user flows.",
+        aboutRento: "For the <strong>Rento Group</strong> website, I wrote Playwright smoke tests that run automatically every day in CI and check that the site’s core features work.",
+        aboutGoal: "I’m looking for a junior QA Automation role or internship where I can test real products and use my developer experience to catch bugs early.",
         skillsBackendTitle: "Backend",
         skillsFrontendTitle: "Frontend",
         skillsTestingTitle: "Testing",
-        skillsToolsTitle: "Tools &amp; DevOps",
+        skillsToolsTitle: "CI/CD &amp; Tools",
         projectsTitle: "Projects",
         projectIphoneCategory: "Price tracking",
         projectIphoneTitle: "iPhone Price Tracker",
@@ -51,6 +52,7 @@ const translations = {
         projectIphoneHighlight1: "Retailer-specific scrapers pull listings from multiple Georgian stores, including Zoommer, Alta and more, into one searchable catalog and log every crawl.",
         projectIphoneHighlight2: "Every price change is recorded, so each model gets its own price history.",
         projectIphoneHighlight3: "Prices are re-checked every 12 hours, and a Telegram alert goes out when a tracked iPhone drops below the user’s target price.",
+        projectIphoneHighlight4: "Tested with pytest and HTTPX (auth, alerts, notifications and every scraper parser, including edge cases like listings with missing prices), Testcontainers integration tests against a real PostgreSQL database, and Playwright checks of the main user flows.",
         projectVideoCategory: "Media tools",
         projectVideoTitle: "Video Downloader",
         projectVideoDescription: "Paste a link, pick a quality or MP3, and watch it download live.",
@@ -59,6 +61,7 @@ const translations = {
         projectVideoHighlight2: "A Node.js, Express, and TypeScript backend runs yt-dlp as background processes, two at a time, while PostgreSQL stores every download job.",
         projectVideoHighlight3: "A one-page React and TypeScript interface starts downloads, shows live progress, and saves finished files.",
         projectVideoHighlight4: "Prometheus collects app metrics at /metrics, and Docker Compose runs the whole stack.",
+        projectVideoHighlight5: "GitHub Actions CI builds the app and runs integration tests against PostgreSQL on every push, including checks that invalid input is rejected.",
         projectProblemLabel: "The problem",
         projectBuiltLabel: "What I built",
         projectGithubLink: "Explore on GitHub",
@@ -85,8 +88,8 @@ const translations = {
         navExperience: "გამოცდილება",
         navSkills: "უნარები / ტექნოლოგიები",
         navProjects: "პროექტები",
-        introTitle: "<span class=\"intro-role intro-role-accent\">Junior DevOps ინჟინერი</span>",
-        introLead: "პროგრამირება ვებ დეველოპმენტით დავიწყე, ამიტომ ვიცი, როგორ მუშაობს კოდი შიგნიდან, მაგრამ ახლა მაინტერესებს ტესტირება და მონიტორინგი, რომ ის, რასაც ვქმნი, საიმედოდ მუშაობდეს.",
+        introTitle: "<span class=\"intro-role intro-role-accent\">QA ავტომატიზაციის ინჟინერი</span><span class=\"intro-separator\" aria-hidden=\"true\">·</span><span class=\"intro-role intro-role-accent\">Full-Stack გამოცდილებით</span>",
+        introLead: "პროგრამირება full-stack დეველოპმენტით დავიწყე, ამიტომ ვიცი, როგორ მუშაობს კოდი და სად შეიძლება გაფუჭდეს. ახლა ვწერ ავტომატიზებულ ტესტებს, რომლებიც პრობლემებს მომხმარებლამდე ავლენს.",
         portraitAlt: "ჩემი პორტრეტი",
         introCta: "დაინტერესებული ვარ სტაჟირებით ან Junior პოზიციით —",
         cvDownload: "ჩამოტვირთე ჩემი CV",
@@ -95,21 +98,21 @@ const translations = {
         emailCopyFailed: "ელფოსტის მისამართის კოპირება ვერ მოხერხდა",
         experienceTitle: "გამოცდილება და განათლება",
         expRentoDate: "აგვისტო 2026 — დღემდე",
-        expRentoTitle: "Junior Software Engineer · Rento Group",
-        expRentoPoints: "<li>დავნერგე ვებსაიტის გარე მონიტორინგი (uptime, კონტენტის შემოწმება, SSL სერტიფიკატის ვადა), რომელიც ხარვეზის შემთხვევაში შეტყობინებას მაშინვე აგზავნის.</li><li>დავწერე Playwright-ის end-to-end ტესტები (გვერდების ჩატვირთვა, ჩაუტვირთავი სურათები, საკონტაქტო ბმულები, მობილური ვერსია), რომლებიც CI-ში ყოველდღიურად ეშვება და შეცდომებს მომხმარებლამდე ავლენს.</li><li>გავაუმჯობესე ვებსაიტის Lighthouse-ის შეფასებები (Performance 75 → 95, Accessibility 74 → 91) სურათების ოპტიმიზაციით, layout shift-ის აღმოფხვრითა და accessibility-ის ხარვეზების გასწორებით.</li>",
+        expRentoTitle: "Software Quality &amp; Reliability Engineer · Rento Group",
+        expRentoPoints: "<li>Playwright-ით დავწერე ავტომატიზებული end-to-end ტესტები ვებსაიტის ძირითადი ფუნქციონალის შესამოწმებლად. ტესტები ინტეგრირებულია CI/CD პროცესში და ყოველდღიურად ეშვება.</li><li>დავნერგე ვებსაიტის ხელმისაწვდომობისა და საიმედოობის მონიტორინგი (uptime, კონტენტის შემოწმება, SSL სერტიფიკატის ვადა), ავტომატური შეტყობინებებით ხარვეზების აღმოჩენისას.</li><li>ვუკავშირდები მომხმარებლებს, ვიკვლევ გაქირავების პროცესში წარმოქმნილ ტექნიკურ და ფუნქციურ პრობლემებს და ვეხმარები მათ მოგვარებაში.</li>",
         expAlteDate: "სექტემბერი 2024 — 2028",
         expAlteTitle: "ALTE University, თბილისი",
         expAltePoints: "<li>კომპიუტერული მეცნიერების ბაკალავრიატი, მე-3 კურსი.</li><li>გავლილი საგნები: მონაცემთა სტრუქტურები და ალგორითმები, Python, HTML/CSS/JavaScript, C++, კალკულუსი I/II, წრფივი და დისკრეტული მათემატიკა, ფიზიკა, ობიექტზე ორიენტირებული პროგრამირება, რელაციური და არარელაციური მონაცემთა ბაზები, ქსელები...</li>",
         aboutTitle: "ჩემ შესახებ",
-        aboutIntro: "გამარჯობა, მე ვარ ნიკუშა ავსაჯანიშვილი. 19 წლის ვარ, ვცხოვრობ თბილისში და ვსწავლობ კომპიუტერული მეცნიერების მესამე კურსზე. ვქმნი პროგრამებს იმ პრობლემების გადასაჭრელად, რომლებსაც თავად ვაწყდები.",
+        aboutIntro: "გამარჯობა, მე ვარ ნიკუშა ავსაჯანიშვილი, 19 წლის, კომპიუტერული მეცნიერების მესამე კურსის სტუდენტი, თბილისიდან. ვქმნი პროგრამებს იმ პრობლემების გადასაჭრელად, რომლებსაც თავად ვაწყდები, და თავადვე ვტესტავ მათ. მაგალითად:",
         aboutProjects: "<a href=\"#project-iphone\">iPhone-ის ფასების ტრეკერი</a>, რადგან მომბეზრდა ხუთი მაღაზიის ხელით შემოწმება. <a href=\"#project-video\">ვიდეოების ჩამომტვირთავი</a>, რადგან უფასო ონლაინ სერვისები რეკლამებითა და ვირუსებით იყო გადატვირთული. და <a href=\"#project-modzebnai\">ModzebnAI</a>, რადგან ვაკანსიების ყოველდღიური ძებნა და განაცხადების მომზადება ზედმეტ დროს გვართმევდა მე და ჩემს მეგობრებს.",
-        aboutStack: "შემიძლია როგორც ბექენდი, ისე ფრონტენდი, ძირითადად <strong>Python</strong>-ითა და <strong>TypeScript</strong>-ით. ყველაზე მეტად კი მაინტერესებს, როგორ შევამოწმო, რომ პროგრამა სწორად მუშაობს. ფასების ტრეკერში unit ტესტებს <strong>pytest</strong>-ით ვწერ, ინტეგრაციულს <strong>Testcontainers</strong>-ით, ხოლო მომხმარებლის ძირითად სცენარებს <strong>Playwright</strong> ამოწმებს.",
-        aboutRento: "<strong>Rento Group</strong>-ის ვებსაიტისთვის დავწერე Playwright-ის smoke ტესტები, რომლებიც CI-ის საშუალებით ყოველდღიურად ავტომატურად ეშვება და საიტის ძირითადი ფუნქციების გამართულობას ამოწმებს.",
-        aboutGoal: "ვეძებ Junior DevOps პოზიციას ან სტაჟირებას, სადაც რეალურ ინფრასტრუქტურაზე ვიმუშავებ.",
+        aboutStack: "გამოცდილება მაქვს როგორც ბექენდის, ისე ფრონტენდის, ძირითადად <strong>Python</strong>-ითა და <strong>TypeScript</strong>-ით. ყველაზე მეტად კი მაინტერესებს, როგორ შევამოწმო პროგრამის გამართულობა და ვიპოვო ხარვეზები, სანამ მომხმარებელი იპოვის მათ. ფასების ტრეკერში unit ტესტებს <strong>pytest</strong>-ით ვწერ, ინტეგრაციულს <strong>Testcontainers</strong>-ით, ხოლო მომხმარებლის ძირითად სცენარებს <strong>Playwright</strong> ამოწმებს.",
+        aboutRento: "<strong>Rento Group</strong>-ის ვებსაიტისთვის დავწერე Playwright-ის smoke ტესტები, რომლებიც CI-ში ყოველდღიურად ავტომატურად ეშვება და საიტის ძირითადი ფუნქციების გამართულობას ამოწმებს.",
+        aboutGoal: "ვეძებ Junior QA Automation პოზიციას ან სტაჟირებას, სადაც რეალურ პროდუქტებს გავტესტავ და დეველოპერის გამოცდილებით ხარვეზებს ადრეულ ეტაპზევე აღმოვაჩენ.",
         skillsBackendTitle: "ბექენდი",
         skillsFrontendTitle: "ფრონტენდი",
         skillsTestingTitle: "ტესტირება",
-        skillsToolsTitle: "ხელსაწყოები და DevOps",
+        skillsToolsTitle: "CI/CD და ხელსაწყოები",
         projectsTitle: "პროექტები",
         projectIphoneCategory: "ფასის მონიტორინგი",
         projectIphoneTitle: "iPhone-ის ფასების ტრეკერი",
@@ -118,6 +121,7 @@ const translations = {
         projectIphoneHighlight1: "მაღაზიებზე მორგებული სკრეიპერები სხვადასხვა ქართული მაღაზიის, მათ შორის Zoommer-ის, Alta-ს და სხვების, პროდუქტებს ერთ საძიებო კატალოგში აგროვებს და ყოველი განახლების შედეგს აღრიცხავს.",
         projectIphoneHighlight2: "ფასის ყოველი ცვლილება ინახება, ამიტომ თითოეულ მოდელს საკუთარი ფასების ისტორია აქვს.",
         projectIphoneHighlight3: "ფასები ყოველ 12 საათში მოწმდება და, როცა თვალყურდევნებული iPhone-ის ფასი მომხმარებლის სასურველ ფასზე დაბლა ჩამოდის, Telegram-ზე შეტყობინება იგზავნება.",
+        projectIphoneHighlight4: "დატესტილია pytest-ითა და HTTPX-ით (ავტორიზაცია, შეტყობინებები, ალერტები და ყველა სკრეიპერის პარსერი, მათ შორის კიდურა შემთხვევები, მაგალითად ფასის გარეშე განცხადებები), Testcontainers-ის ინტეგრაციული ტესტებით რეალურ PostgreSQL ბაზაზე, ხოლო მომხმარებლის ძირითად სცენარებს Playwright ამოწმებს.",
         projectVideoCategory: "ვიდეო ხელსაწყო",
         projectVideoTitle: "Video Downloader",
         projectVideoDescription: "ჩასვი ბმული, აირჩიე ხარისხი ან MP3 და ადევნე თვალი ჩამოტვირთვას რეალურ დროში.",
@@ -126,6 +130,7 @@ const translations = {
         projectVideoHighlight2: "Node.js-ის, Express-ისა და TypeScript-ის ბექენდი yt-dlp-ს ფონურ პროცესებად, ერთდროულად ორს უშვებს, PostgreSQL კი ჩამოტვირთვის ყველა ამოცანას ინახავს.",
         projectVideoHighlight3: "React-ითა და TypeScript-ით აწყობილი ერთგვერდიანი ინტერფეისი ჩამოტვირთვას იწყებს, პროგრესს რეალურ დროში აჩვენებს და მზა ფაილებს ინახავს.",
         projectVideoHighlight4: "Prometheus აპლიკაციის მეტრიკებს /metrics მისამართზე აგროვებს, Docker Compose კი მთელ სისტემას უშვებს.",
+        projectVideoHighlight5: "GitHub Actions CI ყოველ push-ზე აპლიკაციას აწყობს და PostgreSQL-ზე ინტეგრაციულ ტესტებს უშვებს, მათ შორის ამოწმებს, რომ არასწორი შეყვანა უარყოფილია.",
         projectProblemLabel: "პრობლემა",
         projectBuiltLabel: "რა შევქმენი",
         projectGithubLink: "GitHub-ზე ნახვა",
@@ -277,6 +282,14 @@ function applyLanguage(language) {
     );
     scrollTopButton.setAttribute("aria-label", languageTranslations.scrollTopLabel);
     updateModeButton();
+    fitIntroTitle();
+}
+
+// Puts each role on its own line when the one-line title would be wider than the intro.
+function fitIntroTitle() {
+    introTitle.classList.remove("is-stacked");
+    const available = introTitle.parentElement.clientWidth;
+    introTitle.classList.toggle("is-stacked", introTitle.scrollWidth > available);
 }
 
 function setCurrentSection(sectionId) {
@@ -342,6 +355,9 @@ if (reducedMotion.matches) {
 }
 
 setupMediaDialogs();
+
+new ResizeObserver(fitIntroTitle).observe(introTitle.parentElement.parentElement);
+document.fonts.ready.then(fitIntroTitle);
 
 function setupMediaDialogs() {
     document.querySelectorAll("[data-media-dialog]").forEach((button) => {
