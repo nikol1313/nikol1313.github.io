@@ -1,3 +1,8 @@
+/* Projects follows the same visual language as the other sections: bordered
+   panels with a light surface tint, the site sans font, muted body text,
+   accent only for links, surface-filled pills like Skills, and round
+   outlined buttons like the nav's theme/language buttons. */
+
 #projects {
     box-sizing: border-box;
     max-width: 1200px;
@@ -12,86 +17,176 @@
     border-bottom: 1px solid var(--line);
     font-size: clamp(2.5rem, 6vw, 5.25rem);
     font-weight: 700;
-    letter-spacing: -0.05em;
-    line-height: 0.8;
+    letter-spacing: -0.06em;
+    line-height: 0.9;
 }
 
 .project-list {
     display: grid;
-    gap: 20px;
-    margin-top: 34px;
+    /* Each card keeps its own height, so opening "Read more" on one
+       doesn't stretch the card next to it. */
+    align-items: start;
+    gap: 24px;
+    margin-top: 32px;
 }
 
-/* Thin outline, no fill: the cards sit on the page instead of floating above it. */
+/* Each project is its own panel: thin border plus a light tint of the nav/Skills
+   surface colour, so projects are clearly separated without heavy cards. */
 .project-card {
     --project-accent: var(--accent);
-    --card-line: var(--progress-track);
-    --card-line-strong: var(--line);
     position: relative;
     display: flex;
     min-width: 0;
     flex-direction: column;
-    padding: 28px;
-    border: 1px solid var(--card-line-strong);
-    border-radius: 4px;
-    transition: border-color 0.2s ease;
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background-color: color-mix(in srgb, var(--surface) 35%, transparent);
+    transition: border-color 0.3s ease;
 }
 
 .project-card:hover {
-    border-color: var(--muted);
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
 }
 
 .project-card h3 {
     margin: 0;
     color: var(--strong);
-    font-size: clamp(1.25rem, 2.2vw, 1.5rem);
-    letter-spacing: -0.03em;
-    line-height: 1.15;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+/* Project name styled like its own site's logo: mark + name + red ".ge". */
+.project-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.project-brand-logo {
+    width: auto;
+    height: 1.15em;
+    flex: none;
+}
+
+/* iPhone Tracker's brand red (from its own stylesheet), per theme. */
+.project-brand-tld {
+    color: #ef4250;
+}
+
+body.light .project-brand-tld {
+    color: #c8102e;
 }
 
 .project-card--featured h3 {
-    font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    letter-spacing: -0.03em;
 }
 
 .project-description {
-    margin: 12px 0 20px;
+    margin: 12px 0 18px;
     color: var(--text);
-    font-size: 1.08rem;
+    font-size: 1.0625rem;
     line-height: 1.6;
 }
 
 /* Key technical facts, visible without opening "Read more". */
 .project-facts {
-    display: grid;
+    margin: 0 0 22px;
+    padding-left: 1.1em;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+.project-facts li + li {
+    margin-top: 6px;
+}
+
+.project-facts li::marker,
+.project-highlights li::marker {
+    color: var(--project-accent);
+}
+
+/* Same filled pills as the Skills section, just smaller. */
+.project-stack {
+    display: flex;
+    flex-wrap: wrap;
     gap: 8px;
-    margin: 0 0 18px;
+    margin: 0 0 24px;
     padding: 0;
     list-style: none;
 }
 
-.project-facts li {
-    position: relative;
-    padding-left: 22px;
-    color: var(--muted);
-    font-family: "JetBrains Mono", ui-monospace, monospace;
-    font-size: 0.8rem;
-    line-height: 1.6;
+.project-stack li {
+    padding: 5px 14px;
+    border-radius: 999px;
+    background-color: var(--surface);
+    color: var(--text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.3;
 }
 
-.project-facts li::before {
-    content: "▹";
-    position: absolute;
-    left: 0;
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Same shape and hover as the nav's theme/language buttons. */
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border: 1px solid var(--line);
+    border-radius: 50px;
+    color: var(--text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Main action (live site, or GitHub when there is none) in the accent colour. */
+.project-link:first-child {
+    border-color: var(--project-accent);
     color: var(--project-accent);
 }
 
+.project-link:hover,
+.project-link:focus-visible {
+    border-color: var(--button-hover-bg);
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-text);
+}
+
+.project-link-arrow {
+    transition: transform 0.2s ease;
+}
+
+.project-link:hover .project-link-arrow {
+    transform: translateX(3px);
+}
+
+.project-link:focus-visible {
+    outline: 2px solid var(--project-accent);
+    outline-offset: 3px;
+}
+
+/* Demo video / placeholder */
 .project-media {
     display: block;
     width: 100%;
     height: auto;
-    margin: 0 0 20px;
     border: 1px solid var(--line);
-    border-radius: 12px;
+    border-radius: 8px;
     background: var(--surface);
 }
 
@@ -99,17 +194,11 @@
     position: relative;
     display: block;
     width: 100%;
-    max-width: 480px;
-    margin: 8px auto 28px;
     padding: 0;
     border: 0;
-    border-radius: 12px;
+    border-radius: 8px;
     background: none;
     cursor: zoom-in;
-}
-
-.project-media-button .project-media {
-    margin: 0;
 }
 
 .project-media-zoom {
@@ -135,6 +224,36 @@
 .project-media-button:focus-visible {
     outline: 2px solid var(--project-accent);
     outline-offset: 3px;
+}
+
+/* Shown until a project's demo recording is added. */
+.project-media-placeholder {
+    display: grid;
+    width: 100%;
+    aspect-ratio: 848 / 602;
+    place-items: center;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: var(--surface);
+    color: var(--muted);
+    font-size: 0.9375rem;
+}
+
+/* On stacked layouts the demo sits on top of the text. */
+.project-card .project-media-button,
+.project-card .project-media-placeholder {
+    order: -1;
+    margin: 0 0 24px;
+}
+
+.project-main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.project-main .project-links {
+    margin-top: auto;
 }
 
 .media-dialog {
@@ -180,180 +299,14 @@
     background: rgba(248, 250, 252, 0.3);
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .project-media-zoom {
-        transition: none;
-    }
-}
-
-.project-label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--project-accent);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.project-problem {
-    margin: 0 0 20px;
-    padding: 2px 0 2px 16px;
-    border-left: 2px solid var(--project-accent);
-}
-
-.project-problem p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.project-highlights {
-    display: grid;
-    gap: 8px;
-    margin: 0 0 24px;
-    padding: 0;
-    list-style: none;
-}
-
-.project-highlights li {
-    position: relative;
-    padding-left: 20px;
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.55;
-}
-
-.project-highlights li::before {
-    content: "";
-    position: absolute;
-    top: 0.78em;
-    left: 2px;
-    width: 9px;
-    height: 1px;
-    background: var(--project-accent);
-}
-
-.project-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 0 0 24px;
-    padding: 0;
-    list-style: none;
-}
-
-.project-stack li {
-    padding: 5px 12px;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--project-accent) 12%, transparent);
-    color: var(--project-accent);
-    font-family: "JetBrains Mono", ui-monospace, monospace;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-}
-
-.project-links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px 22px;
-}
-
-.project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 16px;
-    border: 1px solid var(--card-line-strong);
-    border-radius: 6px;
-    color: var(--strong);
-    font-family: "JetBrains Mono", ui-monospace, monospace;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-}
-
-/* First link is the main action: accent outline with a soft tint. */
-.project-link:first-child {
-    border-color: var(--project-accent);
-    background: color-mix(in srgb, var(--project-accent) 12%, transparent);
-    color: var(--project-accent);
-}
-
-.project-link:hover {
-    border-color: var(--project-accent);
-    color: var(--project-accent);
-}
-
-.project-link:first-child:hover {
-    background: color-mix(in srgb, var(--project-accent) 22%, transparent);
-}
-
-.project-link-arrow {
-    transition: transform 0.2s ease;
-}
-
-.project-link:hover .project-link-arrow {
-    transform: translateX(4px);
-}
-
-.project-link:focus-visible {
-    outline: 2px solid var(--project-accent);
-    outline-offset: 3px;
-}
-
-@media (max-width: 768px) {
-    #projects {
-        min-height: 65vh;
-        margin: 70px 20px;
-        padding: 40px 28px 32px;
-    }
-}
-
-@media (max-width: 480px) {
-    #projects {
-        margin: 60px 15px;
-        padding: 32px 18px 28px;
-    }
-
-    .project-list {
-        gap: 14px;
-        margin-top: 26px;
-    }
-
-    .project-card {
-        padding: 22px;
-    }
-
-    .project-description {
-        font-size: 0.95rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .project-card,
-    .project-link,
-    .project-link-arrow {
-        transition: none;
-    }
-
-    .project-link:hover .project-link-arrow {
-        transform: none;
-    }
-}
-
 /* Foldable project details: native <details>, so it works without JS and with keyboard. */
 .project-details {
-    margin: 22px 0 0;
-    border-top: 1px solid var(--card-line);
-    border-bottom: 1px solid var(--card-line);
+    margin: 24px 0 0;
     interpolate-size: allow-keywords;
 }
 
+/* Opens instantly (script.js then centres it on screen); closing still animates.
+   A transition is taken from the state being entered, so only [open] turns it off. */
 .project-details::details-content {
     height: 0;
     overflow: hidden;
@@ -362,20 +315,28 @@
 
 .project-details[open]::details-content {
     height: auto;
+    transition: none;
 }
 
+/* The whole row is one full-width button, so it reads as tappable. */
 .project-toggle {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 14px 2px;
+    padding: 12px 12px 12px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background-color: var(--surface);
     color: var(--strong);
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 600;
     list-style: none;
     cursor: pointer;
     user-select: none;
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease;
 }
 
 .project-toggle::-webkit-details-marker {
@@ -397,24 +358,34 @@
     height: 32px;
     flex: 0 0 32px;
     place-items: center;
-    border: 1px solid var(--card-line-strong);
-    border-radius: 4px;
-    transition: transform 0.3s ease, border-color 0.2s ease;
+    border: 1px solid var(--project-accent);
+    border-radius: 50%;
+    color: var(--project-accent);
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .project-toggle-icon::before {
     content: "";
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     margin-top: -4px;
     border-right: 2px solid currentColor;
     border-bottom: 2px solid currentColor;
     transform: rotate(45deg);
 }
 
-.project-toggle:hover .project-toggle-icon {
+.project-toggle:hover {
     border-color: var(--project-accent);
-    color: var(--project-accent);
+}
+
+.project-toggle:hover .project-toggle-icon {
+    border-color: var(--button-hover-bg);
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-text);
 }
 
 .project-details[open] .project-toggle-icon {
@@ -423,66 +394,43 @@
 
 .project-toggle:focus-visible {
     outline: 2px solid var(--project-accent);
-    outline-offset: 2px;
-    border-radius: 6px;
-}
-
-.project-details:last-child {
-    margin-bottom: 0;
+    outline-offset: 3px;
 }
 
 .project-details-body {
-    padding: 6px 0 4px;
+    padding: 20px 0 4px;
 }
 
-.project-details-body .project-highlights {
-    margin-bottom: 22px;
+.project-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--strong);
+    font-size: 1rem;
+    font-weight: 600;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .project-details::details-content,
-    .project-toggle-icon {
-        transition: none;
-    }
-}
-
-/* Placeholder shown until a project's demo recording is added. */
-.project-media-placeholder {
-    display: grid;
-    width: 100%;
-    max-width: 480px;
-    margin: 8px auto 28px;
-    aspect-ratio: 848 / 602;
-    place-items: center;
-    box-sizing: border-box;
-    border: 1px dashed var(--card-line-strong);
-    border-radius: 12px;
-    color: var(--muted);
-    font-family: "JetBrains Mono", ui-monospace, monospace;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-/* Demo sits on top of each card (left/right on the featured card, below). */
-.project-card .project-media-button,
-.project-card .project-media-placeholder {
-    order: -1;
-    max-width: none;
+.project-problem {
     margin: 0 0 22px;
 }
 
-.project-main {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
+.project-problem p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
 }
 
-.project-main .project-links {
-    margin-top: auto;
+.project-highlights {
+    margin: 0;
+    padding-left: 1.1em;
+    color: var(--muted);
+    line-height: 1.6;
 }
 
-/* Wide screens: one large featured card on top, the rest smaller side by side.
+.project-highlights li + li {
+    margin-top: 6px;
+}
+
+/* Wide screens: one large featured project on top, the rest smaller side by side.
    To feature another project, move the project-card--featured class (and the
    article to the top of .project-list). */
 @media (min-width: 769px) {
@@ -497,8 +445,8 @@
         grid-template-areas:
             "main    media"
             "details details";
-        column-gap: 40px;
-        padding: 36px;
+        column-gap: 48px;
+        padding: 40px;
     }
 
     .project-card--featured .project-main {
@@ -514,6 +462,53 @@
 
     .project-card--featured .project-details {
         grid-area: details;
-        margin: 28px 0 0;
+        margin-top: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    #projects {
+        min-height: 65vh;
+        margin: 70px 20px;
+        padding: 40px 28px 32px;
+    }
+
+    .project-list {
+        gap: 20px;
+    }
+
+    .project-card {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    #projects {
+        margin: 60px 15px;
+        padding: 32px 18px 28px;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-toggle,
+    .project-link,
+    .project-link-arrow,
+    .project-media-zoom,
+    .project-toggle-icon,
+    .project-details::details-content {
+        transition: none;
+    }
+
+    .project-link:hover .project-link-arrow {
+        transform: none;
     }
 }

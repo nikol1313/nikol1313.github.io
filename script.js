@@ -45,7 +45,7 @@ const translations = {
         skillsTestingTitle: "Testing",
         skillsToolsTitle: "CI/CD &amp; Tools",
         projectsTitle: "Projects",
-        projectIphoneTitle: "iPhone Tracker",
+        projectIphoneTitle: 'iPhone Tracker<span class="project-brand-tld">.ge</span>',
         projectIphoneDescription: "Compare iPhone prices across Georgian stores, see price history, and get notified when a price drops.",
         projectIphoneProblem: "When buying an iPhone, the same model costs different amounts at different stores, and prices change often. Checking every site by hand took a lot of time, and I still didn’t know whether it was a good moment to buy. So I built an app that collects prices automatically, keeps their history, and notifies me when a price drops to my target.",
         projectIphoneHighlight1: "Retailer-specific scrapers refresh the catalogs of 8 stores (Zoommer, Alta, iSpace, Elit Electronics, Megatechnica, Extra.ge, PCShop, Metromart) every 12 hours, and a parser recognizes differently worded titles, such as “Apple iPhone 17 (8GB/256GB) - Sage” and “iPhone 17, 256 GB, Sage”, as the same model, storage, and color.",
@@ -122,7 +122,7 @@ const translations = {
         skillsTestingTitle: "ტესტირება",
         skillsToolsTitle: "CI/CD და ხელსაწყოები",
         projectsTitle: "პროექტები",
-        projectIphoneTitle: "iPhone Tracker",
+        projectIphoneTitle: 'iPhone Tracker<span class="project-brand-tld">.ge</span>',
         projectIphoneDescription: "შეადარე iPhone-ის ფასები ქართულ მაღაზიებში, ნახე ფასის ისტორია და მიიღე შეტყობინება, როცა ფასი დაიკლებს.",
         projectIphoneProblem: "iPhone-ის ყიდვისას ერთსა და იმავე მოდელს სხვადასხვა მაღაზიაში განსხვავებული ფასი აქვს და ფასები ხშირად იცვლება. ყველა საიტის ხელით შემოწმებას ბევრი დრო მიჰქონდა, და მაინც არ ვიცოდი, ყიდვისთვის კარგი მომენტი იყო თუ არა. ამიტომ შევქმენი აპლიკაცია, რომელიც ფასებს ავტომატურად აგროვებს, ისტორიას ინახავს და მატყობინებს, როცა ფასი სასურველ ნიშნულამდე ჩამოდის.",
         projectIphoneHighlight1: "თითოეული მაღაზიისთვის ცალკე დაწერილი სკრეიპერები 8 მაღაზიის (Zoommer, Alta, iSpace, Elit Electronics, Megatechnica, Extra.ge, PCShop, Metromart) კატალოგს ყოველ 12 საათში აახლებენ. პარსერი კი სხვადასხვანაირ სათაურებს, მაგალითად „Apple iPhone 17 (8GB/256GB) - Sage“ და „iPhone 17, 256 GB, Sage“, ერთსა და იმავე მოდელად, მეხსიერებად და ფერად ცნობს.",
@@ -375,6 +375,7 @@ if (reducedMotion.matches) {
 }
 
 setupMediaDialogs();
+setupProjectDetails();
 
 new ResizeObserver(fitIntroTitle).observe(introTitle.parentElement.parentElement);
 document.fonts.ready.then(fitIntroTitle);
@@ -403,5 +404,42 @@ function setupMediaDialogs() {
 
         dialog.querySelector(".media-dialog-close").addEventListener("click", () => dialog.close());
         dialog.addEventListener("close", () => video.pause());
+    });
+}
+
+// Opening "Read more" jumps the page so the opened section (the "Read more" row
+// down to the end of its text) sits in the middle of the space below the nav,
+// with equal room above and below. Taller than the screen: its top goes just
+// under the nav instead, so the row stays visible. "Show less" jumps back to
+// where the page was before "Read more" was opened.
+function setupProjectDetails() {
+    const topGap = 16;
+
+    document.querySelectorAll(".project-details").forEach((details) => {
+        let scrollBeforeOpen = null;
+
+        details.addEventListener("toggle", () => {
+            if (!details.open) {
+                if (scrollBeforeOpen !== null) {
+                    window.scrollTo({ top: scrollBeforeOpen, behavior: "instant" });
+                    scrollBeforeOpen = null;
+                }
+
+                return;
+            }
+
+            scrollBeforeOpen = window.scrollY;
+
+            const toggle = details.querySelector(".project-toggle").getBoundingClientRect();
+            const body = details.querySelector(".project-details-body").getBoundingClientRect();
+            const navBottom = nav.getBoundingClientRect().bottom;
+            const available = window.innerHeight - navBottom;
+            const height = body.bottom - toggle.top;
+            const targetTop = height <= available - 2 * topGap
+                ? navBottom + (available - height) / 2
+                : navBottom + topGap;
+
+            window.scrollBy({ top: toggle.top - targetTop, behavior: "instant" });
+        });
     });
 }
