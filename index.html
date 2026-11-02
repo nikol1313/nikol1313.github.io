@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="css/nav.css?v=project-links-1">
     <link rel="stylesheet" href="css/about.css?v=square-photo-3">
     <link rel="stylesheet" href="css/skills.css?v=skills-about-1">
-    <link rel="stylesheet" href="css/projects.css?v=heading-line-1">
+    <link rel="stylesheet" href="css/projects.css?v=flat-3">
     <link rel="stylesheet" href="css/experience.css?v=rento-1">    <link rel="icon" type="image/png" href="./images/images.png">
 </head>
 <body>
@@ -122,9 +122,10 @@
                         <h3 data-i18n="expRentoTitle">Software Quality &amp; Reliability Engineer at Rento Group</h3>
                         <p class="timeline-org">rento.ge</p>
                         <ul class="timeline-points" data-i18n="expRentoPoints">
-                            <li>Wrote automated Playwright end-to-end tests that check the website’s core functionality. The tests are integrated into the CI/CD pipeline and run daily.</li>
-                            <li>Set up availability and reliability monitoring for the website (uptime, content checks, SSL certificate expiry), with automatic alerts when an issue is detected.</li>
-                            <li>Work directly with customers, investigating technical and functional issues that come up during the rental process and helping resolve them.</li>
+                            <li>Developed automated end-to-end tests using Playwright, ensuring the website’s core functionality operates seamlessly.</li>
+                            <li>Integrated testing processes into the CI/CD pipeline, enabling daily test runs for continuous quality assurance.</li>
+                            <li>Established website availability and reliability monitoring with automated alerts to promptly address issues.</li>
+                            <li>Collaborated directly with customers to troubleshoot and resolve technical and functional challenges in the rental process.</li>
                         </ul>
                     </div>
                 </li>
@@ -198,29 +199,57 @@
         <section id="projects" aria-labelledby="projects-title">
             <div class="projects-content">
                 <h2 id="projects-title" data-i18n="projectsTitle">Projects</h2>
-                <div class="project-grid">
+                <div class="project-list">
                     <article class="project-card project-card--price" id="project-iphone">
                         <div class="project-card-topline">
                             <span class="project-icon project-icon--price" aria-hidden="true">₾</span>
                             <span class="project-category" data-i18n="projectIphoneCategory">Price tracking</span>
                         </div>
-                        <h3 data-i18n="projectIphoneTitle">iPhone Price Tracker</h3>
-                        <p class="project-description" data-i18n="projectIphoneDescription">Compares and tracks iPhone prices across Georgian stores.</p>
-                        <div class="project-problem">
-                            <span class="project-label" data-i18n="projectProblemLabel">The problem</span>
-                            <p data-i18n="projectIphoneProblem">The same iPhone costs different amounts at different Georgian retailers, and prices change often. Finding the best deal meant opening several stores and re-checking them by hand, again and again.</p>
+                        <h3 data-i18n="projectIphoneTitle">iPhone Tracker</h3>
+                        <p class="project-description" data-i18n="projectIphoneDescription">Compare iPhone prices across Georgian stores, see price history, and get notified when a price drops.</p>
+                        <details class="project-details">
+                            <summary class="project-toggle">
+                                <span class="project-toggle-more" data-i18n="projectMore">Read more</span>
+                                <span class="project-toggle-less" data-i18n="projectLess">Show less</span>
+                                <span class="project-toggle-icon" aria-hidden="true"></span>
+                            </summary>
+                            <div class="project-details-body">
+                            <div class="project-problem">
+                                <span class="project-label" data-i18n="projectProblemLabel">The problem</span>
+                                <p data-i18n="projectIphoneProblem">When buying an iPhone, the same model costs different amounts at different stores, and prices change often. Checking every site by hand took a lot of time, and I still didn’t know whether it was a good moment to buy. So I built an app that collects prices automatically, keeps their history, and notifies me when a price drops to my target.</p>
+                            </div>
+                            <span class="project-label" data-i18n="projectBuiltLabel">What I built</span>
+                            <ul class="project-highlights">
+                                <li data-i18n="projectIphoneHighlight1">Retailer-specific scrapers refresh the catalogs of 8 stores (Zoommer, Alta, iSpace, Elit Electronics, Megatechnica, Extra.ge, PCShop, Metromart) every 12 hours, and a parser recognizes differently worded titles, such as “Apple iPhone 17 (8GB/256GB) - Sage” and “iPhone 17, 256 GB, Sage”, as the same model, storage, and color.</li>
+                                <li data-i18n="projectIphoneHighlight2">A Python, FastAPI, and async SQLAlchemy backend stores every price change in PostgreSQL and, based on 90 days of history, decides: “Buy now or wait?”</li>
+                                <li data-i18n="projectIphoneHighlight3">Registered users can track phones and set a target-price or back-in-stock alert, delivered to their verified email.</li>
+                                <li data-i18n="projectIphoneHighlight4">Authentication is protected by per-IP rate limiting. After 5 wrong passwords the account is locked for 15 minutes, and password reset links are single-use and expire in one hour.</li>
+                                <li data-i18n="projectIphoneHighlight5">A responsive vanilla JavaScript interface offers filters, a side-by-side comparison of two phones, and recommendations based on intended use. Docker Compose and Nginx run the whole system, and pytest and HTTPX test the API.</li>
+                            </ul>
+                            <span class="project-label" data-i18n="projectStackLabel">Stack</span>
+                            <ul class="project-stack">
+                                <li>Python</li>
+                                <li>FastAPI</li>
+                                <li>async SQLAlchemy</li>
+                                <li>PostgreSQL</li>
+                                <li>Vanilla JavaScript</li>
+                                <li>Docker Compose</li>
+                                <li>Nginx</li>
+                                <li>pytest</li>
+                                <li>HTTPX</li>
+                            </ul>
+                            </div>
+                        </details>
+                        <div class="project-links">
+                            <a class="project-link" href="https://iphonetracker.ge" target="_blank" rel="noopener noreferrer">
+                                <span>iphonetracker.ge</span>
+                                <span aria-hidden="true">↗</span>
+                            </a>
+                            <a class="project-link" href="https://github.com/nikol1313/iphone-tracker-ge" target="_blank" rel="noopener noreferrer">
+                                <span data-i18n="projectGithubLink">Explore on GitHub</span>
+                                <span aria-hidden="true">↗</span>
+                            </a>
                         </div>
-                        <span class="project-label" data-i18n="projectBuiltLabel">What I built</span>
-                        <ul class="project-highlights">
-                            <li data-i18n="projectIphoneHighlight1">Retailer-specific scrapers pull listings from multiple Georgian stores, including Zoommer, Alta and more, into one searchable catalog and log every crawl.</li>
-                            <li data-i18n="projectIphoneHighlight2">Every price change is recorded, so each model gets its own price history.</li>
-                            <li data-i18n="projectIphoneHighlight3">Prices are re-checked every 12 hours, and a Telegram alert goes out when a tracked iPhone drops below the user’s target price.</li>
-                            <li data-i18n="projectIphoneHighlight4">Tested with pytest and HTTPX (auth, alerts, notifications and every scraper parser, including edge cases like listings with missing prices), Testcontainers integration tests against a real PostgreSQL database, and Playwright checks of the main user flows.</li>
-                        </ul>
-                        <a class="project-link" href="https://github.com/nikol1313/iphone-tracker-ge" target="_blank" rel="noopener noreferrer">
-                            <span data-i18n="projectGithubLink">Explore on GitHub</span>
-                            <span aria-hidden="true">↗</span>
-                        </a>
                     </article>
 
                     <article class="project-card project-card--video" id="project-video">
@@ -239,22 +268,46 @@
                             <button class="media-dialog-close" type="button" aria-label="Close" data-i18n-label="mediaCloseLabel">×</button>
                             <video src="images/video-downloader-demo.mp4" poster="images/video-downloader-demo.jpg" width="960" height="720" muted loop playsinline preload="none" controls></video>
                         </dialog>
-                        <div class="project-problem">
-                            <span class="project-label" data-i18n="projectProblemLabel">The problem</span>
-                            <p data-i18n="projectVideoProblem">Growing up, I downloaded songs to my device from the “YouTube to MP3” sites that come up on Google, but they were full of ads and sometimes viruses. So I built my own clean downloader that fits my preferences and runs long downloads in the background.</p>
+                        <details class="project-details">
+                            <summary class="project-toggle">
+                                <span class="project-toggle-more" data-i18n="projectMore">Read more</span>
+                                <span class="project-toggle-less" data-i18n="projectLess">Show less</span>
+                                <span class="project-toggle-icon" aria-hidden="true"></span>
+                            </summary>
+                            <div class="project-details-body">
+                            <div class="project-problem">
+                                <span class="project-label" data-i18n="projectProblemLabel">The problem</span>
+                                <p data-i18n="projectVideoProblem">Growing up, I downloaded songs to my device from the “YouTube to MP3” sites that come up on Google, but they were full of ads and sometimes viruses. So I built my own clean downloader that fits my preferences and runs long downloads in the background.</p>
+                            </div>
+                            <span class="project-label" data-i18n="projectBuiltLabel">What I built</span>
+                            <ul class="project-highlights">
+                                <li data-i18n="projectVideoHighlight1">yt-dlp downloads videos from YouTube and other supported sites in 360p, 720p, or 1080p, or as audio-only MP3, and FFmpeg merges video and audio.</li>
+                                <li data-i18n="projectVideoHighlight2">A Node.js, Express, and TypeScript backend runs yt-dlp as background processes, two at a time, while PostgreSQL stores every download job.</li>
+                                <li data-i18n="projectVideoHighlight3">A one-page React and TypeScript interface starts downloads, shows live progress, and saves finished files.</li>
+                                <li data-i18n="projectVideoHighlight4">Prometheus collects app metrics at /metrics, and Docker Compose runs the whole stack.</li>
+                                <li data-i18n="projectVideoHighlight5">GitHub Actions CI builds the app and runs integration tests against PostgreSQL on every push, including checks that invalid input is rejected.</li>
+                            </ul>
+                            <span class="project-label" data-i18n="projectStackLabel">Stack</span>
+                            <ul class="project-stack">
+                                <li>Node.js</li>
+                                <li>Express</li>
+                                <li>TypeScript</li>
+                                <li>React</li>
+                                <li>PostgreSQL</li>
+                                <li>yt-dlp</li>
+                                <li>FFmpeg</li>
+                                <li>Prometheus</li>
+                                <li>Docker Compose</li>
+                                <li>GitHub Actions</li>
+                            </ul>
+                            </div>
+                        </details>
+                        <div class="project-links">
+                            <a class="project-link" href="https://github.com/nikol1313/video-downloader" target="_blank" rel="noopener noreferrer">
+                                <span data-i18n="projectGithubLink">Explore on GitHub</span>
+                                <span aria-hidden="true">↗</span>
+                            </a>
                         </div>
-                        <span class="project-label" data-i18n="projectBuiltLabel">What I built</span>
-                        <ul class="project-highlights">
-                            <li data-i18n="projectVideoHighlight1">yt-dlp downloads videos from YouTube and other supported sites in 360p, 720p, or 1080p, or as audio-only MP3, and FFmpeg merges video and audio.</li>
-                            <li data-i18n="projectVideoHighlight2">A Node.js, Express, and TypeScript backend runs yt-dlp as background processes, two at a time, while PostgreSQL stores every download job.</li>
-                            <li data-i18n="projectVideoHighlight3">A one-page React and TypeScript interface starts downloads, shows live progress, and saves finished files.</li>
-                            <li data-i18n="projectVideoHighlight4">Prometheus collects app metrics at /metrics, and Docker Compose runs the whole stack.</li>
-                            <li data-i18n="projectVideoHighlight5">GitHub Actions CI builds the app and runs integration tests against PostgreSQL on every push, including checks that invalid input is rejected.</li>
-                        </ul>
-                        <a class="project-link" href="https://github.com/nikol1313/video-downloader" target="_blank" rel="noopener noreferrer">
-                            <span data-i18n="projectGithubLink">Explore on GitHub</span>
-                            <span aria-hidden="true">↗</span>
-                        </a>
                     </article>
 
                     <article class="project-card project-card--ai" id="project-modzebnai">
@@ -264,17 +317,26 @@
                         </div>
                         <h3>ModzebnAI</h3>
                         <p class="project-description" data-i18n="projectJobDescription">An AI job radar that ranks new Georgian job postings against your CV.</p>
-                        <div class="project-problem">
-                            <span class="project-label" data-i18n="projectProblemLabel">The problem</span>
-                            <p data-i18n="projectJobProblem">Job hunting in Georgia means checking jobs.ge, hr.ge and other sites every day, reading dozens of postings that don’t fit, and rewriting the same cover letter again and again.</p>
-                        </div>
-                        <span class="project-label" data-i18n="projectBuildingLabel">What I’m building</span>
-                        <ul class="project-highlights">
-                            <li data-i18n="projectJobHighlight1">Scheduled scrapers collect new postings from Georgian job boards into one PostgreSQL database.</li>
-                            <li data-i18n="projectJobHighlight2">AI compares each posting with your CV, scores how well it fits, and explains why.</li>
-                            <li data-i18n="projectJobHighlight3">Strong matches trigger an email notification, along with an AI-drafted cover letter tailored to the job.</li>
-                            <li data-i18n="projectJobHighlight4">A React and TypeScript dashboard to browse matches, fit scores, and generated cover letters.</li>
-                        </ul>
+                        <details class="project-details">
+                            <summary class="project-toggle">
+                                <span class="project-toggle-more" data-i18n="projectMore">Read more</span>
+                                <span class="project-toggle-less" data-i18n="projectLess">Show less</span>
+                                <span class="project-toggle-icon" aria-hidden="true"></span>
+                            </summary>
+                            <div class="project-details-body">
+                            <div class="project-problem">
+                                <span class="project-label" data-i18n="projectProblemLabel">The problem</span>
+                                <p data-i18n="projectJobProblem">Job hunting in Georgia means checking jobs.ge, hr.ge and other sites every day, reading dozens of postings that don’t fit, and rewriting the same cover letter again and again.</p>
+                            </div>
+                            <span class="project-label" data-i18n="projectBuildingLabel">What I’m building</span>
+                            <ul class="project-highlights">
+                                <li data-i18n="projectJobHighlight1">Scheduled scrapers collect new postings from Georgian job boards into one PostgreSQL database.</li>
+                                <li data-i18n="projectJobHighlight2">AI compares each posting with your CV, scores how well it fits, and explains why.</li>
+                                <li data-i18n="projectJobHighlight3">Strong matches trigger an email notification, along with an AI-drafted cover letter tailored to the job.</li>
+                                <li data-i18n="projectJobHighlight4">A React and TypeScript dashboard to browse matches, fit scores, and generated cover letters.</li>
+                            </ul>
+                            </div>
+                        </details>
                     </article>
                 </div>
             </div>
@@ -300,6 +362,6 @@
         ↑
     </button>
 
-    <script src="script.js?v=education-1" defer></script>
+    <script src="script.js?v=fold-1" defer></script>
 </body>
 </html>

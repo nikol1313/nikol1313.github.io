@@ -16,56 +16,37 @@
     line-height: 0.8;
 }
 
-.project-grid {
+.project-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    gap: 24px;
     margin-top: 34px;
 }
 
 .project-card {
-    --project-accent: #93c5fd;
+    --project-accent: var(--accent);
+    --card-bg: #181818;
+    --card-line: #2e2e2e;
+    --card-line-strong: #4d4d4d;
     position: relative;
     display: flex;
     min-width: 0;
     flex-direction: column;
     overflow: hidden;
-    padding: 26px;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    background:
-        radial-gradient(ellipse at top right, color-mix(in srgb, var(--project-accent) 15%, transparent), transparent 55%),
-        var(--surface);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    padding: 30px 32px;
+    border: 1px solid var(--card-line);
+    border-radius: 6px;
+    background: var(--card-bg);
+    transition: border-color 0.2s ease;
 }
 
-.project-card--video {
-    --project-accent: #c4b5fd;
-}
-
-.project-card--ai {
-    --project-accent: #fbbf24;
-    grid-column: 1 / -1;
-}
-
-/* The pastel accents above are for the dark theme; on light cards they fall to
-   ~1.1:1 contrast, so swap in darker shades that keep 5:1+. */
-body.light .project-card--price {
-    --project-accent: #1e40af;
-}
-
-body.light .project-card--video {
-    --project-accent: #5b21b6;
-}
-
-body.light .project-card--ai {
-    --project-accent: #78350f;
+body.light .project-card {
+    --card-bg: #e6e9ed;
+    --card-line: #b9c0ca;
+    --card-line-strong: #7d8794;
 }
 
 .project-card:hover {
-    transform: translateY(-4px);
-    border-color: color-mix(in srgb, var(--project-accent) 65%, var(--line));
-    box-shadow: 0 16px 36px var(--nav-shadow);
+    border-color: var(--card-line-strong);
 }
 
 .project-card-topline {
@@ -77,15 +58,14 @@ body.light .project-card--ai {
 
 .project-icon {
     display: grid;
-    width: 42px;
-    height: 42px;
-    flex: 0 0 42px;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
     place-items: center;
-    border: 1px solid color-mix(in srgb, var(--project-accent) 45%, var(--line));
-    border-radius: 13px;
-    background: color-mix(in srgb, var(--project-accent) 12%, var(--surface));
-    color: var(--project-accent);
-    font-size: 1.35rem;
+    border: 1px solid var(--card-line-strong);
+    border-radius: 4px;
+    color: var(--strong);
+    font-size: 1.1rem;
     font-weight: 700;
 }
 
@@ -94,7 +74,8 @@ body.light .project-card--ai {
 }
 
 .project-category {
-    color: var(--project-accent);
+    color: var(--muted);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -130,7 +111,8 @@ body.light .project-card--ai {
     position: relative;
     display: block;
     width: 100%;
-    margin: 0 0 20px;
+    max-width: 480px;
+    margin: 8px auto 28px;
     padding: 0;
     border: 0;
     border-radius: 12px;
@@ -228,10 +210,8 @@ body.light .project-card--ai {
 
 .project-problem {
     margin: 0 0 20px;
-    padding: 14px 16px;
-    border-left: 3px solid var(--project-accent);
-    border-radius: 0 10px 10px 0;
-    background: color-mix(in srgb, var(--project-accent) 7%, transparent);
+    padding: 2px 0 2px 16px;
+    border-left: 2px solid var(--card-line-strong);
 }
 
 .project-problem p {
@@ -260,17 +240,40 @@ body.light .project-card--ai {
 .project-highlights li::before {
     content: "";
     position: absolute;
-    top: 0.6em;
+    top: 0.78em;
     left: 2px;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--project-accent);
+    width: 9px;
+    height: 1px;
+    background: var(--muted);
+}
+
+.project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 24px;
+    padding: 0;
+    list-style: none;
+}
+
+.project-stack li {
+    padding: 4px 9px;
+    border: 1px solid var(--card-line);
+    border-radius: 3px;
+    color: var(--text);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin-top: auto;
 }
 
 .project-link {
     display: inline-flex;
-    margin-top: auto;
     width: fit-content;
     max-width: 100%;
     align-items: center;
@@ -302,10 +305,6 @@ body.light .project-card--ai {
         margin: 70px 20px;
         padding: 40px 28px 32px;
     }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 480px) {
@@ -314,7 +313,7 @@ body.light .project-card--ai {
         padding: 32px 18px 28px;
     }
 
-    .project-grid {
+    .project-list {
         gap: 14px;
         margin-top: 26px;
     }
@@ -342,5 +341,108 @@ body.light .project-card--ai {
     .project-link:hover span:last-child,
     .project-link:focus-visible span:last-child {
         transform: none;
+    }
+}
+
+/* Foldable project details: native <details>, so it works without JS and with keyboard. */
+.project-details {
+    margin: 0 0 22px;
+    border-top: 1px solid var(--card-line);
+    border-bottom: 1px solid var(--card-line);
+    interpolate-size: allow-keywords;
+}
+
+.project-details::details-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease, content-visibility 0.35s allow-discrete;
+}
+
+.project-details[open]::details-content {
+    height: auto;
+}
+
+.project-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 2px;
+    color: var(--strong);
+    font-size: 0.95rem;
+    font-weight: 700;
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.project-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.project-toggle-less,
+.project-details[open] .project-toggle-more {
+    display: none;
+}
+
+.project-details[open] .project-toggle-less {
+    display: inline;
+}
+
+.project-toggle-icon {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    place-items: center;
+    border: 1px solid var(--card-line-strong);
+    border-radius: 4px;
+    transition: transform 0.3s ease, border-color 0.2s ease;
+}
+
+.project-toggle-icon::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+}
+
+.project-toggle:hover .project-toggle-icon {
+    border-color: var(--strong);
+}
+
+.project-details[open] .project-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.project-toggle:focus-visible {
+    outline: 2px solid var(--project-accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
+.project-details:last-child {
+    margin-bottom: 0;
+}
+
+.project-details-body {
+    padding: 6px 0 4px;
+}
+
+.project-details-body .project-highlights {
+    margin-bottom: 22px;
+}
+
+.project-details-body .project-stack {
+    margin-bottom: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-details::details-content,
+    .project-toggle-icon {
+        transition: none;
     }
 }
