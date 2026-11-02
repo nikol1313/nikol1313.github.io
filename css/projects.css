@@ -272,7 +272,7 @@ body.light .project-brand-tld {
 
 .media-dialog video {
     display: block;
-    /* Largest 848:602 box (the demo's shape) that fits the screen, so no letterboxing. */
+    /* Largest 848:602 box that fits the screen. Wider demos (e.g. 16:10) fit too, just slightly shorter. */
     width: min(1200px, 94vw / var(--zoom), 88vh / var(--zoom) * 848 / 602);
     height: auto;
     border-radius: 12px;

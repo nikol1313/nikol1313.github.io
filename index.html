@@ -230,9 +230,15 @@
                                 <a class="project-link" href="https://github.com/nikol1313/iphone-tracker-ge" target="_blank" rel="noopener noreferrer"><span data-i18n="projectGithubLink">Explore on GitHub</span><span class="project-link-arrow" aria-hidden="true">→</span></a>
                             </div>
                         </div>
-                        <div class="project-media-placeholder" aria-hidden="true">
-                            <span data-i18n="projectDemoSoon">Demo coming soon</span>
-                        </div>
+                        <button class="project-media-button" type="button" data-media-dialog="iphone-demo-dialog" aria-haspopup="dialog" aria-label="Enlarge demo video" data-i18n-label="mediaEnlargeLabel">
+                            <video class="project-media" src="images/iphone-tracker-demo.mp4?v=1" poster="images/iphone-tracker-demo.jpg?v=1" width="1280" height="800" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                            <span class="project-media-zoom" aria-hidden="true">⤢</span>
+                        </button>
+                        <dialog class="media-dialog" id="iphone-demo-dialog" aria-labelledby="iphone-demo-title">
+                            <h4 class="visually-hidden" id="iphone-demo-title">iPhone Tracker.ge</h4>
+                            <button class="media-dialog-close" type="button" aria-label="Close" data-i18n-label="mediaCloseLabel">×</button>
+                            <video src="images/iphone-tracker-demo.mp4?v=1" poster="images/iphone-tracker-demo.jpg?v=1" width="1280" height="800" muted loop playsinline preload="none" controls></video>
+                        </dialog>
                         <details class="project-details">
                             <summary class="project-toggle">
                                 <span class="project-toggle-more" data-i18n="projectMore">Read more</span>
