@@ -35,17 +35,16 @@ const translations = {
         expAlteTitle: "ALTE University, Tbilisi",
         expAltePoints: "<li>Bachelor’s degree in Computer Science, 3rd year.</li><li>Classes in Data Structures &amp; Algorithms, Python, HTML/CSS/JavaScript, C++, Calculus I/II, Linear &amp; Discrete Math, Physics, Object-Oriented Programming, Relational &amp; Non-Relational Databases, Networking...</li>",
         aboutTitle: "About Me",
-        aboutIntro: "Hi, I’m Nikusha Avsajanishvili, a third-year Computer Science student from Tbilisi. I build programs to solve problems I run into myself, and I test them myself too. For example:",
+        aboutIntro: "Hi, I’m Nikusha Avsajanishvili, a 19-year-old third-year Computer Science student from Tbilisi. I build programs to solve problems I run into myself, and I test them myself too. For example:",
         aboutProjects: "The <a href=\"#project-iphone\">iPhone price tracker</a>, because I got tired of checking five stores by hand. The <a href=\"#project-video\">video downloader</a>, because free online services were overloaded with ads and malware. And <a href=\"#project-modzebnai\">ModzebnAI</a>, because searching for jobs every day and preparing applications took up too much time for me and my friends.",
         aboutStack: "I have experience with both the backend and the frontend, mostly with <strong>Python</strong> and <strong>TypeScript</strong>. What interests me most, though, is how to verify that a program works correctly and find bugs before users do. In the price tracker I write unit tests with <strong>pytest</strong> and integration tests with <strong>Testcontainers</strong>, while <strong>Playwright</strong> checks the main user flows.",
         aboutRento: "For the <strong>Rento Group</strong> website, I wrote Playwright smoke tests that run automatically every day in CI and check that the site’s core features work.",
-        aboutGoal: "I’m looking for a junior QA Automation role or internship where I can test real products and use my developer experience to catch bugs early.",
+        aboutGoal: "I’m looking for QA Automation, Software Engineer, or similar roles where I can test real products and use my developer experience to catch bugs early.",
         skillsBackendTitle: "Backend",
         skillsFrontendTitle: "Frontend",
         skillsTestingTitle: "Testing",
         skillsToolsTitle: "CI/CD &amp; Tools",
         projectsTitle: "Projects",
-        projectIphoneCategory: "Price tracking",
         projectIphoneTitle: "iPhone Tracker",
         projectIphoneDescription: "Compare iPhone prices across Georgian stores, see price history, and get notified when a price drops.",
         projectIphoneProblem: "When buying an iPhone, the same model costs different amounts at different stores, and prices change often. Checking every site by hand took a lot of time, and I still didn’t know whether it was a good moment to buy. So I built an app that collects prices automatically, keeps their history, and notifies me when a price drops to my target.",
@@ -54,7 +53,6 @@ const translations = {
         projectIphoneHighlight3: "Registered users can track phones and set a target-price or back-in-stock alert, delivered to their verified email.",
         projectIphoneHighlight4: "Authentication is protected by per-IP rate limiting. After 5 wrong passwords the account is locked for 15 minutes, and password reset links are single-use and expire in one hour.",
         projectIphoneHighlight5: "A responsive vanilla JavaScript interface offers filters, a side-by-side comparison of two phones, and recommendations based on intended use. Docker Compose and Nginx run the whole system, and pytest and HTTPX test the API.",
-        projectVideoCategory: "Media tools",
         projectVideoTitle: "Video Downloader",
         projectVideoDescription: "Paste a link, pick a quality or MP3, and watch it download live.",
         projectVideoProblem: "Growing up, I downloaded songs to my device from the “YouTube to MP3” sites that come up on Google, but they were full of ads and sometimes viruses. So I built my own clean downloader that fits my preferences and runs long downloads in the background.",
@@ -69,7 +67,13 @@ const translations = {
         projectProblemLabel: "The problem",
         projectBuiltLabel: "What I built",
         projectGithubLink: "Explore on GitHub",
-        projectJobCategory: "In progress · AI automation",
+        projectIphoneFact1: "10+ Georgian retailers tracked automatically: prices are scraped and compared every 12 hours, so no manual checking",
+        projectIphoneFact2: "90 days of price history in PostgreSQL powers a “buy now or wait” verdict based on real price trends",
+        projectIphoneFact3: "88 automated tests, including Playwright end-to-end browser tests. Every push goes through a CI pipeline before it ships",
+        projectVideoFact1: "Runs yt-dlp jobs in the background, two at a time, with live progress",
+        projectVideoFact2: "CI builds the app and runs integration tests against a real PostgreSQL on every push",
+        projectJobFact1: "In progress: job-board scrapers, AI fit scoring and cover-letter drafts",
+        projectDemoSoon: "Demo coming soon",
         projectJobDescription: "An AI job radar that ranks new Georgian job postings against your CV.",
         projectJobProblem: "Job hunting in Georgia means checking jobs.ge, hr.ge and other sites every day, reading dozens of postings that don’t fit, and rewriting the same cover letter again and again.",
         projectJobHighlight1: "Scheduled scrapers collect new postings from Georgian job boards into one PostgreSQL database.",
@@ -118,7 +122,6 @@ const translations = {
         skillsTestingTitle: "ტესტირება",
         skillsToolsTitle: "CI/CD და ხელსაწყოები",
         projectsTitle: "პროექტები",
-        projectIphoneCategory: "ფასის მონიტორინგი",
         projectIphoneTitle: "iPhone Tracker",
         projectIphoneDescription: "შეადარე iPhone-ის ფასები ქართულ მაღაზიებში, ნახე ფასის ისტორია და მიიღე შეტყობინება, როცა ფასი დაიკლებს.",
         projectIphoneProblem: "iPhone-ის ყიდვისას ერთსა და იმავე მოდელს სხვადასხვა მაღაზიაში განსხვავებული ფასი აქვს და ფასები ხშირად იცვლება. ყველა საიტის ხელით შემოწმებას ბევრი დრო მიჰქონდა, და მაინც არ ვიცოდი, ყიდვისთვის კარგი მომენტი იყო თუ არა. ამიტომ შევქმენი აპლიკაცია, რომელიც ფასებს ავტომატურად აგროვებს, ისტორიას ინახავს და მატყობინებს, როცა ფასი სასურველ ნიშნულამდე ჩამოდის.",
@@ -127,7 +130,6 @@ const translations = {
         projectIphoneHighlight3: "რეგისტრირებულ მომხმარებლებს შეუძლიათ ტელეფონებს თვალი ადევნონ და დააყენონ სამიზნე ფასის ან მარაგში დაბრუნების შეტყობინება, რომელიც დადასტურებულ ელფოსტაზე მოდის.",
         projectIphoneHighlight4: "ავტორიზაცია დაცულია IP-ის მიხედვით rate limiting-ით. 5 არასწორი პაროლის შემდეგ ანგარიში 15 წუთით იბლოკება, პაროლის აღდგენის ბმული კი ერთჯერადია და ერთ საათში იწურება.",
         projectIphoneHighlight5: "Vanilla JavaScript-ის რესპონსიულ ინტერფეისში არის ფილტრები, ორი ტელეფონის შედარება და რეკომენდაცია გამოყენების მიზნის მიხედვით. მთელ სისტემას Docker Compose და Nginx უშვებს, API-ს კი pytest და HTTPX ტესტავს.",
-        projectVideoCategory: "ვიდეო ხელსაწყო",
         projectVideoTitle: "Video Downloader",
         projectVideoDescription: "ჩასვი ბმული, აირჩიე ხარისხი ან MP3 და ადევნე თვალი ჩამოტვირთვას რეალურ დროში.",
         projectVideoProblem: "ბავშვობაში სიმღერებს ჩემს მოწყობილობაზე Google-ში ნაპოვნი „YouTube to MP3“ საიტებიდან ვტვირთავდი, მაგრამ ისინი რეკლამებითა და ზოგჯერ ვირუსებით იყო სავსე. ამიტომ შევქმენი საკუთარი, სუფთა ჩამომტვირთავი, რომელიც ერგება ჩემს მოთხოვნებს და ხანგრძლივ ჩამოტვირთვებს ფონურ რეჟიმში ამუშავებს.",
@@ -142,7 +144,13 @@ const translations = {
         projectProblemLabel: "პრობლემა",
         projectBuiltLabel: "რა შევქმენი",
         projectGithubLink: "GitHub-ზე ნახვა",
-        projectJobCategory: "მიმდინარე · AI ავტომატიზაცია",
+        projectIphoneFact1: "10+ ქართული მაღაზია ავტომატურად: ფასები ყოველ 12 საათში გროვდება და შედარდება, ხელით შემოწმება აღარ არის საჭირო",
+        projectIphoneFact2: "90 დღის ფასების ისტორია PostgreSQL-ში „იყიდე ახლა თუ მოიცადე?“ რჩევას ფასების რეალურ ტენდენციებზე აფუძნებს",
+        projectIphoneFact3: "88 ავტომატური ტესტი, მათ შორის Playwright-ის end-to-end ბრაუზერის ტესტები. ყოველი push გამოშვებამდე CI pipeline-ს გადის",
+        projectVideoFact1: "yt-dlp ამოცანები ფონურად, ერთდროულად ორი, პროგრესით რეალურ დროში",
+        projectVideoFact2: "CI ყოველ push-ზე აწყობს აპლიკაციას და რეალურ PostgreSQL-ზე ინტეგრაციულ ტესტებს უშვებს",
+        projectJobFact1: "მიმდინარე პროექტი: ვაკანსიების სკრეიპერები, AI შეფასება და სამოტივაციო წერილის მონახაზები",
+        projectDemoSoon: "დემო მალე დაემატება",
         projectJobDescription: "AI-ზე დაფუძნებული სამუშაოს რადარი, რომელიც ახალ ქართულ ვაკანსიებს შენს CV-ს ადარებს.",
         projectJobProblem: "საქართველოში სამუშაოს ძებნა ნიშნავს jobs.ge-ის, hr.ge-ისა და სხვა საიტების ყოველდღიურ შემოწმებას, ათობით შეუსაბამო ვაკანსიის კითხვას და ერთი და იმავე სამოტივაციო წერილის ხელახლა წერას.",
         projectJobHighlight1: "განრიგით გაშვებული სკრეიპერები ქართული ვაკანსიების საიტებიდან ახალ განცხადებებს ერთ PostgreSQL ბაზაში აგროვებს.",
@@ -170,6 +178,10 @@ setCurrentSection(initialSection.id);
 if (initialSection.id !== "intro") {
     initialSection.scrollIntoView({ behavior: "auto", block: "start" });
 }
+
+// Text and theme are final now; reveal it, and re-enable transitions a frame later
+// so the initial state doesn't animate in.
+requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove("is-loading")));
 
 modeButton.addEventListener("click", () => {
     document.body.classList.toggle("light");

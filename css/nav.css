@@ -45,6 +45,19 @@ body.light {
     --nav-shadow-strong: rgba(15, 23, 42, 0.24);
 }
 
+/* Set by the inline script in index.html until script.js has applied the
+   language and theme; avoids a flash of untranslated text and theme transitions. */
+body.is-loading,
+body.is-loading * {
+    transition: none !important;
+}
+
+body.is-loading [data-i18n],
+body.is-loading #mode,
+body.is-loading #language {
+    visibility: hidden;
+}
+
 body {
     min-height: calc(100vh / var(--zoom));
     margin: 0;
@@ -150,7 +163,7 @@ nav.scrolled {
 
 @media (min-width: 1201px) and (max-width: 1440px) {
     nav .navigation a {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -161,7 +174,7 @@ nav.scrolled {
     color: inherit;
     white-space: nowrap;
 
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 0.01em;
 
     transition:

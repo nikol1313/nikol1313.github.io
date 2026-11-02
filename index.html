@@ -22,13 +22,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+Georgian:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/nav.css?v=project-links-1">
+    <link rel="stylesheet" href="css/nav.css?v=no-flash-1">
     <link rel="stylesheet" href="css/about.css?v=square-photo-3">
     <link rel="stylesheet" href="css/skills.css?v=skills-about-1">
-    <link rel="stylesheet" href="css/projects.css?v=flat-3">
+    <link rel="stylesheet" href="css/projects.css?v=featured-2">
     <link rel="stylesheet" href="css/experience.css?v=rento-1">    <link rel="icon" type="image/png" href="./images/images.png">
 </head>
 <body>
+    <script>
+        // Runs before anything paints: apply the saved theme now and hide text that
+        // script.js will translate, so the page doesn't flash English/dark first.
+        document.body.classList.add("is-loading");
+        document.body.classList.toggle("light", localStorage.getItem("theme") === "light");
+        document.documentElement.lang = localStorage.getItem("language") === "en" ? "en" : "ka";
+        // Safety net in case script.js fails to load.
+        setTimeout(() => document.body.classList.remove("is-loading"), 2000);
+    </script>
     <nav>
         <button id="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="navigation-menu" aria-expanded="false">☰</button>
 
@@ -50,7 +59,7 @@
         <section id="intro" aria-labelledby="intro-title">
             <div class="intro-content">
                 <hgroup class="intro-heading">
-                    <h1 id="intro-title" data-i18n="introTitle"><span class="intro-role intro-role-accent">QA Automation Engineer</span><span class="intro-separator" aria-hidden="true">·</span><span class="intro-role intro-role-accent">Full-Stack Background</span></h1>
+                    <h1 id="intro-title" class="is-stacked" data-i18n="introTitle"><span class="intro-role intro-role-accent">QA Automation Engineer</span><span class="intro-separator" aria-hidden="true">·</span><span class="intro-role intro-role-accent">Full-Stack Background</span></h1>
                     <p class="intro-lead" data-i18n="introLead">I started as a full-stack developer, so I know how code works and where it breaks. Now I write automated tests that catch problems before users do.</p>
                 </hgroup>
                 <figure class="intro-photo-frame">
@@ -97,7 +106,7 @@
 
             <div class="about-content">
                 <div class="about-copy">
-                    <p class="about-lead" data-i18n="aboutIntro">Hi, I’m Nikusha Avsajanishvili, a third-year Computer Science student from Tbilisi. I build programs to solve problems I run into myself, and I test them myself too. For example:</p>
+                    <p class="about-lead" data-i18n="aboutIntro">Hi, I’m Nikusha Avsajanishvili, a 19-year-old third-year Computer Science student from Tbilisi. I build programs to solve problems I run into myself, and I test them myself too. For example:</p>
 
                     <p data-i18n="aboutProjects">The <a href="#project-iphone">iPhone price tracker</a>, because I got tired of checking five stores by hand. The <a href="#project-video">video downloader</a>, because free online services were overloaded with ads and malware. And <a href="#project-modzebnai">ModzebnAI</a>, because searching for jobs every day and preparing applications took up too much time for me and my friends.</p>
 
@@ -105,7 +114,7 @@
 
                     <p data-i18n="aboutRento">For the <strong>Rento Group</strong> website, I wrote Playwright smoke tests that run automatically every day in CI and check that the site’s core features work.</p>
 
-                    <p data-i18n="aboutGoal">I’m looking for a junior QA Automation role or internship where I can test real products and use my developer experience to catch bugs early.</p>
+                    <p data-i18n="aboutGoal">I’m looking for QA Automation, Software Engineer, or similar roles where I can test real products and use my developer experience to catch bugs early.</p>
                 </div>
             </div>
         </section>
@@ -200,13 +209,30 @@
             <div class="projects-content">
                 <h2 id="projects-title" data-i18n="projectsTitle">Projects</h2>
                 <div class="project-list">
-                    <article class="project-card project-card--price" id="project-iphone">
-                        <div class="project-card-topline">
-                            <span class="project-icon project-icon--price" aria-hidden="true">₾</span>
-                            <span class="project-category" data-i18n="projectIphoneCategory">Price tracking</span>
+                    <article class="project-card project-card--featured" id="project-iphone">
+                        <div class="project-main">
+                            <h3 data-i18n="projectIphoneTitle">iPhone Tracker</h3>
+                            <p class="project-description" data-i18n="projectIphoneDescription">Compare iPhone prices across Georgian stores, see price history, and get notified when a price drops.</p>
+                            <ul class="project-facts">
+                                <li data-i18n="projectIphoneFact1">10+ Georgian retailers tracked automatically: prices are scraped and compared every 12 hours, so no manual checking</li>
+                                <li data-i18n="projectIphoneFact2">90 days of price history in PostgreSQL powers a “buy now or wait” verdict based on real price trends</li>
+                                <li data-i18n="projectIphoneFact3">88 automated tests, including Playwright end-to-end browser tests. Every push goes through a CI pipeline before it ships</li>
+                            </ul>
+                            <ul class="project-stack">
+                                <li>Python</li>
+                                <li>FastAPI</li>
+                                <li>JavaScript</li>
+                                <li>Docker Compose</li>
+                                <li>Nginx</li>
+                            </ul>
+                            <div class="project-links">
+                                <a class="project-link" href="https://iphonetracker.ge" target="_blank" rel="noopener noreferrer"><span>iphonetracker.ge</span><span class="project-link-arrow" aria-hidden="true">→</span></a>
+                                <a class="project-link" href="https://github.com/nikol1313/iphone-tracker-ge" target="_blank" rel="noopener noreferrer"><span data-i18n="projectGithubLink">Explore on GitHub</span><span class="project-link-arrow" aria-hidden="true">→</span></a>
+                            </div>
                         </div>
-                        <h3 data-i18n="projectIphoneTitle">iPhone Tracker</h3>
-                        <p class="project-description" data-i18n="projectIphoneDescription">Compare iPhone prices across Georgian stores, see price history, and get notified when a price drops.</p>
+                        <div class="project-media-placeholder" aria-hidden="true">
+                            <span data-i18n="projectDemoSoon">Demo coming soon</span>
+                        </div>
                         <details class="project-details">
                             <summary class="project-toggle">
                                 <span class="project-toggle-more" data-i18n="projectMore">Read more</span>
@@ -226,47 +252,40 @@
                                 <li data-i18n="projectIphoneHighlight4">Authentication is protected by per-IP rate limiting. After 5 wrong passwords the account is locked for 15 minutes, and password reset links are single-use and expire in one hour.</li>
                                 <li data-i18n="projectIphoneHighlight5">A responsive vanilla JavaScript interface offers filters, a side-by-side comparison of two phones, and recommendations based on intended use. Docker Compose and Nginx run the whole system, and pytest and HTTPX test the API.</li>
                             </ul>
-                            <span class="project-label" data-i18n="projectStackLabel">Stack</span>
-                            <ul class="project-stack">
-                                <li>Python</li>
-                                <li>FastAPI</li>
-                                <li>async SQLAlchemy</li>
-                                <li>PostgreSQL</li>
-                                <li>Vanilla JavaScript</li>
-                                <li>Docker Compose</li>
-                                <li>Nginx</li>
-                                <li>pytest</li>
-                                <li>HTTPX</li>
-                            </ul>
                             </div>
                         </details>
-                        <div class="project-links">
-                            <a class="project-link" href="https://iphonetracker.ge" target="_blank" rel="noopener noreferrer">
-                                <span>iphonetracker.ge</span>
-                                <span aria-hidden="true">↗</span>
-                            </a>
-                            <a class="project-link" href="https://github.com/nikol1313/iphone-tracker-ge" target="_blank" rel="noopener noreferrer">
-                                <span data-i18n="projectGithubLink">Explore on GitHub</span>
-                                <span aria-hidden="true">↗</span>
-                            </a>
-                        </div>
                     </article>
 
-                    <article class="project-card project-card--video" id="project-video">
-                        <div class="project-card-topline">
-                            <span class="project-icon project-icon--video" aria-hidden="true">▶</span>
-                            <span class="project-category" data-i18n="projectVideoCategory">Media tools</span>
+                    <article class="project-card" id="project-video">
+                        <div class="project-main">
+                            <h3 data-i18n="projectVideoTitle">Video Downloader</h3>
+                            <p class="project-description" data-i18n="projectVideoDescription">Paste a link, pick a quality or MP3, and watch it download live.</p>
+                            <ul class="project-facts">
+                                <li data-i18n="projectVideoFact1">Runs yt-dlp jobs in the background, two at a time, with live progress</li>
+                                <li data-i18n="projectVideoFact2">CI builds the app and runs integration tests against a real PostgreSQL on every push</li>
+                            </ul>
+                            <ul class="project-stack">
+                                <li>Node.js</li>
+                                <li>Express</li>
+                                <li>TypeScript</li>
+                                <li>React</li>
+                                <li>PostgreSQL</li>
+                                <li>Prometheus</li>
+                                <li>Docker Compose</li>
+                                <li>GitHub Actions</li>
+                            </ul>
+                            <div class="project-links">
+                                <a class="project-link" href="https://github.com/nikol1313/video-downloader" target="_blank" rel="noopener noreferrer"><span data-i18n="projectGithubLink">Explore on GitHub</span><span class="project-link-arrow" aria-hidden="true">→</span></a>
+                            </div>
                         </div>
-                        <h3 data-i18n="projectVideoTitle">Video Downloader</h3>
-                        <p class="project-description" data-i18n="projectVideoDescription">Paste a link, pick a quality or MP3, and watch it download live.</p>
                         <button class="project-media-button" type="button" data-media-dialog="video-demo-dialog" aria-haspopup="dialog" aria-label="Enlarge demo video" data-i18n-label="mediaEnlargeLabel">
-                            <video class="project-media" src="images/video-downloader-demo.mp4" poster="images/video-downloader-demo.jpg" width="960" height="720" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                            <video class="project-media" src="images/video-downloader-demo.mp4?v=crop-1" poster="images/video-downloader-demo.jpg?v=crop-1" width="848" height="602" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
                             <span class="project-media-zoom" aria-hidden="true">⤢</span>
                         </button>
                         <dialog class="media-dialog" id="video-demo-dialog" aria-labelledby="video-demo-title">
                             <h4 class="visually-hidden" id="video-demo-title" data-i18n="projectVideoTitle">Video Downloader</h4>
                             <button class="media-dialog-close" type="button" aria-label="Close" data-i18n-label="mediaCloseLabel">×</button>
-                            <video src="images/video-downloader-demo.mp4" poster="images/video-downloader-demo.jpg" width="960" height="720" muted loop playsinline preload="none" controls></video>
+                            <video src="images/video-downloader-demo.mp4?v=crop-1" poster="images/video-downloader-demo.jpg?v=crop-1" width="848" height="602" muted loop playsinline preload="none" controls></video>
                         </dialog>
                         <details class="project-details">
                             <summary class="project-toggle">
@@ -287,36 +306,21 @@
                                 <li data-i18n="projectVideoHighlight4">Prometheus collects app metrics at /metrics, and Docker Compose runs the whole stack.</li>
                                 <li data-i18n="projectVideoHighlight5">GitHub Actions CI builds the app and runs integration tests against PostgreSQL on every push, including checks that invalid input is rejected.</li>
                             </ul>
-                            <span class="project-label" data-i18n="projectStackLabel">Stack</span>
-                            <ul class="project-stack">
-                                <li>Node.js</li>
-                                <li>Express</li>
-                                <li>TypeScript</li>
-                                <li>React</li>
-                                <li>PostgreSQL</li>
-                                <li>yt-dlp</li>
-                                <li>FFmpeg</li>
-                                <li>Prometheus</li>
-                                <li>Docker Compose</li>
-                                <li>GitHub Actions</li>
-                            </ul>
                             </div>
                         </details>
-                        <div class="project-links">
-                            <a class="project-link" href="https://github.com/nikol1313/video-downloader" target="_blank" rel="noopener noreferrer">
-                                <span data-i18n="projectGithubLink">Explore on GitHub</span>
-                                <span aria-hidden="true">↗</span>
-                            </a>
-                        </div>
                     </article>
 
-                    <article class="project-card project-card--ai" id="project-modzebnai">
-                        <div class="project-card-topline">
-                            <span class="project-icon" aria-hidden="true">◎</span>
-                            <span class="project-category" data-i18n="projectJobCategory">In progress · AI automation</span>
+                    <article class="project-card" id="project-modzebnai">
+                        <div class="project-main">
+                            <h3>ModzebnAI</h3>
+                            <p class="project-description" data-i18n="projectJobDescription">An AI job radar that ranks new Georgian job postings against your CV.</p>
+                            <ul class="project-facts">
+                                <li data-i18n="projectJobFact1">In progress: job-board scrapers, AI fit scoring and cover-letter drafts</li>
+                            </ul>
                         </div>
-                        <h3>ModzebnAI</h3>
-                        <p class="project-description" data-i18n="projectJobDescription">An AI job radar that ranks new Georgian job postings against your CV.</p>
+                        <div class="project-media-placeholder" aria-hidden="true">
+                            <span data-i18n="projectDemoSoon">Demo coming soon</span>
+                        </div>
                         <details class="project-details">
                             <summary class="project-toggle">
                                 <span class="project-toggle-more" data-i18n="projectMore">Read more</span>
@@ -362,6 +366,6 @@
         ↑
     </button>
 
-    <script src="script.js?v=fold-1" defer></script>
+    <script src="script.js?v=featured-2" defer></script>
 </body>
 </html>
