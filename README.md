@@ -12,3 +12,11 @@ Live at [nikushaavsajanishvili.com](https://nikushaavsajanishvili.com).
 - `images/` – photos, logos and demo media
 - `data/` – generated data (LeetCode count)
 - `.github/workflows/` – scheduled automation
+
+## Local preview
+
+```sh
+python3 -m http.server 8000
+```
+
+Then open http://localhost:8000.
