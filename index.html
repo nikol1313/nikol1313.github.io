@@ -108,7 +108,7 @@
                 <div class="about-copy">
                     <p class="about-lead" data-i18n="aboutIntro">Hi, I’m Nikusha Avsajanishvili, a 19-year-old third-year Computer Science student from Tbilisi. I build programs to solve problems I run into myself, and I test them myself too. For example:</p>
 
-                    <p data-i18n="aboutProjects">The <a href="#project-iphone">iPhone price tracker</a>, because I got tired of checking five stores by hand. The <a href="#project-video">video downloader</a>, because free online services were overloaded with ads and malware. And <a href="#project-modzebnai">ModzebnAI</a>, because searching for jobs every day and preparing applications took up too much time for me and my friends.</p>
+                    <p data-i18n="aboutProjects">The <a href="#project-iphone">iPhone price tracker</a>, because I got tired of checking five stores by hand. The <a href="#project-video">video downloader</a>, because free online services were overloaded with ads and malware. And <a href="#project-altex">AlteX</a>, because my university’s student portal was frustrating to use every day.</p>
 
                     <p data-i18n="aboutStack">I have experience with both the backend and the frontend, mostly with <strong>Python</strong> and <strong>TypeScript</strong>. What interests me most, though, is how to verify that a program works correctly and find bugs before users do. In the price tracker I write unit tests with <strong>pytest</strong> and integration tests with <strong>Testcontainers</strong>, while <strong>Playwright</strong> checks the main user flows.</p>
 
@@ -231,7 +231,7 @@
                             <ul class="project-facts">
                                 <li data-i18n="projectIphoneFact1">10+ Georgian retailers tracked automatically: prices are scraped and compared every 12 hours, so no manual checking</li>
                                 <li data-i18n="projectIphoneFact2">90 days of price history in PostgreSQL powers a “buy now or wait” verdict based on real price trends</li>
-                                <li data-i18n="projectIphoneFact3">88 automated tests, including Playwright end-to-end browser tests. Every push goes through a CI pipeline before it ships</li>
+                                <li data-i18n="projectIphoneFact3">110+ automated tests, including Playwright end-to-end browser tests. Every push goes through a CI pipeline before it ships</li>
                             </ul>
                             <ul class="project-stack">
                                 <li>Python</li>
@@ -331,17 +331,38 @@
                         </details>
                     </article>
 
-                    <article class="project-card" id="project-modzebnai">
+                    <article class="project-card" id="project-altex">
                         <div class="project-main">
-                            <h3>ModzebnAI</h3>
-                            <p class="project-description" data-i18n="projectJobDescription">An AI job radar that ranks new Georgian job postings against your CV.</p>
+                            <h3>AlteX</h3>
+                            <p class="project-description" data-i18n="projectAltexDescription">A redesign of my university’s student portal, as a Chrome extension and an Android app.</p>
                             <ul class="project-facts">
-                                <li data-i18n="projectJobFact1">In progress: job-board scrapers, AI fit scoring and cover-letter drafts</li>
+                                <li data-i18n="projectAltexFact1">26 Playwright tests run on a desktop and a phone viewport against a mocked portal, in GitHub Actions on every push</li>
+                                <li data-i18n="projectAltexFact2">Manual QA passes on desktop Chrome and Android caught dark-theme, small-screen, touch-target and performance bugs before release</li>
+                                <li data-i18n="projectAltexFact3">Published on the Chrome Web Store and released as a signed Android APK, both built from one codebase</li>
                             </ul>
+                            <ul class="project-stack">
+                                <li>JavaScript</li>
+                                <li>CSS</li>
+                                <li>Chrome Extension (MV3)</li>
+                                <li>Android WebView</li>
+                                <li>Java</li>
+                                <li>Playwright</li>
+                                <li>GitHub Actions</li>
+                            </ul>
+                            <div class="project-links">
+                                <a class="project-link" href="https://chromewebstore.google.com/detail/gjbaoejelhdhbfcegfkommmgpogffloo" target="_blank" rel="noopener noreferrer"><span>Chrome Web Store</span><span class="project-link-arrow" aria-hidden="true">→</span></a>
+                                <a class="project-link" href="https://github.com/nikol1313/AlteX" target="_blank" rel="noopener noreferrer"><span data-i18n="projectGithubLink">Explore on GitHub</span><span class="project-link-arrow" aria-hidden="true">→</span></a>
+                            </div>
                         </div>
-                        <div class="project-media-placeholder" aria-hidden="true">
-                            <span data-i18n="projectDemoSoon">Demo coming soon</span>
-                        </div>
+                        <button class="project-media-button" type="button" data-media-dialog="altex-demo-dialog" aria-haspopup="dialog" aria-label="Enlarge demo video" data-i18n-label="mediaEnlargeLabel">
+                            <video class="project-media" src="images/altex-demo.mp4?v=1" poster="images/altex-demo.jpg?v=1" width="1280" height="720" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+                            <span class="project-media-zoom" aria-hidden="true">⤢</span>
+                        </button>
+                        <dialog class="media-dialog" id="altex-demo-dialog" aria-labelledby="altex-demo-title">
+                            <h4 class="visually-hidden" id="altex-demo-title">AlteX</h4>
+                            <button class="media-dialog-close" type="button" aria-label="Close" data-i18n-label="mediaCloseLabel">×</button>
+                            <video src="images/altex-demo.mp4?v=1" poster="images/altex-demo.jpg?v=1" width="1280" height="720" muted loop playsinline preload="none" controls></video>
+                        </dialog>
                         <details class="project-details">
                             <summary class="project-toggle">
                                 <span class="project-toggle-more" data-i18n="projectMore">Read more</span>
@@ -351,14 +372,15 @@
                             <div class="project-details-body">
                             <div class="project-problem">
                                 <span class="project-label" data-i18n="projectProblemLabel">The problem</span>
-                                <p data-i18n="projectJobProblem">Job hunting in Georgia means checking jobs.ge, hr.ge and other sites every day, reading dozens of postings that don’t fit, and rewriting the same cover letter again and again.</p>
+                                <p data-i18n="projectAltexProblem">The Alte University student portal works, but it is hard to use: a dated design, cluttered pages, confusing navigation, and a timetable that is difficult to read. I open it every day, so I redesigned it.</p>
                             </div>
-                            <span class="project-label" data-i18n="projectBuildingLabel">What I’m building</span>
+                            <span class="project-label" data-i18n="projectBuiltLabel">What I built</span>
                             <ul class="project-highlights">
-                                <li data-i18n="projectJobHighlight1">Scheduled scrapers collect new postings from Georgian job boards into one PostgreSQL database.</li>
-                                <li data-i18n="projectJobHighlight2">AI compares each posting with your CV, scores how well it fits, and explains why.</li>
-                                <li data-i18n="projectJobHighlight3">Strong matches trigger an email notification, along with an AI-drafted cover letter tailored to the job.</li>
-                                <li data-i18n="projectJobHighlight4">A React and TypeScript dashboard to browse matches, fit scores, and generated cover letters.</li>
+                                <li data-i18n="projectAltexHighlight1">Before each release I went through the portal’s pages by hand on desktop Chrome and on Android phones. One QA pass alone found search placeholders that were invisible on the dark theme, tables cut off on narrow screens, links smaller than a 44px touch target, low-contrast captions, and an Android back button that stopped working after the app was sent to the background.</li>
+                                <li data-i18n="projectAltexHighlight2">I measured a freeze on the programme page and cut it from 2.5 s to 1.5 s by skipping layout for off-screen modules, and added an offline screen and a notice for outdated WebViews.</li>
+                                <li data-i18n="projectAltexHighlight3">A Manifest V3 extension injects CSS and content scripts that restyle the dashboard, timetable, grades, finances, registration and login pages. It only reads what the portal already shows and sends nothing anywhere else.</li>
+                                <li data-i18n="projectAltexHighlight4">The Android app loads the portal in a WebView and injects the same extension code, built straight from manifest.json, so there is one codebase to test. GitHub Actions builds an APK on every push and publishes a signed one to GitHub Releases on a version tag.</li>
+                                <li data-i18n="projectAltexHighlight5">Playwright tests inject the extension into fake portal pages, so no real student account is needed. They check the login page, grade and counter tagging, labels for icon-only buttons, the exam countdown with a frozen clock (before, during and after an exam period), and that no request leaves the portal’s host.</li>
                             </ul>
                             </div>
                         </details>
@@ -387,6 +409,6 @@
         ↑
     </button>
 
-    <script src="script.js?v=brand-1" defer></script>
+    <script src="script.js?v=altex-2" defer></script>
 </body>
 </html>
