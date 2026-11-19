@@ -362,6 +362,34 @@ body.light .project-brand-tld {
     background: rgba(248, 250, 252, 0.3);
 }
 
+.media-dialog-nav {
+    position: absolute;
+    top: 50%;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.75);
+    color: #f8fafc;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.media-dialog-prev {
+    left: 10px;
+}
+
+.media-dialog-next {
+    right: 10px;
+}
+
+.media-dialog-nav:hover,
+.media-dialog-nav:focus-visible {
+    background: rgba(15, 23, 42, 0.95);
+}
+
 /* Foldable project details: native <details>, so it works without JS and with keyboard. */
 .project-details {
     margin: 24px 0 0;

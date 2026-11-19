@@ -86,6 +86,8 @@ const translations = {
         projectAltexHighlight5: "Playwright tests inject the extension into fake portal pages, so no real student account is needed. They check the login page, grade and counter tagging, labels for icon-only buttons, the exam countdown with a frozen clock (before, during and after an exam period), and that no request leaves the portal’s host.",
         mediaEnlargeLabel: "Enlarge demo video",
         mediaEnlargeImageLabel: "Enlarge screenshot",
+        mediaPrevLabel: "Previous screenshot",
+        mediaNextLabel: "Next screenshot",
         mediaCloseLabel: "Close",
         languageButton: "ქართული",
         languageLabel: "Switch language to Georgian",
@@ -167,6 +169,8 @@ const translations = {
         projectAltexHighlight5: "Playwright-ის ტესტები გაფართოებას პორტალის იმიტირებულ გვერდებში ნერგავს, ამიტომ ნამდვილი სტუდენტის ანგარიში საჭირო არ არის. ისინი ამოწმებს ავტორიზაციის გვერდს, შეფასებებისა და მთვლელების მონიშვნას, მხოლოდ ხატულიანი ღილაკების წარწერებს, გამოცდების ათვლას გაჩერებული საათით (გამოცდების პერიოდამდე, მის დროს და მის შემდეგ) და იმას, რომ არც ერთი მოთხოვნა პორტალის ჰოსტს არ სცდება.",
         mediaEnlargeLabel: "დემო ვიდეოს გადიდება",
         mediaEnlargeImageLabel: "სქრინშოტის გადიდება",
+        mediaPrevLabel: "წინა სქრინშოტი",
+        mediaNextLabel: "შემდეგი სქრინშოტი",
         mediaCloseLabel: "დახურვა",
         languageButton: "English",
         languageLabel: "ენის ინგლისურად შეცვლა",
@@ -421,17 +425,29 @@ function setupMediaDialogs() {
         dialog.addEventListener("close", () => video?.pause());
     });
 
-    // Screenshot galleries: a thumbnail swaps the large image; the large image opens the dialog above.
+    // Screenshot galleries: a thumbnail swaps the large image; the large image opens the dialog above,
+    // where the arrow buttons and the Left/Right keys step through the same screenshots.
     document.querySelectorAll(".project-gallery").forEach((gallery) => {
         const main = gallery.querySelector(".project-media");
-        const thumbs = gallery.querySelectorAll(".project-thumb");
+        const thumbs = [...gallery.querySelectorAll(".project-thumb")];
+        const dialog = document.getElementById(gallery.querySelector("[data-media-dialog]").dataset.mediaDialog);
+        const dialogImage = dialog.querySelector("img");
+        let current = 0;
 
-        thumbs.forEach((thumb) => {
-            thumb.addEventListener("click", () => {
-                main.src = thumb.dataset.src;
-                main.alt = thumb.dataset.alt;
-                thumbs.forEach((other) => other.setAttribute("aria-pressed", String(other === thumb)));
-            });
+        const show = (index) => {
+            current = (index + thumbs.length) % thumbs.length;
+            const thumb = thumbs[current];
+            main.src = dialogImage.src = thumb.dataset.src;
+            main.alt = dialogImage.alt = thumb.dataset.alt;
+            thumbs.forEach((other) => other.setAttribute("aria-pressed", String(other === thumb)));
+        };
+
+        thumbs.forEach((thumb, index) => thumb.addEventListener("click", () => show(index)));
+        dialog.querySelector(".media-dialog-prev").addEventListener("click", () => show(current - 1));
+        dialog.querySelector(".media-dialog-next").addEventListener("click", () => show(current + 1));
+        dialog.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") show(current - 1);
+            if (event.key === "ArrowRight") show(current + 1);
         });
     });
 }
