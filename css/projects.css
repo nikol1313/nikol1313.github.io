@@ -239,11 +239,74 @@ body.light .project-brand-tld {
     font-size: 0.9375rem;
 }
 
+/* Screenshot gallery: one large image, thumbnails below to switch it. */
+.project-gallery .project-media {
+    aspect-ratio: var(--media-ratio);
+    object-fit: cover;
+    object-position: top;
+}
+
+.project-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.project-thumb {
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface);
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.project-thumb:hover,
+.project-thumb[aria-pressed="true"] {
+    opacity: 1;
+}
+
+.project-thumb[aria-pressed="true"] {
+    border-color: var(--project-accent);
+}
+
+.project-thumb:focus-visible {
+    outline: 2px solid var(--project-accent);
+    outline-offset: 2px;
+}
+
+.project-thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--media-ratio);
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+}
+
+.media-dialog img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(1600px, 94vw / var(--zoom));
+    max-height: calc(88vh / var(--zoom));
+    border-radius: 12px;
+    background: #000;
+}
+
 /* On stacked layouts the demo sits on top of the text. */
+.project-card .project-gallery,
 .project-card .project-media-button,
 .project-card .project-media-placeholder {
     order: -1;
     margin: 0 0 24px;
+}
+
+.project-card .project-gallery .project-media-button {
+    margin: 0;
 }
 
 .project-main {
@@ -453,6 +516,7 @@ body.light .project-brand-tld {
         grid-area: main;
     }
 
+    .project-card--featured .project-gallery,
     .project-card--featured .project-media-button,
     .project-card--featured .project-media-placeholder {
         grid-area: media;
@@ -503,6 +567,7 @@ body.light .project-brand-tld {
     .project-link,
     .project-link-arrow,
     .project-media-zoom,
+    .project-thumb,
     .project-toggle-icon,
     .project-details::details-content {
         transition: none;

@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="css/nav.css?v=no-flash-1">
     <link rel="stylesheet" href="css/about.css?v=square-photo-3">
     <link rel="stylesheet" href="css/skills.css?v=skills-about-1">
-    <link rel="stylesheet" href="css/projects.css?v=brand-1">
+    <link rel="stylesheet" href="css/projects.css?v=gallery-1">
     <link rel="stylesheet" href="css/experience.css?v=rento-1">    <link rel="icon" type="image/png" href="./images/images.png">
 </head>
 <body>
@@ -244,14 +244,22 @@
                                 <a class="project-link" href="https://github.com/nikol1313/iphone-tracker-ge" target="_blank" rel="noopener noreferrer"><span data-i18n="projectGithubLink">Explore on GitHub</span><span class="project-link-arrow" aria-hidden="true">→</span></a>
                             </div>
                         </div>
-                        <button class="project-media-button" type="button" data-media-dialog="iphone-demo-dialog" aria-haspopup="dialog" aria-label="Enlarge demo video" data-i18n-label="mediaEnlargeLabel">
-                            <video class="project-media" src="images/iphone-tracker-demo.mp4?v=2" poster="images/iphone-tracker-demo.jpg?v=2" width="1280" height="800" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
-                            <span class="project-media-zoom" aria-hidden="true">⤢</span>
-                        </button>
-                        <dialog class="media-dialog" id="iphone-demo-dialog" aria-labelledby="iphone-demo-title">
-                            <h4 class="visually-hidden" id="iphone-demo-title">iPhone Tracker.ge</h4>
+                        <div class="project-gallery" style="--media-ratio: 16 / 10">
+                            <button class="project-media-button" type="button" data-media-dialog="iphone-demo-dialog" aria-haspopup="dialog" aria-label="Enlarge screenshot" data-i18n-label="mediaEnlargeImageLabel">
+                                <img class="project-media" src="images/iphone-1-today.webp" alt="Today page: cheapest iPhone 17 price across 8 stores with a 30-day chart" width="2000" height="1250">
+                                <span class="project-media-zoom" aria-hidden="true">⤢</span>
+                            </button>
+                            <div class="project-thumbs">
+                                <button class="project-thumb" type="button" aria-pressed="true" data-src="images/iphone-1-today.webp" data-alt="Today page: cheapest iPhone 17 price across 8 stores with a 30-day chart"><img src="images/iphone-1-today.webp" alt="Today page: cheapest iPhone 17 price across 8 stores with a 30-day chart" loading="lazy" width="2000" height="1250"></button>
+                                <button class="project-thumb" type="button" aria-pressed="false" data-src="images/iphone-2-all-iphones.webp" data-alt="All iPhones: search, filters and price-drop badges"><img src="images/iphone-2-all-iphones.webp" alt="All iPhones: search, filters and price-drop badges" loading="lazy" width="2000" height="1250"></button>
+                                <button class="project-thumb" type="button" aria-pressed="false" data-src="images/iphone-3-product-detail.webp" data-alt="Product page: good-time-to-buy note and price history"><img src="images/iphone-3-product-detail.webp" alt="Product page: good-time-to-buy note and price history" loading="lazy" width="2000" height="1250"></button>
+                                <button class="project-thumb" type="button" aria-pressed="false" data-src="images/iphone-4-compare.webp" data-alt="Compare: iPhone 17 vs iPhone 17 Pro, prices and spec table"><img src="images/iphone-4-compare.webp" alt="Compare: iPhone 17 vs iPhone 17 Pro, prices and spec table" loading="lazy" width="2000" height="1250"></button>
+                            </div>
+                        </div>
+                        <dialog class="media-dialog" id="iphone-demo-dialog" aria-labelledby="iphone-demo-dialog-title">
+                            <h4 class="visually-hidden" id="iphone-demo-dialog-title">iPhone Tracker.ge</h4>
                             <button class="media-dialog-close" type="button" aria-label="Close" data-i18n-label="mediaCloseLabel">×</button>
-                            <video src="images/iphone-tracker-demo.mp4?v=2" poster="images/iphone-tracker-demo.jpg?v=2" width="1280" height="800" muted loop playsinline preload="none" controls></video>
+                            <img src="images/iphone-1-today.webp" alt="Today page: cheapest iPhone 17 price across 8 stores with a 30-day chart">
                         </dialog>
                         <details class="project-details">
                             <summary class="project-toggle">
@@ -353,14 +361,22 @@
                                 <a class="project-link" href="https://github.com/nikol1313/AlteX" target="_blank" rel="noopener noreferrer"><span data-i18n="projectGithubLink">Explore on GitHub</span><span class="project-link-arrow" aria-hidden="true">→</span></a>
                             </div>
                         </div>
-                        <button class="project-media-button" type="button" data-media-dialog="altex-demo-dialog" aria-haspopup="dialog" aria-label="Enlarge demo video" data-i18n-label="mediaEnlargeLabel">
-                            <video class="project-media" src="images/altex-demo.mp4?v=1" poster="images/altex-demo.jpg?v=1" width="1280" height="720" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
-                            <span class="project-media-zoom" aria-hidden="true">⤢</span>
-                        </button>
-                        <dialog class="media-dialog" id="altex-demo-dialog" aria-labelledby="altex-demo-title">
-                            <h4 class="visually-hidden" id="altex-demo-title">AlteX</h4>
+                        <div class="project-gallery" style="--media-ratio: 16 / 9">
+                            <button class="project-media-button" type="button" data-media-dialog="altex-demo-dialog" aria-haspopup="dialog" aria-label="Enlarge screenshot" data-i18n-label="mediaEnlargeImageLabel">
+                                <img class="project-media" src="images/altex-1-dashboard.webp" alt="AlteX dashboard: current lecture, assignments and latest grade" width="2000" height="1125">
+                                <span class="project-media-zoom" aria-hidden="true">⤢</span>
+                            </button>
+                            <div class="project-thumbs">
+                                <button class="project-thumb" type="button" aria-pressed="true" data-src="images/altex-1-dashboard.webp" data-alt="AlteX dashboard: current lecture, assignments and latest grade"><img src="images/altex-1-dashboard.webp" alt="AlteX dashboard: current lecture, assignments and latest grade" loading="lazy" width="2000" height="1125"></button>
+                                <button class="project-thumb" type="button" aria-pressed="false" data-src="images/altex-2-timetable.webp" data-alt="AlteX timetable"><img src="images/altex-2-timetable.webp" alt="AlteX timetable" loading="lazy" width="2000" height="1125"></button>
+                                <button class="project-thumb" type="button" aria-pressed="false" data-src="images/altex-3-learning-card.webp" data-alt="AlteX learning card with grades"><img src="images/altex-3-learning-card.webp" alt="AlteX learning card with grades" loading="lazy" width="2000" height="1125"></button>
+                                <button class="project-thumb" type="button" aria-pressed="false" data-src="images/altex-4-login.webp" data-alt="AlteX login page"><img src="images/altex-4-login.webp" alt="AlteX login page" loading="lazy" width="2000" height="1125"></button>
+                            </div>
+                        </div>
+                        <dialog class="media-dialog" id="altex-demo-dialog" aria-labelledby="altex-demo-dialog-title">
+                            <h4 class="visually-hidden" id="altex-demo-dialog-title">AlteX</h4>
                             <button class="media-dialog-close" type="button" aria-label="Close" data-i18n-label="mediaCloseLabel">×</button>
-                            <video src="images/altex-demo.mp4?v=1" poster="images/altex-demo.jpg?v=1" width="1280" height="720" muted loop playsinline preload="none" controls></video>
+                            <img src="images/altex-1-dashboard.webp" alt="AlteX dashboard: current lecture, assignments and latest grade">
                         </dialog>
                         <details class="project-details">
                             <summary class="project-toggle">
@@ -408,6 +424,6 @@
         ↑
     </button>
 
-    <script src="script.js?v=altex-5" defer></script>
+    <script src="script.js?v=gallery-1" defer></script>
 </body>
 </html>

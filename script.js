@@ -85,6 +85,7 @@ const translations = {
         projectAltexHighlight4: "The Android app loads the portal in a WebView and injects the same extension code, built straight from manifest.json, so there is one codebase to test. GitHub Actions builds an APK on every push and publishes a signed one to GitHub Releases on a version tag.",
         projectAltexHighlight5: "Playwright tests inject the extension into fake portal pages, so no real student account is needed. They check the login page, grade and counter tagging, labels for icon-only buttons, the exam countdown with a frozen clock (before, during and after an exam period), and that no request leaves the portal’s host.",
         mediaEnlargeLabel: "Enlarge demo video",
+        mediaEnlargeImageLabel: "Enlarge screenshot",
         mediaCloseLabel: "Close",
         languageButton: "ქართული",
         languageLabel: "Switch language to Georgian",
@@ -165,6 +166,7 @@ const translations = {
         projectAltexHighlight4: "Android აპლიკაცია პორტალს WebView-ში ხსნის და იმავე გაფართოების კოდს ნერგავს, რომელიც პირდაპირ manifest.json-იდან იწყობა, ამიტომ სატესტო კოდი ერთია. GitHub Actions ყოველ push-ზე APK-ს აწყობს, ვერსიის თეგზე კი ხელმოწერილს GitHub Releases-ზე აქვეყნებს.",
         projectAltexHighlight5: "Playwright-ის ტესტები გაფართოებას პორტალის იმიტირებულ გვერდებში ნერგავს, ამიტომ ნამდვილი სტუდენტის ანგარიში საჭირო არ არის. ისინი ამოწმებს ავტორიზაციის გვერდს, შეფასებებისა და მთვლელების მონიშვნას, მხოლოდ ხატულიანი ღილაკების წარწერებს, გამოცდების ათვლას გაჩერებული საათით (გამოცდების პერიოდამდე, მის დროს და მის შემდეგ) და იმას, რომ არც ერთი მოთხოვნა პორტალის ჰოსტს არ სცდება.",
         mediaEnlargeLabel: "დემო ვიდეოს გადიდება",
+        mediaEnlargeImageLabel: "სქრინშოტის გადიდება",
         mediaCloseLabel: "დახურვა",
         languageButton: "English",
         languageLabel: "ენის ინგლისურად შეცვლა",
@@ -392,11 +394,18 @@ function setupMediaDialogs() {
     document.querySelectorAll("[data-media-dialog]").forEach((button) => {
         const dialog = document.getElementById(button.dataset.mediaDialog);
         const video = dialog.querySelector("video");
+        const image = dialog.querySelector("img");
 
         button.addEventListener("click", () => {
+            if (image) {
+                const shown = button.querySelector("img");
+                image.src = shown.src;
+                image.alt = shown.alt;
+            }
+
             dialog.showModal();
 
-            if (!reducedMotion.matches) {
+            if (video && !reducedMotion.matches) {
                 video.play().catch(() => {});
             }
         });
@@ -409,7 +418,21 @@ function setupMediaDialogs() {
         });
 
         dialog.querySelector(".media-dialog-close").addEventListener("click", () => dialog.close());
-        dialog.addEventListener("close", () => video.pause());
+        dialog.addEventListener("close", () => video?.pause());
+    });
+
+    // Screenshot galleries: a thumbnail swaps the large image; the large image opens the dialog above.
+    document.querySelectorAll(".project-gallery").forEach((gallery) => {
+        const main = gallery.querySelector(".project-media");
+        const thumbs = gallery.querySelectorAll(".project-thumb");
+
+        thumbs.forEach((thumb) => {
+            thumb.addEventListener("click", () => {
+                main.src = thumb.dataset.src;
+                main.alt = thumb.dataset.alt;
+                thumbs.forEach((other) => other.setAttribute("aria-pressed", String(other === thumb)));
+            });
+        });
     });
 }
 
